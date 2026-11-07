@@ -81,7 +81,7 @@
               assign image_sp = block.settings.image_sp | default: block.settings.image
             -%}
             <li class="splide__slide c_media-hero__slide c_media-hero__slide--{{ position }}" {{ block.shopify_attributes }}>
-              <div class="c_media-hero__media">
+              <div class="c_media-hero__media"{% if block.settings.video_crop > 0 %} style="--c-video-crop: {{ block.settings.video_crop | divided_by: 100.0 }};"{% endif %}>
                 {%- comment -%} PC用メディア {%- endcomment -%}
                 <div class="c_media-hero__media-item{% if has_video_sp or block.settings.image_sp != blank %} c_is-pc{% endif %}">
                   {%- if has_video -%}
@@ -311,6 +311,17 @@
           "type": "url",
           "id": "video_url_sp",
           "label": "動画URL(SP)"
+        },
+        {
+          "type": "range",
+          "id": "video_crop",
+          "label": "動画の上下の黒帯をカット",
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "unit": "%",
+          "default": 0,
+          "info": "動画の上下に黒帯（レターボックス）が入っている場合に、その割合だけ上下を切り取って表示します。"
         },
         {
           "type": "header",

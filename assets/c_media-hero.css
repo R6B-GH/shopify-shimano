@@ -213,3 +213,15 @@
     width: 24px;
   }
 }
+
+/* 動画の上下の黒帯（レターボックス）をカット：--c-video-crop（0〜0.2）の割合だけ上下にはみ出させて切り取る */
+.c_media-hero__media-item {
+  overflow: hidden;
+}
+
+.c_media-hero__media[style*="--c-video-crop"] .c_media-hero__video {
+  position: absolute;
+  left: 0;
+  top: calc(var(--c-video-crop) / (1 - 2 * var(--c-video-crop)) * -100%);
+  height: calc(100% / (1 - 2 * var(--c-video-crop)));
+}
