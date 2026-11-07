@@ -47,7 +47,8 @@
         "copyright": "© SHIMANO INC. All Rights Reserved.",
         "background": "#000000",
         "text_color": "#ffffff",
-        "link_color": "#aaaaaa"
+        "link_color": "#aaaaaa",
+        "logo": "shopify://shop_images/c_logo-shimano-white.png"
       }
     }
   },
@@ -55,4 +56,3 @@
     "c_footer"
   ]
 }
-

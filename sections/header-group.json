@@ -43,9 +43,9 @@
       "type": "c_header",
       "settings": {
         "enable_sticky_header": true,
-        "logo": "{{ shop.brand.logo }}",
-        "logo_max_width": 95,
-        "mobile_logo_max_width": 100,
+        "logo": "shopify://shop_images/c_logo-shimano-blue.png",
+        "logo_max_width": 110,
+        "mobile_logo_max_width": 96,
         "navigation_menu": "main-menu",
         "header_layout": "logo_left_navigation_center",
         "show_icons": true,
@@ -55,7 +55,8 @@
         "enable_transparent_header": true,
         "transparent_header_text_color": "#ffffff",
         "search_menu": "search",
-        "favorite_url": "/account"
+        "favorite_url": "/account",
+        "transparent_logo": "shopify://shop_images/c_logo-shimano-white.png"
       }
     }
   },

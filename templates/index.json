@@ -43,31 +43,36 @@
         "banner-1": {
           "type": "banner",
           "settings": {
-            "alt": "SHIMANO LINK"
+            "alt": "SHIMANO LINK",
+            "image": "shopify://shop_images/c_banner-01.jpg"
           }
         },
         "banner-2": {
           "type": "banner",
           "settings": {
-            "alt": "26 AUTUMN/WINTER STYLE LAYERING"
+            "alt": "26 AUTUMN/WINTER STYLE LAYERING",
+            "image": "shopify://shop_images/c_banner-02.jpg"
           }
         },
         "banner-3": {
           "type": "banner",
           "settings": {
-            "alt": "ビギナーズサイト"
+            "alt": "ビギナーズサイト",
+            "image": "shopify://shop_images/c_banner-03.jpg"
           }
         },
         "banner-4": {
           "type": "banner",
           "settings": {
-            "alt": "BEYOND THE LAUNCH"
+            "alt": "BEYOND THE LAUNCH",
+            "image": "shopify://shop_images/c_banner-04.jpg"
           }
         },
         "banner-5": {
           "type": "banner",
           "settings": {
-            "alt": "SHIMANO LINK"
+            "alt": "SHIMANO LINK",
+            "image": "shopify://shop_images/c_banner-01.jpg"
           }
         }
       },
@@ -92,37 +97,43 @@
         "category-1": {
           "type": "category",
           "settings": {
-            "title": "ウェア・フットウェア"
+            "title": "ウェア・フットウェア",
+            "image": "shopify://shop_images/c_category-01.jpg"
           }
         },
         "category-2": {
           "type": "category",
           "settings": {
-            "title": "クーラーボックス"
+            "title": "クーラーボックス",
+            "image": "shopify://shop_images/c_category-02.jpg"
           }
         },
         "category-3": {
           "type": "category",
           "settings": {
-            "title": "バッグ・ケース・収納用品"
+            "title": "バッグ・ケース・収納用品",
+            "image": "shopify://shop_images/c_category-03.jpg"
           }
         },
         "category-4": {
           "type": "category",
           "settings": {
-            "title": "ウェア・フットウェア"
+            "title": "ウェア・フットウェア",
+            "image": "shopify://shop_images/c_category-01.jpg"
           }
         },
         "category-5": {
           "type": "category",
           "settings": {
-            "title": "クーラーボックス"
+            "title": "クーラーボックス",
+            "image": "shopify://shop_images/c_category-02.jpg"
           }
         },
         "category-6": {
           "type": "category",
           "settings": {
-            "title": "バッグ・ケース・収納用品"
+            "title": "バッグ・ケース・収納用品",
+            "image": "shopify://shop_images/c_category-03.jpg"
           }
         }
       },
@@ -409,21 +420,24 @@
           "type": "card",
           "settings": {
             "date": "2026.11.28",
-            "title": "シマノ波止釣りフェス in 六甲マリンパーク"
+            "title": "シマノ波止釣りフェス in 六甲マリンパーク",
+            "image": "shopify://shop_images/c_magazine-card-01.jpg"
           }
         },
         "card-2": {
           "type": "card",
           "settings": {
             "date": "2026.11.28",
-            "title": "シマノ磯フカセスクール in 家島"
+            "title": "シマノ磯フカセスクール in 家島",
+            "image": "shopify://shop_images/c_magazine-card-02.jpg"
           }
         },
         "card-3": {
           "type": "card",
           "settings": {
             "date": "2026.11.28",
-            "title": "ジオロックソール交換で、ウェーディングの足元を整える"
+            "title": "ジオロックソール交換で、ウェーディングの足元を整える",
+            "image": "shopify://shop_images/c_magazine-card-03.jpg"
           }
         }
       },
@@ -437,7 +451,8 @@
         "title": "MAGAZINE",
         "link_text": "VIEW MORE",
         "band_color": "#00a0e9",
-        "show_tricolor": true
+        "show_tricolor": true,
+        "background_image": "shopify://shop_images/c_magazine-bg.jpg"
       }
     },
     "news": {
@@ -485,31 +500,36 @@
         "banner-1": {
           "type": "banner",
           "settings": {
-            "alt": "SHIMANO LINK"
+            "alt": "SHIMANO LINK",
+            "image": "shopify://shop_images/c_banner-01.jpg"
           }
         },
         "banner-2": {
           "type": "banner",
           "settings": {
-            "alt": "26 AUTUMN/WINTER STYLE LAYERING"
+            "alt": "26 AUTUMN/WINTER STYLE LAYERING",
+            "image": "shopify://shop_images/c_banner-02.jpg"
           }
         },
         "banner-3": {
           "type": "banner",
           "settings": {
-            "alt": "ビギナーズサイト"
+            "alt": "ビギナーズサイト",
+            "image": "shopify://shop_images/c_banner-03.jpg"
           }
         },
         "banner-4": {
           "type": "banner",
           "settings": {
-            "alt": "BEYOND THE LAUNCH"
+            "alt": "BEYOND THE LAUNCH",
+            "image": "shopify://shop_images/c_banner-04.jpg"
           }
         },
         "banner-5": {
           "type": "banner",
           "settings": {
-            "alt": "SHIMANO LINK"
+            "alt": "SHIMANO LINK",
+            "image": "shopify://shop_images/c_banner-01.jpg"
           }
         }
       },
@@ -546,4 +566,3 @@
     "free_banner_bottom"
   ]
 }
-
