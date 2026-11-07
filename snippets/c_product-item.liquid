@@ -1,0 +1,97 @@
+{%- comment -%}
+--------------------------------------------------------
+  商品カード
+
+  引数:
+    product    : 商品オブジェクト（空の場合はプレースホルダー表示）
+    badge      : 'none' | 'coming_soon' | 'new' | 'rank'
+    index      : 並び順（rank時の順位表示に使用）
+    sizes      : img sizes属性
+    placeholder_index : プレースホルダー画像番号
+{%- endcomment -%}
+
+{%- assign sizes = sizes | default: '(max-width: 740px) 45vw, 340px' -%}
+
+{%- capture badge_html -%}
+  {%- case badge -%}
+    {%- when 'coming_soon' -%}
+      <span class="c_product-item__badge">COMING SOON</span>
+    {%- when 'new' -%}
+      <span class="c_product-item__badge">NEW</span>
+    {%- when 'rank' -%}
+      <span class="c_product-item__badge c_product-item__badge--rank">{{ index }}</span>
+  {%- endcase -%}
+{%- endcapture -%}
+
+{%- if product != blank -%}
+  {%- liquid
+    assign color_option = nil
+    for option in product.options_with_values
+      assign option_name = option.name | downcase
+      if option_name == 'カラー' or option_name == 'color' or option_name == 'colour' or option_name == '色'
+        assign color_option = option
+        break
+      endif
+    endfor
+  -%}
+  <div class="c_product-item">
+    {{ badge_html }}
+
+    <a class="c_product-item__image" href="{{ product.url }}" tabindex="-1" aria-hidden="true">
+      {%- if product.featured_media != blank -%}
+        {{- product.featured_media | image_url: width: 800 | image_tag: loading: 'lazy', sizes: sizes, widths: '300,400,600,800', alt: product.featured_media.alt | default: product.title -}}
+        {%- if product.media[1] != blank -%}
+          {{- product.media[1] | image_url: width: 800 | image_tag: loading: 'lazy', sizes: sizes, widths: '300,400,600,800', class: 'c_product-item__image--hover', alt: '' -}}
+        {%- endif -%}
+      {%- else -%}
+        {{- 'product-1' | placeholder_svg_tag -}}
+      {%- endif -%}
+    </a>
+
+    <div class="c_product-item__meta">
+      {%- if color_option != nil and color_option.values.size > 0 -%}
+        <ul class="c_product-item__swatches" aria-label="{{ color_option.name | escape }}">
+          {%- for value in color_option.values limit: 6 -%}
+            {%- liquid
+              assign swatch_color = value.swatch.color
+              if swatch_color == blank
+                assign swatch_color = value | handleize | replace: '-', ''
+              endif
+            -%}
+            <li class="c_product-item__swatch{% if forloop.first %} is-first{% endif %}" style="--c-swatch: {{ swatch_color }}" title="{{ value | escape }}"></li>
+          {%- endfor -%}
+        </ul>
+      {%- else -%}
+        <span></span>
+      {%- endif -%}
+
+      <button type="button" class="c_product-item__fav" aria-label="お気に入りに追加" data-product-id="{{ product.id }}" data-product-handle="{{ product.handle }}">
+        <svg viewBox="0 0 16 14" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M8 13 1.9 7.1A3.6 3.6 0 0 1 7 2l1 1 1-1a3.6 3.6 0 0 1 5.1 5.1L8 13Z"/></svg>
+      </button>
+    </div>
+
+    <a class="c_product-item__title" href="{{ product.url }}">{{ product.title | escape }}</a>
+
+    <div class="c_product-item__price">
+      {%- if product.compare_at_price > product.price -%}
+        <span class="c_product-item__price-compare">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+      {%- endif -%}
+      {%- if product.price_varies -%}
+        {{ product.price_min | money_without_trailing_zeros }}〜
+      {%- else -%}
+        {{ product.price | money_without_trailing_zeros }}
+      {%- endif -%}
+      <span class="c_product-item__tax">税込</span>
+    </div>
+  </div>
+{%- else -%}
+  {%- assign placeholder_number = placeholder_index | default: 1 | modulo: 6 | plus: 1 -%}
+  {%- assign placeholder_name = 'product-' | append: placeholder_number -%}
+  <div class="c_product-item c_product-item--placeholder">
+    {{ badge_html }}
+    <div class="c_product-item__image">{{ placeholder_name | placeholder_svg_tag }}</div>
+    <div class="c_product-item__meta"><span></span></div>
+    <span class="c_product-item__title">商品名が入ります</span>
+    <div class="c_product-item__price">¥0<span class="c_product-item__tax">税込</span></div>
+  </div>
+{%- endif -%}

@@ -1,0 +1,244 @@
+{%- comment -%}
+--------------------------------------------------------
+  CSS
+{%- endcomment -%}
+{{ 'c_banner-slider.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+--------------------------------------------------------
+  インラインスタイル（動的な余白・背景色）
+{%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --c-banner-slider-bg: {{ section.settings.background }};
+    --c-banner-slider-bg-bottom: {{ section.settings.background_bottom }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    {%- if section.settings.background_bottom != blank and section.settings.background_bottom.alpha > 0 %}
+      background: linear-gradient(to bottom, {{ section.settings.background }} 50%, {{ section.settings.background_bottom }} 50%);
+    {%- else %}
+      background: {{ section.settings.background }};
+    {%- endif %}
+  }
+  @media screen and (max-width: 740px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_sp }}px;
+      padding-bottom: {{ section.settings.padding_bottom_sp }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- assign interval = section.settings.autoplay_speed | times: 1000 -%}
+
+{%- comment -%}
+--------------------------------------------------------
+  HTML
+{%- endcomment -%}
+<section id="c_banner-slider-{{ section.id }}" class="c_banner-slider c_section" aria-label="{{ section.settings.aria_label | default: 'バナー' | escape }}">
+  {%- if section.blocks.size > 0 -%}
+    <c-splide
+      class="splide c_banner-slider__slider"
+      data-options='{
+        "type": "loop",
+        "perPage": 4,
+        "perMove": 1,
+        "gap": "35px",
+        "padding": { "left": "60px", "right": "60px" },
+        "arrows": false,
+        "pagination": false,
+        "autoplay": {{ section.settings.autoplay }},
+        "interval": {{ interval }},
+        "pauseOnHover": true,
+        "breakpoints": {
+          "1599": { "padding": { "left": "60px", "right": "60px" } },
+          "1199": { "perPage": 3, "gap": "24px", "padding": { "left": "40px", "right": "40px" } },
+          "740": { "perPage": 1, "gap": "12px", "padding": { "left": "20px", "right": "60px" } }
+        },
+        "i18n": { "slideX": "スライド %s へ移動" }
+      }'
+    >
+      <div class="splide__track">
+        <ul class="splide__list">
+          {%- for block in section.blocks -%}
+            {%- assign image_sp = block.settings.image_sp | default: block.settings.image -%}
+            <li class="splide__slide c_banner-slider__item" {{ block.shopify_attributes }}>
+              {%- if block.settings.link != blank -%}
+                <a class="c_banner-slider__link" href="{{ block.settings.link }}"{% if block.settings.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}>
+              {%- else -%}
+                <div class="c_banner-slider__link">
+              {%- endif -%}
+                {%- if block.settings.image != blank -%}
+                  <picture>
+                    {%- if block.settings.image_sp != blank -%}
+                      <source media="(max-width: 740px)" srcset="{{ image_sp | image_url: width: 800 }} 800w, {{ image_sp | image_url: width: 1200 }} 1200w" sizes="80vw">
+                    {%- endif -%}
+                    {{- block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', sizes: '(max-width: 740px) 80vw, (max-width: 1199px) 33vw, 340px', widths: '400,600,800,1000', class: 'c_banner-slider__image', alt: block.settings.alt | default: block.settings.image.alt -}}
+                  </picture>
+                {%- else -%}
+                  {{- 'collection-1' | placeholder_svg_tag: 'c_banner-slider__image c_banner-slider__placeholder' -}}
+                {%- endif -%}
+              {%- if block.settings.link != blank -%}
+                </a>
+              {%- else -%}
+                </div>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </c-splide>
+  {%- elsif request.design_mode -%}
+    <p class="c_container">バナーを追加してください</p>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "カスタム:フリーバナー",
+  "class": "c_section c_section--banner-slider",
+  "tag": "div",
+  "max_blocks": 12,
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "キャンペーンや特集などのバナーを横並びのスライダーで表示します。"
+    },
+    {
+      "type": "text",
+      "id": "aria_label",
+      "label": "読み上げ用ラベル",
+      "default": "おすすめバナー"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "自動再生",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "切り替え間隔",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "秒",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "背景色"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "背景色",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "color",
+      "id": "background_bottom",
+      "label": "背景色（下半分）",
+      "info": "フッターの直前に置く場合など、バナーの下半分だけ背景色を変えたいときに設定します。",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "header",
+      "content": "余白"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "上部の余白(PC)",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "下部の余白(PC)",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_sp",
+      "label": "上部の余白(SP)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_sp",
+      "label": "下部の余白(SP)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "banner",
+      "name": "バナー",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "画像(PC)",
+          "info": "推奨サイズ：1040 × 580px（16:9）"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_sp",
+          "label": "画像(SP)",
+          "info": "未設定の場合はPC用を表示します。"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "代替テキスト",
+          "info": "画像の内容を簡潔に入力します。"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "リンク"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_in_new_tab",
+          "label": "新しいタブで開く",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "カスタム:フリーバナー",
+      "category": "カスタムパーツ",
+      "blocks": [
+        { "type": "banner" },
+        { "type": "banner" },
+        { "type": "banner" },
+        { "type": "banner" },
+        { "type": "banner" }
+      ]
+    }
+  ]
+}
+{% endschema %}

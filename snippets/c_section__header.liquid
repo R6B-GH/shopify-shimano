@@ -1,0 +1,59 @@
+{%- comment -%}
+--------------------------------------------------------
+  セクションヘッダー（共通）
+  英字見出し＋日本語サブ見出し＋（任意）タブ＋（任意）VIEW MOREリンク
+
+  引数:
+    title           : 英字見出し（例: COMING SOON）
+    subtitle        : 日本語サブ見出し（例: 近日発売）
+    heading_tag     : 'h1' | 'h2'（省略時 h2）
+    tabs            : タブとして表示するブロック配列（block.settings.title を表示）
+    active_block_id : 初期表示タブのブロックID
+    section_id      : section.id（タブのARIA用）
+    link_url        : VIEW MOREのリンク先
+    link_text       : VIEW MOREの文言
+    theme           : 'light'（白文字）| 空
+{%- endcomment -%}
+
+{%- assign heading_tag = heading_tag | default: 'h2' -%}
+
+<header class="c_section__header{% if theme == 'light' %} c_section__header--light{% endif %}">
+  <{{ heading_tag }} class="c_section__heading">
+    {%- if subtitle != blank -%}
+      <span class="c_section__subtitle">{{ subtitle | escape }}</span>
+    {%- endif -%}
+    {%- if title != blank -%}
+      <span class="c_section__title">{{ title | escape }}</span>
+    {%- endif -%}
+  </{{ heading_tag }}>
+
+  {%- if tabs.size > 1 -%}
+    <div class="c_section__tabs" role="tablist" aria-label="{{ title | escape }}">
+      {%- for block in tabs -%}
+        {%- assign is_active = false -%}
+        {%- if block.id == active_block_id -%}
+          {%- assign is_active = true -%}
+        {%- endif -%}
+        <button
+          type="button"
+          class="c_section__tab-btn{% if is_active %} is-active{% endif %}"
+          role="tab"
+          id="c_tab-{{ section_id }}-{{ block.id }}"
+          aria-controls="c_panel-{{ section_id }}-{{ block.id }}"
+          aria-selected="{% if is_active %}true{% else %}false{% endif %}"
+          data-tab-target="{{ block.id }}"
+          {% if block.settings.link_url != blank %}data-tab-link="{{ block.settings.link_url }}"{% endif %}
+          {{ block.shopify_attributes }}
+        >
+          {{- block.settings.title | default: block.settings.collection.title | escape -}}
+        </button>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  {%- if link_url != blank and link_text != blank -%}
+    <div class="c_section__link">
+      <a class="c_link-more" href="{{ link_url }}" data-section-link>{{ link_text | escape }}</a>
+    </div>
+  {%- endif -%}
+</header>

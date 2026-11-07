@@ -1,0 +1,13 @@
+{%- comment -%}
+--------------------------------------------------------
+  セクションフッター（SPのみ表示されるVIEW MOREボタン）
+
+  引数:
+    link_url  : リンク先
+    link_text : 文言
+{%- endcomment -%}
+{%- if link_url != blank and link_text != blank -%}
+  <div class="c_section__footer">
+    <a class="c_button-outline c_button-outline--dark" href="{{ link_url }}" data-section-link>{{ link_text | escape }}</a>
+  </div>
+{%- endif -%}

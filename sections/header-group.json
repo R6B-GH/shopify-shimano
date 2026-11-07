@@ -17,11 +17,11 @@
         "message-1": {
           "type": "message",
           "settings": {
-            "text": "Discover : The Collection",
-            "learn_more_text": "Learn more",
-            "title": "The Collection",
-            "content": "<p>This collection is the result of years of experience in product design and engineering, driven by a deep focus on detail and material quality. It features thoughtfully selected leather, rich textures, and refined embossing accents.</p>",
-            "button_text": "Shop"
+            "text": "6,000円以上のご購入で送料無料",
+            "learn_more_text": "",
+            "title": "",
+            "content": "",
+            "button_text": ""
           }
         }
       },
@@ -33,14 +33,14 @@
         "announcement_text_size": "normal",
         "autoplay": true,
         "cycle_speed": 5,
-        "background": "#f3ff34",
-        "text_color": "#282828",
+        "background": "#00a0e9",
+        "text_color": "#ffffff",
         "button_background": "#282828",
         "button_text_color": "#ffffff"
       }
     },
     "header": {
-      "type": "header",
+      "type": "c_header",
       "settings": {
         "enable_sticky_header": true,
         "logo": "{{ shop.brand.logo }}",
@@ -50,11 +50,12 @@
         "header_layout": "logo_left_navigation_center",
         "show_icons": true,
         "reduce_desktop_padding": false,
-        "show_locale_selector": true,
+        "show_locale_selector": false,
         "show_country_selector": false,
-        "enable_transparent_header": false,
+        "enable_transparent_header": true,
         "transparent_header_text_color": "#ffffff",
-        "search_menu": "search"
+        "search_menu": "search",
+        "favorite_url": "/account"
       }
     }
   },

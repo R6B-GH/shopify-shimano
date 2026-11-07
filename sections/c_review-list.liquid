@@ -1,0 +1,218 @@
+{%- comment -%}
+--------------------------------------------------------
+  CSS
+{%- endcomment -%}
+{{ 'c_review-list.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+--------------------------------------------------------
+  インラインスタイル（動的な余白・背景色）
+{%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.background }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  @media screen and (max-width: 740px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_sp }}px;
+      padding-bottom: {{ section.settings.padding_bottom_sp }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- comment -%}
+--------------------------------------------------------
+  HTML
+{%- endcomment -%}
+<section id="c_review-list-{{ section.id }}" class="c_review-list c_section">
+  <div class="c_container">
+    {% render 'c_section__header',
+      title: section.settings.title,
+      subtitle: section.settings.subtitle,
+      link_url: section.settings.link_url,
+      link_text: section.settings.link_text
+    %}
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="c_review-list__list" role="list">
+        {%- for block in section.blocks -%}
+          {%- assign rating = block.settings.rating -%}
+          <li class="c_review-list__item" {{ block.shopify_attributes }}>
+            <article class="c_review-list__card">
+              <p class="c_review-list__stars" aria-label="5段階中{{ rating }}">
+                {%- for i in (1..5) -%}
+                  <span class="c_review-list__star{% if i <= rating %} is-filled{% endif %}" aria-hidden="true">★</span>
+                {%- endfor -%}
+              </p>
+              {%- if block.settings.title != blank -%}
+                <h3 class="c_review-list__title">{{ block.settings.title | escape }}</h3>
+              {%- endif -%}
+              {%- if block.settings.body != blank -%}
+                <div class="c_review-list__body">{{ block.settings.body }}</div>
+              {%- endif -%}
+              <p class="c_review-list__meta">
+                {%- if block.settings.author != blank -%}{{ block.settings.author | escape }}さん{%- endif -%}
+                {%- if block.settings.author != blank and block.settings.date != blank %} / {% endif -%}
+                {%- if block.settings.date != blank -%}{{ block.settings.date | escape }}{%- endif -%}
+              </p>
+              {%- if block.settings.product != blank -%}
+                <a class="c_review-list__product" href="{{ block.settings.product.url }}">{{ block.settings.product.title | escape }}</a>
+              {%- endif -%}
+            </article>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- elsif request.design_mode -%}
+      <p>レビューを追加してください</p>
+    {%- endif -%}
+
+    {% render 'c_section__footer', link_url: section.settings.link_url, link_text: section.settings.link_text %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "カスタム:お客様のレビュー",
+  "class": "c_section c_section--review-list",
+  "tag": "div",
+  "max_blocks": 9,
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "サブ見出し（日本語）",
+      "default": "お客様のレビュー"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "見出し（英字）",
+      "default": "REVIEW"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "リンクテキスト"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "リンク先"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "背景色",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "header",
+      "content": "余白"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "上部の余白(PC)",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "下部の余白(PC)",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 100,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_sp",
+      "label": "上部の余白(SP)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_sp",
+      "label": "下部の余白(SP)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 60,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "レビュー",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "評価",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 4
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "タイトル",
+          "default": "防水性と動きやすさが両立している"
+        },
+        {
+          "type": "richtext",
+          "id": "body",
+          "label": "本文",
+          "default": "<p>レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。</p>"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "投稿者名",
+          "info": "末尾に「さん」が付きます。",
+          "default": "ユーザー名"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "投稿日",
+          "default": "2026.12.05"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "対象商品",
+          "info": "設定すると商品ページへのリンクを表示します。"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "カスタム:お客様のレビュー",
+      "category": "カスタムパーツ",
+      "blocks": [
+        { "type": "review" },
+        { "type": "review", "settings": { "title": "サイズ感はやや大きめでした" } },
+        { "type": "review", "settings": { "title": "ソール交換がかんたんでグリップも良好" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

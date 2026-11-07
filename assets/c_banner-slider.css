@@ -1,0 +1,52 @@
+/* ==========================================================================
+   c_banner-slider.css  カスタム:フリーバナー
+   ========================================================================== */
+.c_banner-slider {
+  position: relative;
+}
+
+.c_banner-slider__slider {
+  position: relative;
+  z-index: 1;
+}
+
+.c_banner-slider__slider.is-static .splide__list {
+  display: flex;
+  gap: 35px;
+  padding-inline: var(--c-gutter);
+  overflow-x: auto;
+}
+
+.c_banner-slider__slider.is-static .splide__slide {
+  flex: 0 0 calc((100% - 35px * 3 - var(--c-gutter) * 2) / 4);
+}
+
+.c_banner-slider__link {
+  display: block;
+  overflow: hidden;
+  border-radius: 2px;
+  aspect-ratio: 16 / 9;
+  background: var(--c-color-gray100);
+}
+
+.c_banner-slider__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+a.c_banner-slider__link:hover .c_banner-slider__image {
+  transform: scale(1.04);
+}
+
+.c_banner-slider__placeholder {
+  fill: var(--c-color-gray400);
+}
+
+@media screen and (max-width: 740px) {
+  .c_banner-slider__slider.is-static .splide__slide {
+    flex-basis: 80%;
+  }
+}

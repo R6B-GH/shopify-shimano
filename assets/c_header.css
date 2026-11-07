@@ -1,0 +1,114 @@
+/* ==========================================================================
+   c_header.css  カスタム:ヘッダー（Focal header の複製に適用）
+   ========================================================================== */
+
+/* グローバルナビ */
+.header .header__linklist-link {
+  position: relative;
+  font-family: var(--c-font-jp);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.header .header__linklist {
+  gap: 0 28px;
+}
+
+/* ホバー／ドロップダウン展開中のブルー下線 */
+@media screen and (min-width: 1200px) {
+  .header .header__linklist-item.has-dropdown > .header__linklist-link::after,
+  .header .header__linklist-item > .header__linklist-link::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -26px;
+    left: 0;
+    height: 2px;
+    background: var(--c-color-blue);
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    background-image: none;
+  }
+
+  .header .header__linklist-item:hover > .header__linklist-link::after,
+  .header .header__linklist-item > .header__linklist-link[aria-expanded="true"]::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .header .header__linklist-link.link--animated {
+    background-image: none;
+  }
+}
+
+/* アイコン */
+.header .header__icon-list {
+  gap: 0 20px;
+}
+
+.c_header__favorite svg {
+  display: block;
+  width: 18px;
+  height: 16px;
+}
+
+/* カートバッジ（ブルー） */
+.header .header__cart-count {
+  min-width: 14px;
+  height: 14px;
+  padding: 0 3px;
+  background: var(--c-color-blue);
+  color: var(--c-color-white);
+  font-size: 9px;
+  line-height: 14px;
+}
+
+.header .header__cart-count--floating {
+  top: -6px;
+}
+
+.header .header__cart-count--floating:not(:lang(ar)) {
+  right: -9px;
+}
+
+/* メガメニュー */
+.mega-menu {
+  border-top: 1px solid var(--c-color-gray200);
+}
+
+.mega-menu .mega-menu__title {
+  margin-bottom: 18px;
+  font-family: var(--c-font-jp);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.mega-menu .mega-menu__column .mega-menu__link,
+.mega-menu .mega-menu__linklist a {
+  color: var(--c-color-gray600);
+  font-size: 11px;
+  line-height: 2.2;
+}
+
+.mega-menu .mega-menu__column .mega-menu__link:hover,
+.mega-menu .mega-menu__linklist a:hover {
+  color: var(--c-color-ink);
+}
+
+.mega-menu .mega-menu__heading {
+  margin-top: 12px;
+  font-family: var(--c-font-jp);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.mega-menu .mega-menu__image-wrapper {
+  border-radius: 2px;
+}

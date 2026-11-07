@@ -1,0 +1,215 @@
+/* ==========================================================================
+   c_media-hero.css  カスタム:動画・画像メイン
+   どの画面でも縦いっぱい（100svh）に表示する
+   ========================================================================== */
+.c_media-hero {
+  --c-media-hero-offset: 0px;
+  --c-media-hero-height: calc(100vh - var(--c-media-hero-offset));
+  position: relative;
+  height: var(--c-media-hero-height);
+  overflow: hidden;
+  background: var(--c-color-black);
+  color: var(--c-media-hero-text-color, #fff);
+}
+
+@supports (height: 100svh) {
+  .c_media-hero {
+    --c-media-hero-height: calc(100svh - var(--c-media-hero-offset));
+  }
+}
+
+.c_media-hero__slider,
+.c_media-hero .splide__track,
+.c_media-hero .splide__list,
+.c_media-hero__slide {
+  height: 100%;
+}
+
+/* マウント前・1枚のみのとき */
+.c_media-hero__slider.is-static .splide__list {
+  display: block;
+}
+
+.c_media-hero__slider.is-static .c_media-hero__slide:not(:first-child) {
+  display: none;
+}
+
+.c_media-hero__slide {
+  position: relative;
+  display: flex;
+}
+
+.c_media-hero__media,
+.c_media-hero__media-item {
+  position: absolute;
+  inset: 0;
+}
+
+.c_media-hero__image,
+.c_media-hero__video,
+.c_media-hero__placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.c_media-hero__placeholder {
+  background: var(--c-color-gray900);
+  fill: var(--c-color-gray600);
+}
+
+.c_media-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--c-media-hero-overlay, #000);
+  opacity: var(--c-media-hero-overlay-opacity, 0.3);
+  pointer-events: none;
+}
+
+/* テキスト */
+.c_media-hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  padding-top: calc(var(--header-height, 70px) + 20px);
+  padding-bottom: 72px;
+  box-sizing: border-box;
+}
+
+.c_media-hero__slide--bottom_left .c_media-hero__content,
+.c_media-hero__slide--bottom_center .c_media-hero__content {
+  align-items: flex-end;
+}
+
+.c_media-hero__slide--middle_left .c_media-hero__content,
+.c_media-hero__slide--middle_center .c_media-hero__content {
+  align-items: center;
+}
+
+.c_media-hero__slide--middle_center .c_media-hero__text,
+.c_media-hero__slide--bottom_center .c_media-hero__text {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.c_media-hero__text {
+  max-width: 640px;
+}
+
+.c_media-hero__label {
+  margin: 0 0 14px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.c_media-hero__title {
+  margin: 0;
+  color: inherit;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.c_media-hero__title--en {
+  font-family: var(--c-font-en);
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+
+.c_media-hero__title--jp {
+  font-family: var(--c-font-jp);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.c_media-hero__description {
+  margin: 12px 0 0;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.c_media-hero__button {
+  margin-top: 24px;
+}
+
+.c_media-hero__full-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* ページネーション（ライン） */
+.c_media-hero .c_media-hero__pagination {
+  position: absolute;
+  right: var(--c-gutter);
+  bottom: 40px;
+  z-index: 2;
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 1601px) {
+  .c_media-hero .c_media-hero__pagination {
+    right: calc((100vw - var(--c-container-max)) / 2 + var(--c-gutter));
+  }
+}
+
+.c_media-hero .c_media-hero__page {
+  display: block;
+  width: 30px;
+  height: 2px;
+  padding: 0;
+  border: 0;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.c_media-hero .c_media-hero__page.is-active {
+  background: var(--c-color-white);
+}
+
+.c_media-hero__empty {
+  display: grid;
+  height: 100%;
+  place-items: center;
+  color: var(--c-color-white);
+}
+
+@media screen and (max-width: 740px) {
+  .c_media-hero__content {
+    padding-bottom: 64px;
+  }
+
+  .c_media-hero__title--en {
+    font-size: 35px;
+    line-height: 1.2;
+  }
+
+  .c_media-hero__title--jp {
+    font-size: 17px;
+  }
+
+  .c_media-hero__description {
+    font-size: 11px;
+  }
+
+  .c_media-hero .c_media-hero__pagination {
+    right: auto;
+    left: var(--c-gutter);
+    bottom: 28px;
+  }
+
+  .c_media-hero .c_media-hero__page {
+    width: 24px;
+  }
+}

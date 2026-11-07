@@ -1,0 +1,406 @@
+{%- comment -%}
+--------------------------------------------------------
+  CSS
+{%- endcomment -%}
+{{ 'c_media-hero.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+--------------------------------------------------------
+  インラインスタイル（動的な色・余白）
+  高さは常に「画面の縦いっぱい」。ページ先頭に置いた場合はアナウンスバーの高さを差し引く。
+{%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --c-media-hero-text-color: {{ section.settings.text_color }};
+    --c-media-hero-overlay: {{ section.settings.overlay_color }};
+    --c-media-hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  {%- if section.index == 1 -%}
+    #shopify-section-{{ section.id }} .c_media-hero {
+      --c-media-hero-offset: var(--announcement-bar-height, 0px);
+    }
+  {%- endif -%}
+  @media screen and (max-width: 740px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_sp }}px;
+      padding-bottom: {{ section.settings.padding_bottom_sp }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign slide_count = section.blocks.size
+  assign is_slider = false
+  if slide_count > 1
+    assign is_slider = true
+  endif
+  assign autoplay_interval = section.settings.autoplay_speed | times: 1000
+-%}
+
+{%- comment -%}
+--------------------------------------------------------
+  HTML
+{%- endcomment -%}
+<section id="c_media-hero-{{ section.id }}" class="c_media-hero c_section" aria-roledescription="{% if is_slider %}carousel{% endif %}" aria-label="{{ section.settings.aria_label | default: 'メインビジュアル' | escape }}">
+  {%- if slide_count > 0 -%}
+    <c-splide
+      class="splide c_media-hero__slider"
+      data-min-slides="2"
+      data-options='{
+        "type": "fade",
+        "rewind": true,
+        "arrows": false,
+        "pagination": true,
+        "speed": 1000,
+        "autoplay": {{ section.settings.autoplay }},
+        "interval": {{ autoplay_interval }},
+        "pauseOnHover": false,
+        "classes": { "pagination": "splide__pagination c_media-hero__pagination", "page": "splide__pagination__page c_media-hero__page" },
+        "i18n": { "slideX": "スライド %s へ移動", "pageX": "スライド %s へ移動" }
+      }'
+    >
+      <div class="splide__track">
+        <ul class="splide__list">
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign position = block.settings.text_position
+              assign has_video = false
+              if block.settings.media_type == 'video'
+                if block.settings.video != blank or block.settings.video_url != blank
+                  assign has_video = true
+                endif
+              endif
+              assign has_video_sp = false
+              if block.settings.media_type == 'video'
+                if block.settings.video_sp != blank or block.settings.video_url_sp != blank
+                  assign has_video_sp = true
+                endif
+              endif
+              assign image_sp = block.settings.image_sp | default: block.settings.image
+            -%}
+            <li class="splide__slide c_media-hero__slide c_media-hero__slide--{{ position }}" {{ block.shopify_attributes }}>
+              <div class="c_media-hero__media">
+                {%- comment -%} PC用メディア {%- endcomment -%}
+                <div class="c_media-hero__media-item{% if has_video_sp or block.settings.image_sp != blank %} c_is-pc{% endif %}">
+                  {%- if has_video -%}
+                    {%- if block.settings.video != blank -%}
+                      {{- block.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, preload: 'metadata', image_size: '2400x', class: 'c_media-hero__video' -}}
+                    {%- else -%}
+                      <video class="c_media-hero__video" src="{{ block.settings.video_url }}" {% if block.settings.image != blank %}poster="{{ block.settings.image | image_url: width: 2400 }}"{% endif %} autoplay loop muted playsinline preload="metadata"></video>
+                    {%- endif -%}
+                  {%- elsif block.settings.image != blank -%}
+                    {%- if forloop.first and section.index == 1 -%}
+                      {{- block.settings.image | image_url: width: 3000 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '800,1200,1600,2000,2400,3000', class: 'c_media-hero__image', alt: block.settings.image.alt | default: block.settings.title -}}
+                    {%- else -%}
+                      {{- block.settings.image | image_url: width: 3000 | image_tag: loading: 'lazy', sizes: '100vw', widths: '800,1200,1600,2000,2400,3000', class: 'c_media-hero__image', alt: block.settings.image.alt | default: block.settings.title -}}
+                    {%- endif -%}
+                  {%- else -%}
+                    {{- 'lifestyle-1' | placeholder_svg_tag: 'c_media-hero__placeholder' -}}
+                  {%- endif -%}
+                </div>
+
+                {%- comment -%} SP用メディア（設定がある場合のみ） {%- endcomment -%}
+                {%- if has_video_sp or block.settings.image_sp != blank -%}
+                  <div class="c_media-hero__media-item c_is-sp">
+                    {%- if has_video_sp -%}
+                      {%- if block.settings.video_sp != blank -%}
+                        {{- block.settings.video_sp | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, preload: 'metadata', image_size: '1200x', class: 'c_media-hero__video' -}}
+                      {%- else -%}
+                        <video class="c_media-hero__video" src="{{ block.settings.video_url_sp }}" {% if image_sp != blank %}poster="{{ image_sp | image_url: width: 1200 }}"{% endif %} autoplay loop muted playsinline preload="metadata"></video>
+                      {%- endif -%}
+                    {%- else -%}
+                      {{- image_sp | image_url: width: 1500 | image_tag: loading: 'lazy', sizes: '100vw', widths: '400,600,800,1000,1200,1500', class: 'c_media-hero__image', alt: image_sp.alt | default: block.settings.title -}}
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+                <span class="c_media-hero__overlay" aria-hidden="true"></span>
+              </div>
+
+              {%- if block.settings.label != blank or block.settings.title != blank or block.settings.text != blank or block.settings.button_text != blank -%}
+                <div class="c_media-hero__content">
+                  <div class="c_container">
+                    <div class="c_media-hero__text">
+                      {%- if block.settings.label != blank -%}
+                        <p class="c_media-hero__label c_font-en">{{ block.settings.label | escape }}</p>
+                      {%- endif -%}
+                      {%- if block.settings.title != blank -%}
+                        {%- if forloop.first and section.index == 1 -%}
+                          <h1 class="c_media-hero__title c_media-hero__title--{{ block.settings.title_font }}">{{ block.settings.title | escape | newline_to_br }}</h1>
+                        {%- else -%}
+                          <h2 class="c_media-hero__title c_media-hero__title--{{ block.settings.title_font }}">{{ block.settings.title | escape | newline_to_br }}</h2>
+                        {%- endif -%}
+                      {%- endif -%}
+                      {%- if block.settings.text != blank -%}
+                        <p class="c_media-hero__description">{{ block.settings.text | escape | newline_to_br }}</p>
+                      {%- endif -%}
+                      {%- if block.settings.button_text != blank and block.settings.button_link != blank -%}
+                        <a class="c_media-hero__button c_button-outline" href="{{ block.settings.button_link }}">{{ block.settings.button_text | escape }}</a>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.link != blank and block.settings.button_text == blank -%}
+                <a class="c_media-hero__full-link" href="{{ block.settings.link }}">
+                  <span class="c_visually-hidden">{{ block.settings.title | default: '詳細を見る' | escape }}</span>
+                </a>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </c-splide>
+  {%- elsif request.design_mode -%}
+    <div class="c_media-hero__empty">スライドを追加してください</div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "カスタム:動画・画像メイン",
+  "class": "c_section c_section--media-hero",
+  "tag": "div",
+  "max_blocks": 6,
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "高さは常に画面の縦いっぱい（100svh）で表示されます。ページ先頭に置いた場合はアナウンスバーの高さを差し引きます。"
+    },
+    {
+      "type": "text",
+      "id": "aria_label",
+      "label": "読み上げ用ラベル",
+      "default": "メインビジュアル"
+    },
+    {
+      "type": "header",
+      "content": "スライド"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "自動再生",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "切り替え間隔",
+      "min": 3,
+      "max": 15,
+      "step": 1,
+      "unit": "秒",
+      "default": 6
+    },
+    {
+      "type": "header",
+      "content": "カラー"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "文字色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "オーバーレイの色",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "オーバーレイの濃さ",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "余白"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "上部の余白(PC)",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "下部の余白(PC)",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_sp",
+      "label": "上部の余白(SP)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_sp",
+      "label": "下部の余白(SP)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "スライド",
+      "settings": [
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "メディアの種類",
+          "options": [
+            { "value": "video", "label": "動画" },
+            { "value": "image", "label": "画像" }
+          ],
+          "default": "video"
+        },
+        {
+          "type": "header",
+          "content": "動画",
+          "info": "「メディアの種類」が動画のときに使用します。"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "動画(PC)",
+          "info": "コンテンツ＞ファイルにアップロードした動画を選択します。"
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "動画URL(PC)",
+          "info": "動画を選択しない場合のみ使用。mp4のURLを入力します。"
+        },
+        {
+          "type": "video",
+          "id": "video_sp",
+          "label": "動画(SP)",
+          "info": "未設定の場合はPC用を表示します。"
+        },
+        {
+          "type": "url",
+          "id": "video_url_sp",
+          "label": "動画URL(SP)"
+        },
+        {
+          "type": "header",
+          "content": "画像",
+          "info": "「メディアの種類」が画像のときは画像を表示し、動画のときは読み込み前のサムネイルとして使用します。"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "画像(PC)",
+          "info": "推奨サイズ：3200 × 1800px"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_sp",
+          "label": "画像(SP)",
+          "info": "推奨サイズ：1200 × 2400px。未設定の場合はPC用を表示します。"
+        },
+        {
+          "type": "header",
+          "content": "テキスト"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "テキストの位置",
+          "options": [
+            { "value": "bottom_left", "label": "左下" },
+            { "value": "middle_left", "label": "左中央" },
+            { "value": "middle_center", "label": "中央" },
+            { "value": "bottom_center", "label": "中央下" }
+          ],
+          "default": "bottom_left"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "ラベル（英字）",
+          "info": "見出しの上に小さく表示されます。例：SHIMANO"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "見出し",
+          "default": "NEW COLLECTION"
+        },
+        {
+          "type": "select",
+          "id": "title_font",
+          "label": "見出しの書体",
+          "options": [
+            { "value": "en", "label": "英字（Orbitron・大）" },
+            { "value": "jp", "label": "日本語（ゴシック・中）" }
+          ],
+          "default": "en"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "テキスト",
+          "default": "今季の新作を、いち早くお届けします。"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "ボタンテキスト",
+          "default": "VIEW MORE"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "ボタンリンク"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "スライド全体のリンク",
+          "info": "ボタンテキストが空のときに、スライド全体をリンクにします。"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "カスタム:動画・画像メイン",
+      "category": "カスタムパーツ",
+      "blocks": [
+        { "type": "slide" }
+      ]
+    }
+  ]
+}
+{% endschema %}

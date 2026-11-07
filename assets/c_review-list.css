@@ -1,0 +1,101 @@
+/* ==========================================================================
+   c_review-list.css  カスタム:お客様のレビュー
+   ========================================================================== */
+.c_review-list__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.c_review-list__card {
+  height: 100%;
+  padding: 32px 40px;
+  border: 1px solid var(--c-color-gray200);
+  background: var(--c-color-white);
+  box-sizing: border-box;
+}
+
+.c_review-list__stars {
+  display: flex;
+  gap: 1px;
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.c_review-list__star {
+  color: var(--c-color-gray200);
+}
+
+.c_review-list__star.is-filled {
+  color: var(--c-color-star);
+}
+
+.c_review-list__title {
+  margin: 0 0 14px;
+  font-family: var(--c-font-jp);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.c_review-list__body {
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.c_review-list__body p {
+  margin: 0;
+}
+
+.c_review-list__meta {
+  margin: 16px 0 0;
+  color: var(--c-color-gray600);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.c_review-list__product {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--c-color-ink);
+  font-size: 10px;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1199px) {
+  .c_review-list__card {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .c_review-list__list {
+    display: flex;
+    gap: 10px;
+    width: calc(100% + var(--c-gutter) * 2);
+    margin-inline: calc(var(--c-gutter) * -1);
+    padding-inline: var(--c-gutter);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--c-gutter);
+    scrollbar-width: none;
+    box-sizing: border-box;
+  }
+
+  .c_review-list__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .c_review-list__item {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+  }
+
+  .c_review-list__card {
+    padding: 22px 20px;
+  }
+}

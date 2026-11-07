@@ -9,516 +9,541 @@
  */
 {
   "sections": {
-    "slideshow": {
-      "type": "slideshow",
+    "main_visual": {
+      "type": "c_media-hero",
       "blocks": {
         "slide-1": {
-          "type": "image",
+          "type": "slide",
           "settings": {
-            "text_position": "middle_left",
-            "subheading": "Premium Collection",
-            "title": "The Collection",
-            "button_1_text": "Learn more",
-            "button_2_text": "Shop",
-            "text_color": "#ffffff",
-            "button_background": "#f3ff34",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "slide-2": {
-          "type": "image",
-          "settings": {
-            "text_position": "middle_center",
-            "subheading": "Meet the",
-            "title": "Product of the month",
-            "button_1_text": "Learn more",
-            "text_color": "#ffffff",
-            "button_background": "#f3ff34",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "slide-3": {
-          "type": "image",
-          "settings": {
-            "text_position": "middle_left",
-            "subheading": "Collaboration",
-            "title": "Discover now",
-            "button_1_text": "Learn more",
-            "text_color": "#ffffff",
-            "button_background": "#f3ff34",
-            "button_text_color": "#282828",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "media_type": "video",
+            "text_position": "bottom_left",
+            "title": "NEW COLLECTION",
+            "title_font": "en",
+            "text": "今季の新作を、いち早くお届けします。",
+            "button_text": "VIEW MORE",
+            "button_link": "shopify://collections/all"
           }
         }
       },
       "block_order": [
-        "slide-1",
-        "slide-2",
-        "slide-3"
+        "slide-1"
       ],
       "settings": {
-        "section_height": "medium",
-        "transition_type": "sweep",
-        "show_initial_transition": false,
+        "aria_label": "メインビジュアル",
         "autoplay": true,
-        "cycle_speed": 5,
-        "background": "#282828"
+        "autoplay_speed": 6,
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
       }
     },
-    "featured-collections": {
-      "type": "featured-collections",
+    "free_banner_top": {
+      "type": "c_banner-slider",
       "blocks": {
-        "collection-1": {
-          "type": "collection",
+        "banner-1": {
+          "type": "banner",
           "settings": {
-            "label": "Best sellers"
+            "alt": "SHIMANO LINK"
           }
         },
-        "collection-2": {
-          "type": "collection",
+        "banner-2": {
+          "type": "banner",
           "settings": {
-            "label": "New in"
+            "alt": "26 AUTUMN/WINTER STYLE LAYERING"
           }
         },
-        "collection-3": {
-          "type": "collection",
+        "banner-3": {
+          "type": "banner",
           "settings": {
-            "label": "Bundles"
+            "alt": "ビギナーズサイト"
+          }
+        },
+        "banner-4": {
+          "type": "banner",
+          "settings": {
+            "alt": "BEYOND THE LAUNCH"
+          }
+        },
+        "banner-5": {
+          "type": "banner",
+          "settings": {
+            "alt": "SHIMANO LINK"
           }
         }
       },
       "block_order": [
-        "collection-1",
-        "collection-2",
-        "collection-3"
+        "banner-1",
+        "banner-2",
+        "banner-3",
+        "banner-4",
+        "banner-5"
       ],
       "settings": {
-        "title": "Explore",
-        "products_count": 12,
-        "products_per_row": 4,
-        "stack_products": false,
-        "show_cta": false,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
+        "aria_label": "おすすめバナー",
+        "padding_top": 24,
+        "padding_bottom": 0,
+        "padding_top_sp": 20,
+        "padding_bottom_sp": 0
       }
     },
-    "image-with-text": {
-      "type": "image-with-text",
+    "category": {
+      "type": "c_category-tiles",
       "blocks": {
-        "item-1": {
-          "type": "item",
+        "category-1": {
+          "type": "category",
           "settings": {
-            "tab_label": "Stow",
-            "subheading": "Process",
-            "title": "Designing the Stow Collection",
-            "content": "<p>The decision to create this collection was not taken lightly. With a strong focus on thoughtful yet highly functional design, the goal was never to produce just another sleeve or organizer. Instead, the aim was to develop a solution that reflects a commitment to balance and purposeful design.</p>"
+            "title": "ウェア・フットウェア"
           }
         },
-        "item-2": {
-          "type": "item",
+        "category-2": {
+          "type": "category",
           "settings": {
-            "tab_label": "Leather",
-            "subheading": "Process",
-            "title": "Crafting the Leather Collection",
-            "content": "<p>Leather has long been a material of choice—valued both for its durability and the refined look it brings. Whether used as a subtle design detail or explored through bold colors and patterns, it continues to offer a versatile and enduring foundation for creative expression.</p>"
+            "title": "クーラーボックス"
+          }
+        },
+        "category-3": {
+          "type": "category",
+          "settings": {
+            "title": "バッグ・ケース・収納用品"
+          }
+        },
+        "category-4": {
+          "type": "category",
+          "settings": {
+            "title": "ウェア・フットウェア"
+          }
+        },
+        "category-5": {
+          "type": "category",
+          "settings": {
+            "title": "クーラーボックス"
+          }
+        },
+        "category-6": {
+          "type": "category",
+          "settings": {
+            "title": "バッグ・ケース・収納用品"
           }
         }
       },
       "block_order": [
-        "item-1",
-        "item-2"
+        "category-1",
+        "category-2",
+        "category-3",
+        "category-4",
+        "category-5",
+        "category-6"
       ],
       "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "full_width",
-        "background_overlap": "image",
-        "image_position": "right",
-        "text_alignment": "center",
-        "cycle_speed": 8,
-        "accent_background": "#f3ff34",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "#845640",
-        "button_text_color": "rgba(0,0,0,0)"
+        "subtitle": "カテゴリー",
+        "title": "CATEGORY",
+        "columns": 6,
+        "padding_top": 100,
+        "padding_bottom": 50,
+        "padding_top_sp": 50,
+        "padding_bottom_sp": 30
       }
     },
-    "shop-the-look": {
-      "type": "shop-the-look",
+    "coming_soon": {
+      "type": "c_collection-tabs",
       "blocks": {
-        "look-1": {
-          "type": "look",
+        "tab-1": {
+          "type": "tab",
           "settings": {
-            "dot_type": "normal",
-            "product_1_horizontal_position": 65,
-            "product_1_vertical_position": 36,
-            "product_1_horizontal_position_mobile": 75,
-            "product_1_vertical_position_mobile": 39,
-            "product_2_horizontal_position": 52,
-            "product_2_vertical_position": 49,
-            "product_2_horizontal_position_mobile": 53,
-            "product_2_vertical_position_mobile": 52,
-            "product_3_horizontal_position": 32,
-            "product_3_vertical_position": 66,
-            "product_3_horizontal_position_mobile": 21,
-            "product_3_vertical_position_mobile": 63
+            "title": "すべて"
           }
         },
-        "look-2": {
-          "type": "look",
+        "tab-2": {
+          "type": "tab",
           "settings": {
-            "dot_type": "normal",
-            "product_1_horizontal_position": 37,
-            "product_1_vertical_position": 54,
-            "product_1_horizontal_position_mobile": 60,
-            "product_1_vertical_position_mobile": 45,
-            "product_2_horizontal_position": 44,
-            "product_2_vertical_position": 78,
-            "product_2_horizontal_position_mobile": 50,
-            "product_2_vertical_position_mobile": 72,
-            "product_3_horizontal_position": 62,
-            "product_3_vertical_position": 50,
-            "product_3_horizontal_position_mobile": 70,
-            "product_3_vertical_position_mobile": 70
+            "title": "ウェア・フットウェア"
+          }
+        },
+        "tab-3": {
+          "type": "tab",
+          "settings": {
+            "title": "クーラーボックス"
+          }
+        },
+        "tab-4": {
+          "type": "tab",
+          "settings": {
+            "title": "バッグ・ケース・収納用品"
           }
         }
       },
       "block_order": [
-        "look-1",
-        "look-2"
+        "tab-1",
+        "tab-2",
+        "tab-3",
+        "tab-4"
       ],
       "settings": {
-        "reveal_on_scroll": true,
-        "label": "Define your style"
+        "subtitle": "近日発売",
+        "title": "COMING SOON",
+        "badge": "coming_soon",
+        "products_count": 4,
+        "link_text": "VIEW MORE",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_sp": 30,
+        "padding_bottom_sp": 30
       }
     },
-    "blog-posts": {
-      "type": "blog-posts",
+    "new_arrival": {
+      "type": "c_collection-tabs",
+      "blocks": {
+        "tab-1": {
+          "type": "tab",
+          "settings": {
+            "title": "すべて"
+          }
+        },
+        "tab-2": {
+          "type": "tab",
+          "settings": {
+            "title": "ウェア・フットウェア"
+          }
+        },
+        "tab-3": {
+          "type": "tab",
+          "settings": {
+            "title": "クーラーボックス"
+          }
+        },
+        "tab-4": {
+          "type": "tab",
+          "settings": {
+            "title": "バッグ・ケース・収納用品"
+          }
+        }
+      },
+      "block_order": [
+        "tab-1",
+        "tab-2",
+        "tab-3",
+        "tab-4"
+      ],
       "settings": {
+        "subtitle": "新着商品",
+        "title": "NEW ARRIVAL",
+        "badge": "new",
+        "products_count": 4,
+        "link_text": "VIEW MORE",
+        "padding_top": 50,
+        "padding_bottom": 100,
+        "padding_top_sp": 30,
+        "padding_bottom_sp": 30
+      }
+    },
+    "brand_movie": {
+      "type": "c_media-hero",
+      "blocks": {
+        "slide-1": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "text_position": "bottom_left",
+            "label": "SHIMANO",
+            "title": "もっと自然へ、もっと人へ",
+            "title_font": "jp",
+            "text": "ひとと自然がもっと身近になり、ともに生きるよろこびを分かち合うために、\n新しい夢の実現、新しい文化の創造をめざしてまいります。",
+            "button_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide-1"
+      ],
+      "settings": {
+        "aria_label": "ブランドムービー",
+        "autoplay": false,
+        "autoplay_speed": 6,
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "ranking": {
+      "type": "c_collection-tabs",
+      "blocks": {
+        "tab-1": {
+          "type": "tab",
+          "settings": {
+            "title": "すべて"
+          }
+        },
+        "tab-2": {
+          "type": "tab",
+          "settings": {
+            "title": "ウェア・フットウェア"
+          }
+        },
+        "tab-3": {
+          "type": "tab",
+          "settings": {
+            "title": "クーラーボックス"
+          }
+        },
+        "tab-4": {
+          "type": "tab",
+          "settings": {
+            "title": "バッグ・ケース・収納用品"
+          }
+        }
+      },
+      "block_order": [
+        "tab-1",
+        "tab-2",
+        "tab-3",
+        "tab-4"
+      ],
+      "settings": {
+        "subtitle": "売れ筋ランキング",
+        "title": "RANKING",
+        "badge": "rank",
+        "products_count": 4,
+        "link_text": "",
+        "padding_top": 100,
+        "padding_bottom": 50,
+        "padding_top_sp": 30,
+        "padding_bottom_sp": 30
+      }
+    },
+    "recommend": {
+      "type": "c_collection-tabs",
+      "blocks": {
+        "tab-1": {
+          "type": "tab",
+          "settings": {
+            "title": "すべて"
+          }
+        },
+        "tab-2": {
+          "type": "tab",
+          "settings": {
+            "title": "ウェア・フットウェア"
+          }
+        },
+        "tab-3": {
+          "type": "tab",
+          "settings": {
+            "title": "クーラーボックス"
+          }
+        },
+        "tab-4": {
+          "type": "tab",
+          "settings": {
+            "title": "バッグ・ケース・収納用品"
+          }
+        }
+      },
+      "block_order": [
+        "tab-1",
+        "tab-2",
+        "tab-3",
+        "tab-4"
+      ],
+      "settings": {
+        "subtitle": "おすすめ商品",
+        "title": "RECOMMEND",
+        "badge": "none",
+        "products_count": 4,
+        "link_text": "VIEW MORE",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_sp": 30,
+        "padding_bottom_sp": 30
+      }
+    },
+    "review": {
+      "type": "c_review-list",
+      "blocks": {
+        "review-1": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "title": "防水性と動きやすさが両立している",
+            "body": "<p>レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。</p>",
+            "author": "ユーザー名",
+            "date": "2026.12.05"
+          }
+        },
+        "review-2": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "title": "サイズ感はやや大きめでした",
+            "body": "<p>レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。</p>",
+            "author": "ユーザー名",
+            "date": "2026.12.05"
+          }
+        },
+        "review-3": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "title": "ソール交換がかんたんでグリップも良好",
+            "body": "<p>レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。</p>",
+            "author": "ユーザー名",
+            "date": "2026.12.05"
+          }
+        }
+      },
+      "block_order": [
+        "review-1",
+        "review-2",
+        "review-3"
+      ],
+      "settings": {
+        "subtitle": "お客様のレビュー",
+        "title": "REVIEW",
+        "padding_top": 50,
+        "padding_bottom": 100
+      }
+    },
+    "magazine": {
+      "type": "c_magazine",
+      "blocks": {
+        "card-1": {
+          "type": "card",
+          "settings": {
+            "date": "2026.11.28",
+            "title": "シマノ波止釣りフェス in 六甲マリンパーク"
+          }
+        },
+        "card-2": {
+          "type": "card",
+          "settings": {
+            "date": "2026.11.28",
+            "title": "シマノ磯フカセスクール in 家島"
+          }
+        },
+        "card-3": {
+          "type": "card",
+          "settings": {
+            "date": "2026.11.28",
+            "title": "ジオロックソール交換で、ウェーディングの足元を整える"
+          }
+        }
+      },
+      "block_order": [
+        "card-1",
+        "card-2",
+        "card-3"
+      ],
+      "settings": {
+        "subtitle": "新たな発見と本物との出会いの場",
+        "title": "MAGAZINE",
+        "link_text": "VIEW MORE",
+        "band_color": "#00a0e9",
+        "show_tricolor": true
+      }
+    },
+    "news": {
+      "type": "c_news-list",
+      "blocks": {
+        "news-1": {
+          "type": "news",
+          "settings": {
+            "date": "2026.12.18",
+            "title": "シマノ フィッシング公式オンラインストアをオープンしました"
+          }
+        },
+        "news-2": {
+          "type": "news",
+          "settings": {
+            "date": "2026.12.18",
+            "title": "限定カラー「リミテッドプロ」シリーズ 販売開始のお知らせ"
+          }
+        },
+        "news-3": {
+          "type": "news",
+          "settings": {
+            "date": "2026.12.18",
+            "title": "試着サービス（シューズ）開始のご案内"
+          }
+        }
+      },
+      "block_order": [
+        "news-1",
+        "news-2",
+        "news-3"
+      ],
+      "settings": {
+        "subtitle": "お知らせ",
+        "title": "NEWS",
         "blog": "news",
-        "subheading": "Read the blog",
-        "articles_count": 4,
-        "stack_mobile": false,
-        "show_category": true,
-        "show_excerpt": false,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
+        "articles_count": 3,
+        "link_text": "VIEW MORE",
+        "padding_top": 100,
+        "padding_bottom": 76
       }
     },
-    "image-with-text-block": {
-      "type": "image-with-text-block",
-      "settings": {
-        "reveal_on_scroll": true,
-        "title": "Good design & Quality",
-        "content": "<p>Guided by a shared appreciation for thoughtful design and well-crafted products, we focus on creating practical solutions for contemporary living. With a strong sense of purpose, our goal is to inspire others to embrace the same intentional approach.</p>",
-        "button_text": "Read our story",
-        "background_type": "full_width",
-        "text_position": "overlap_right",
-        "text_alignment": "left",
-        "text_background": "#405de6",
-        "text_color": "#ffffff",
-        "button_background": "#ffffff",
-        "button_text_color": "#405de6"
-      }
-    },
-    "collection-list": {
-      "type": "collection-list",
+    "free_banner_bottom": {
+      "type": "c_banner-slider",
       "blocks": {
-        "collection-1": {
-          "type": "collection",
+        "banner-1": {
+          "type": "banner",
           "settings": {
-            "title": "The box",
-            "link_text": "Discover",
-            "text_color": "#ffffff",
-            "overlay_color": "#282828",
-            "overlay_opacity": 20
+            "alt": "SHIMANO LINK"
           }
         },
-        "collection-2": {
-          "type": "collection",
+        "banner-2": {
+          "type": "banner",
           "settings": {
-            "title": "Collaboration",
-            "link_text": "Discover",
-            "text_color": "#ffffff",
-            "overlay_color": "#282828",
-            "overlay_opacity": 20
+            "alt": "26 AUTUMN/WINTER STYLE LAYERING"
           }
         },
-        "collection-3": {
-          "type": "collection",
+        "banner-3": {
+          "type": "banner",
           "settings": {
-            "title": "Headphones",
-            "link_text": "Discover",
-            "text_color": "#ffffff",
-            "overlay_color": "#282828",
-            "overlay_opacity": 20
+            "alt": "ビギナーズサイト"
+          }
+        },
+        "banner-4": {
+          "type": "banner",
+          "settings": {
+            "alt": "BEYOND THE LAUNCH"
+          }
+        },
+        "banner-5": {
+          "type": "banner",
+          "settings": {
+            "alt": "SHIMANO LINK"
           }
         }
       },
       "block_order": [
-        "collection-1",
-        "collection-2",
-        "collection-3"
+        "banner-1",
+        "banner-2",
+        "banner-3",
+        "banner-4",
+        "banner-5"
       ],
       "settings": {
-        "reveal_on_scroll": true,
-        "layout": "collage",
-        "subheading": "Discover our",
-        "title": "Collaborations",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "featured-product": {
-      "type": "featured-product",
-      "blocks": {
-        "variant_picker-1": {
-          "type": "variant_picker",
-          "settings": {
-            "hide_sold_out_variants": false,
-            "selector_mode": "block",
-            "color_mode": "color"
-          }
-        },
-        "quantity_selector-2": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "inventory-3": {
-          "type": "inventory",
-          "settings": {
-            "low_inventory_threshold": 0
-          }
-        },
-        "buy_buttons-4": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_payment_button": false,
-            "show_gift_card_recipient": false,
-            "atc_button_background": "rgba(0,0,0,0)",
-            "atc_button_text_color": "rgba(0,0,0,0)",
-            "buy_now_button_background": "rgba(0,0,0,0)",
-            "buy_now_button_text_color": "rgba(0,0,0,0)"
-          }
-        }
-      },
-      "block_order": [
-        "variant_picker-1",
-        "quantity_selector-2",
-        "inventory-3",
-        "buy_buttons-4"
-      ],
-      "settings": {
-        "subheading": "Best Seller",
-        "show_vendor": false,
-        "show_sku": false,
-        "show_taxes_included": false,
-        "show_product_rating": true,
-        "show_share_buttons": true,
-        "enable_video_autoplay": true,
-        "enable_video_looping": false,
-        "enable_image_zoom": true,
-        "show_thumbnails_on_mobile": false,
-        "desktop_thumbnails_position": "bottom",
-        "transition_effect": "slide",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "gallery": {
-      "type": "gallery",
-      "blocks": {
-        "image-1": {
-          "type": "image",
-          "settings": {
-            "caption": "<p>The state-of-the-art speaker designed with French audio experts.</p>"
-          }
-        },
-        "image-2": {
-          "type": "image",
-          "settings": {
-            "caption": "<p>Blends seamlessly into any environment.</p>"
-          }
-        },
-        "image-3": {
-          "type": "image",
-          "settings": {
-            "caption": "<p>Compatible with current and future technology.</p>"
-          }
-        },
-        "image-4": {
-          "type": "image",
-          "settings": {
-            "caption": "<p>Crafted from wood with brass-toned aluminum controls.</p>"
-          }
-        },
-        "image-5": {
-          "type": "image",
-          "settings": {
-            "caption": "<p>Simply place your device on top to power up.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "image-1",
-        "image-2",
-        "image-3",
-        "image-4",
-        "image-5"
-      ],
-      "settings": {
-        "subheading": "Our box",
-        "title": "The best speaker",
-        "show_arrows": false,
-        "background": "#f5f5f5",
-        "text_color": "#282828"
-      }
-    },
-    "logo-list": {
-      "type": "logo-list",
-      "blocks": {
-        "logo-1": {
-          "type": "logo",
-          "settings": {}
-        },
-        "logo-2": {
-          "type": "logo",
-          "settings": {}
-        },
-        "logo-3": {
-          "type": "logo",
-          "settings": {}
-        },
-        "logo-4": {
-          "type": "logo",
-          "settings": {}
-        },
-        "logo-5": {
-          "type": "logo",
-          "settings": {}
-        },
-        "logo-6": {
-          "type": "logo",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "logo-1",
-        "logo-2",
-        "logo-3",
-        "logo-4",
-        "logo-5",
-        "logo-6"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "subheading": "Featured in",
-        "stack_logos": false,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "#282828",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)",
-        "logo_background": "rgba(0,0,0,0)"
-      }
-    },
-    "testimonials": {
-      "type": "testimonials",
-      "blocks": {
-        "testimonial-1": {
-          "type": "testimonial",
-          "settings": {
-            "content": "There’s an ongoing effort to bring a refined, modern aesthetic to everyday accessories—and more broadly, to the world of technology. The aim is to blend sophistication with functionality in every detail.",
-            "author": "The Verge"
-          }
-        },
-        "testimonial-2": {
-          "type": "testimonial",
-          "settings": {
-            "content": "These phone covers combine elegant design with lasting durability—offering a refined look without compromising on everyday performance.",
-            "author": "TNW"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial-1",
-        "testimonial-2"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "#282828"
-      }
-    },
-    "timeline": {
-      "type": "timeline",
-      "blocks": {
-        "item-1": {
-          "type": "item",
-          "settings": {
-            "label": "Sydney",
-            "title": "Sydney",
-            "content": "<p>A decade ago, two designers crossed paths in a shared workspace. United by a passion for thoughtful design and well-crafted products, they set out to challenge the idea that tech accessories had to be purely functional and lacking in inspiration.</p>"
-          }
-        },
-        "item-2": {
-          "type": "item",
-          "settings": {
-            "label": "New York",
-            "title": "New York",
-            "content": "<p>They later established a new workspace in New York, designed to be as functional as it is visually refined. The space embodies a clear emphasis on simplicity, mirroring the design philosophy behind their work.</p>"
-          }
-        },
-        "item-3": {
-          "type": "item",
-          "settings": {
-            "label": "Tokyo",
-            "title": "Tokyo",
-            "content": "<p>The opening of a new studio in Tokyo had been in the works for some time. Today, the team is settling into a freshly designed space that serves as both a creative workspace and a showroom - located in the heart of a lively, design-forward neighborhood.</p>"
-          }
-        },
-        "item-4": {
-          "type": "item",
-          "settings": {
-            "label": "San Francisco",
-            "title": "San Francisco",
-            "content": "<p>Keeping in mind that crafting everyday solutions for an audience have to be also global, settle down in the US was obvious to them. And San Francisco is exactly the right spot.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "item-1",
-        "item-2",
-        "item-3",
-        "item-4"
-      ],
-      "settings": {
-        "subheading": "Offices",
-        "title": "Around the world",
-        "text_position": "bottom",
-        "background": "#282828",
-        "text_color": "#ffffff",
-        "item_background": "#f5f5f5",
-        "item_text_color": "#282828"
+        "aria_label": "おすすめバナー",
+        "background": "#ffffff",
+        "background_bottom": "#000000",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_sp": 0,
+        "padding_bottom_sp": 0
       }
     }
   },
   "order": [
-    "slideshow",
-    "featured-collections",
-    "image-with-text",
-    "shop-the-look",
-    "blog-posts",
-    "image-with-text-block",
-    "collection-list",
-    "featured-product",
-    "gallery",
-    "logo-list",
-    "testimonials",
-    "timeline"
+    "main_visual",
+    "free_banner_top",
+    "category",
+    "coming_soon",
+    "new_arrival",
+    "brand_movie",
+    "ranking",
+    "recommend",
+    "review",
+    "magazine",
+    "news",
+    "free_banner_bottom"
   ]
 }

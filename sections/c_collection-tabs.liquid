@@ -1,0 +1,247 @@
+{%- comment -%}
+--------------------------------------------------------
+  CSS / JS
+{%- endcomment -%}
+{{ 'c_collection-tabs.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'c_collection-tabs.js' | asset_url }}" defer></script>
+
+{%- comment -%}
+--------------------------------------------------------
+  インラインスタイル（動的な余白・背景色）
+{%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.background }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  @media screen and (max-width: 740px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_sp }}px;
+      padding-bottom: {{ section.settings.padding_bottom_sp }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- comment -%}
+--------------------------------------------------------
+  初期表示タブの決定（「初期表示」にチェックしたタブ → 最初のタブ）
+{%- endcomment -%}
+{%- liquid
+  assign active_block = section.blocks.first
+  for block in section.blocks
+    if block.settings.is_default
+      assign active_block = block
+      break
+    endif
+  endfor
+  assign active_link = active_block.settings.link_url | default: active_block.settings.collection.url
+  assign products_limit = section.settings.products_count
+-%}
+
+{%- comment -%}
+--------------------------------------------------------
+  HTML
+{%- endcomment -%}
+<c-collection-tabs id="c_collection-tabs-{{ section.id }}" class="c_collection-tabs c_section" data-section-id="{{ section.id }}">
+  <div class="c_container">
+    {% render 'c_section__header',
+      title: section.settings.title,
+      subtitle: section.settings.subtitle,
+      tabs: section.blocks,
+      active_block_id: active_block.id,
+      section_id: section.id,
+      link_url: active_link,
+      link_text: section.settings.link_text
+    %}
+
+    {%- if section.blocks.size > 0 -%}
+      {%- for block in section.blocks -%}
+        {%- assign is_active = false -%}
+        {%- if block.id == active_block.id -%}
+          {%- assign is_active = true -%}
+        {%- endif -%}
+        <div
+          class="c_collection-tabs__panel"
+          id="c_panel-{{ section.id }}-{{ block.id }}"
+          {% if section.blocks.size > 1 %}role="tabpanel" aria-labelledby="c_tab-{{ section.id }}-{{ block.id }}"{% endif %}
+          data-panel-id="{{ block.id }}"
+          data-panel-link="{{ block.settings.link_url | default: block.settings.collection.url }}"
+          {% unless is_active %}hidden{% endunless %}
+        >
+          <ul class="c_collection-tabs__list" role="list">
+            {%- if block.settings.collection != blank and block.settings.collection.products_count > 0 -%}
+              {%- for product in block.settings.collection.products limit: products_limit -%}
+                <li class="c_collection-tabs__item">
+                  {%- render 'c_product-item', product: product, badge: section.settings.badge, index: forloop.index -%}
+                </li>
+              {%- endfor -%}
+            {%- else -%}
+              {%- for i in (1..products_limit) -%}
+                <li class="c_collection-tabs__item">
+                  {%- render 'c_product-item', product: blank, badge: section.settings.badge, index: forloop.index, placeholder_index: forloop.index -%}
+                </li>
+              {%- endfor -%}
+            {%- endif -%}
+          </ul>
+        </div>
+      {%- endfor -%}
+    {%- elsif request.design_mode -%}
+      <p>タブ（コレクション）を追加してください</p>
+    {%- endif -%}
+
+    {% render 'c_section__footer', link_url: active_link, link_text: section.settings.link_text %}
+  </div>
+</c-collection-tabs>
+
+{% schema %}
+{
+  "name": "カスタム:商品一覧タブ",
+  "class": "c_section c_section--collection-tabs",
+  "tag": "div",
+  "max_blocks": 8,
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "コレクションごとのタブで商品を切り替えて表示します。近日発売・新着・ランキング・おすすめなどに使用します。"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "サブ見出し（日本語）",
+      "default": "近日発売"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "見出し（英字）",
+      "default": "COMING SOON"
+    },
+    {
+      "type": "select",
+      "id": "badge",
+      "label": "商品カードのラベル",
+      "options": [
+        { "value": "none", "label": "表示しない" },
+        { "value": "coming_soon", "label": "COMING SOON" },
+        { "value": "new", "label": "NEW" },
+        { "value": "rank", "label": "順位（1, 2, 3…）" }
+      ],
+      "default": "coming_soon"
+    },
+    {
+      "type": "range",
+      "id": "products_count",
+      "label": "表示する商品数",
+      "min": 4,
+      "max": 12,
+      "step": 4,
+      "default": 4
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "リンクテキスト",
+      "default": "VIEW MORE",
+      "info": "リンク先は表示中のタブのコレクションになります。"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "背景色",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "header",
+      "content": "余白"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "上部の余白(PC)",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "下部の余白(PC)",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_sp",
+      "label": "上部の余白(SP)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_sp",
+      "label": "下部の余白(SP)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "タブ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "タブ名",
+          "default": "すべて",
+          "info": "未入力の場合はコレクション名を表示します。"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "コレクション"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "VIEW MOREのリンク先",
+          "info": "未入力の場合はコレクションページへリンクします。"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_default",
+          "label": "初期表示のタブにする",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "カスタム:商品一覧タブ",
+      "category": "カスタムパーツ",
+      "blocks": [
+        { "type": "tab", "settings": { "title": "すべて" } },
+        { "type": "tab", "settings": { "title": "ウェア・フットウェア" } },
+        { "type": "tab", "settings": { "title": "クーラーボックス" } },
+        { "type": "tab", "settings": { "title": "バッグ・ケース・収納用品" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

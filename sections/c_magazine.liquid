@@ -1,0 +1,298 @@
+{%- comment -%}
+--------------------------------------------------------
+  CSS
+{%- endcomment -%}
+{{ 'c_magazine.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+--------------------------------------------------------
+  インラインスタイル（動的な余白・背景色）
+{%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --c-magazine-band: {{ section.settings.band_color }};
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+  @media screen and (max-width: 740px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.margin_top_sp }}px;
+      margin-bottom: {{ section.settings.margin_bottom_sp }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign blog = section.settings.blog
+  assign link_url = section.settings.link_url | default: blog.url
+  assign bg_sp = section.settings.background_image_sp | default: section.settings.background_image
+-%}
+
+{%- comment -%}
+--------------------------------------------------------
+  HTML
+{%- endcomment -%}
+<section id="c_magazine-{{ section.id }}" class="c_magazine c_section">
+  <div class="c_magazine__inner">
+    <div class="c_magazine__bg" aria-hidden="true">
+      {%- if section.settings.background_image != blank -%}
+        <picture>
+          {%- if section.settings.background_image_sp != blank -%}
+            <source media="(max-width: 740px)" srcset="{{ bg_sp | image_url: width: 800 }} 800w, {{ bg_sp | image_url: width: 1200 }} 1200w" sizes="100vw">
+          {%- endif -%}
+          {{- section.settings.background_image | image_url: width: 3000 | image_tag: loading: 'lazy', sizes: '100vw', widths: '800,1200,1600,2000,3000', class: 'c_magazine__bg-image', alt: '' -}}
+        </picture>
+      {%- else -%}
+        {{- 'lifestyle-2' | placeholder_svg_tag: 'c_magazine__bg-image c_magazine__placeholder' -}}
+      {%- endif -%}
+    </div>
+
+    <div class="c_container c_magazine__content">
+      {% render 'c_section__header',
+        title: section.settings.title,
+        subtitle: section.settings.subtitle,
+        link_url: link_url,
+        link_text: section.settings.link_text,
+        theme: 'light'
+      %}
+
+      <ul class="c_magazine__list" role="list">
+        {%- if section.blocks.size > 0 -%}
+          {%- comment -%} 手動で設定した記事カード {%- endcomment -%}
+          {%- for block in section.blocks -%}
+            <li class="c_magazine__item" {{ block.shopify_attributes }}>
+              {%- assign card_article = block.settings.article -%}
+              {%- assign card_image = block.settings.image | default: card_article.image -%}
+              {%- assign card_title = block.settings.title | default: card_article.title -%}
+              {%- assign card_link = block.settings.link | default: card_article.url -%}
+              <a class="c_magazine__card" href="{{ card_link | default: '#' }}">
+                <span class="c_magazine__media">
+                  {%- if card_image != blank -%}
+                    {{- card_image | image_url: width: 1000 | image_tag: loading: 'lazy', sizes: '(max-width: 740px) 80vw, 470px', widths: '400,600,800,1000', class: 'c_magazine__image', alt: '' -}}
+                  {%- else -%}
+                    {{- 'image' | placeholder_svg_tag: 'c_magazine__image c_magazine__placeholder' -}}
+                  {%- endif -%}
+                </span>
+                <span class="c_magazine__body">
+                  {%- if block.settings.date != blank -%}
+                    <span class="c_magazine__date">{{ block.settings.date | escape }}</span>
+                  {%- elsif card_article != blank -%}
+                    <time class="c_magazine__date" datetime="{{ card_article.published_at | date: '%Y-%m-%d' }}">{{ card_article.published_at | date: '%Y.%m.%d' }}</time>
+                  {%- endif -%}
+                  <span class="c_magazine__title">{{ card_title | default: '記事タイトルが入ります' | escape }}</span>
+                </span>
+              </a>
+            </li>
+          {%- endfor -%}
+        {%- elsif blog != blank and blog.articles_count > 0 -%}
+          {%- comment -%} ブログの最新記事 {%- endcomment -%}
+          {%- for article in blog.articles limit: section.settings.articles_count -%}
+            <li class="c_magazine__item">
+              <a class="c_magazine__card" href="{{ article.url }}">
+                <span class="c_magazine__media">
+                  {%- if article.image != blank -%}
+                    {{- article.image | image_url: width: 1000 | image_tag: loading: 'lazy', sizes: '(max-width: 740px) 80vw, 470px', widths: '400,600,800,1000', class: 'c_magazine__image', alt: '' -}}
+                  {%- else -%}
+                    {{- 'image' | placeholder_svg_tag: 'c_magazine__image c_magazine__placeholder' -}}
+                  {%- endif -%}
+                </span>
+                <span class="c_magazine__body">
+                  <time class="c_magazine__date" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%Y.%m.%d' }}</time>
+                  <span class="c_magazine__title">{{ article.title | escape }}</span>
+                </span>
+              </a>
+            </li>
+          {%- endfor -%}
+        {%- else -%}
+          {%- for i in (1..3) -%}
+            <li class="c_magazine__item">
+              <div class="c_magazine__card">
+                <span class="c_magazine__media">{{- 'image' | placeholder_svg_tag: 'c_magazine__image c_magazine__placeholder' -}}</span>
+                <span class="c_magazine__body">
+                  <span class="c_magazine__date">2026.11.28</span>
+                  <span class="c_magazine__title">ブログを選択すると最新記事が表示されます</span>
+                </span>
+              </div>
+            </li>
+          {%- endfor -%}
+        {%- endif -%}
+      </ul>
+
+      {% render 'c_section__footer', link_url: link_url, link_text: section.settings.link_text %}
+    </div>
+  </div>
+
+  {%- if section.settings.show_tricolor -%}
+    <div class="c_tricolor" aria-hidden="true"><span></span><span></span><span></span></div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "カスタム:マガジン",
+  "class": "c_section c_section--magazine",
+  "tag": "div",
+  "max_blocks": 6,
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "ブログの最新記事を表示します。ブロック（記事カード）を追加した場合はブロックの内容を優先して表示します。"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "サブ見出し（日本語）",
+      "default": "新たな発見と本物との出会いの場"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "見出し（英字）",
+      "default": "MAGAZINE"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "ブログ"
+    },
+    {
+      "type": "range",
+      "id": "articles_count",
+      "label": "表示する記事数",
+      "min": 3,
+      "max": 6,
+      "step": 3,
+      "default": 3
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "リンクテキスト",
+      "default": "VIEW MORE"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "リンク先",
+      "info": "未入力の場合はブログ一覧へリンクします。"
+    },
+    {
+      "type": "header",
+      "content": "背景"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "背景画像(PC)",
+      "info": "推奨サイズ：3200 × 1000px"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_sp",
+      "label": "背景画像(SP)",
+      "info": "未設定の場合はPC用を表示します。"
+    },
+    {
+      "type": "color",
+      "id": "band_color",
+      "label": "下部の帯の色",
+      "default": "#00a0e9"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tricolor",
+      "label": "トリコロールラインを表示",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "外側の余白"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "上部の余白(PC)",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "下部の余白(PC)",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_sp",
+      "label": "上部の余白(SP)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_sp",
+      "label": "下部の余白(SP)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "記事カード",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "記事",
+          "info": "画像・タイトル・リンクを未入力の場合は記事の情報を使用します。"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "画像",
+          "info": "推奨サイズ：940 × 530px（16:9）"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "日付",
+          "info": "例：2026.11.28"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "タイトル"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "リンク"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "カスタム:マガジン",
+      "category": "カスタムパーツ"
+    }
+  ]
+}
+{% endschema %}
