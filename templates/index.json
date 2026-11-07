@@ -318,6 +318,7 @@
           "type": "slide",
           "settings": {
             "media_type": "video",
+            "video": "shopify://files/videos/マイムービー 24.mp4-compressed.mp4",
             "video_url": "",
             "video_url_sp": "",
             "text_position": "bottom_left",
