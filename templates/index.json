@@ -1,0 +1,524 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "slide-1": {
+          "type": "image",
+          "settings": {
+            "text_position": "middle_left",
+            "subheading": "Premium Collection",
+            "title": "The Collection",
+            "button_1_text": "Learn more",
+            "button_2_text": "Shop",
+            "text_color": "#ffffff",
+            "button_background": "#f3ff34",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "slide-2": {
+          "type": "image",
+          "settings": {
+            "text_position": "middle_center",
+            "subheading": "Meet the",
+            "title": "Product of the month",
+            "button_1_text": "Learn more",
+            "text_color": "#ffffff",
+            "button_background": "#f3ff34",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "slide-3": {
+          "type": "image",
+          "settings": {
+            "text_position": "middle_left",
+            "subheading": "Collaboration",
+            "title": "Discover now",
+            "button_1_text": "Learn more",
+            "text_color": "#ffffff",
+            "button_background": "#f3ff34",
+            "button_text_color": "#282828",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "slide-1",
+        "slide-2",
+        "slide-3"
+      ],
+      "settings": {
+        "section_height": "medium",
+        "transition_type": "sweep",
+        "show_initial_transition": false,
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "#282828"
+      }
+    },
+    "featured-collections": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "label": "Best sellers"
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "label": "New in"
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "settings": {
+            "label": "Bundles"
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection-2",
+        "collection-3"
+      ],
+      "settings": {
+        "title": "Explore",
+        "products_count": 12,
+        "products_per_row": 4,
+        "stack_products": false,
+        "show_cta": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image-with-text": {
+      "type": "image-with-text",
+      "blocks": {
+        "item-1": {
+          "type": "item",
+          "settings": {
+            "tab_label": "Stow",
+            "subheading": "Process",
+            "title": "Designing the Stow Collection",
+            "content": "<p>The decision to create this collection was not taken lightly. With a strong focus on thoughtful yet highly functional design, the goal was never to produce just another sleeve or organizer. Instead, the aim was to develop a solution that reflects a commitment to balance and purposeful design.</p>"
+          }
+        },
+        "item-2": {
+          "type": "item",
+          "settings": {
+            "tab_label": "Leather",
+            "subheading": "Process",
+            "title": "Crafting the Leather Collection",
+            "content": "<p>Leather has long been a material of choice—valued both for its durability and the refined look it brings. Whether used as a subtle design detail or explored through bold colors and patterns, it continues to offer a versatile and enduring foundation for creative expression.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item-1",
+        "item-2"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "right",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "#f3ff34",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "#845640",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "shop-the-look": {
+      "type": "shop-the-look",
+      "blocks": {
+        "look-1": {
+          "type": "look",
+          "settings": {
+            "dot_type": "normal",
+            "product_1_horizontal_position": 65,
+            "product_1_vertical_position": 36,
+            "product_1_horizontal_position_mobile": 75,
+            "product_1_vertical_position_mobile": 39,
+            "product_2_horizontal_position": 52,
+            "product_2_vertical_position": 49,
+            "product_2_horizontal_position_mobile": 53,
+            "product_2_vertical_position_mobile": 52,
+            "product_3_horizontal_position": 32,
+            "product_3_vertical_position": 66,
+            "product_3_horizontal_position_mobile": 21,
+            "product_3_vertical_position_mobile": 63
+          }
+        },
+        "look-2": {
+          "type": "look",
+          "settings": {
+            "dot_type": "normal",
+            "product_1_horizontal_position": 37,
+            "product_1_vertical_position": 54,
+            "product_1_horizontal_position_mobile": 60,
+            "product_1_vertical_position_mobile": 45,
+            "product_2_horizontal_position": 44,
+            "product_2_vertical_position": 78,
+            "product_2_horizontal_position_mobile": 50,
+            "product_2_vertical_position_mobile": 72,
+            "product_3_horizontal_position": 62,
+            "product_3_vertical_position": 50,
+            "product_3_horizontal_position_mobile": 70,
+            "product_3_vertical_position_mobile": 70
+          }
+        }
+      },
+      "block_order": [
+        "look-1",
+        "look-2"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "label": "Define your style"
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "news",
+        "subheading": "Read the blog",
+        "articles_count": 4,
+        "stack_mobile": false,
+        "show_category": true,
+        "show_excerpt": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image-with-text-block": {
+      "type": "image-with-text-block",
+      "settings": {
+        "reveal_on_scroll": true,
+        "title": "Good design & Quality",
+        "content": "<p>Guided by a shared appreciation for thoughtful design and well-crafted products, we focus on creating practical solutions for contemporary living. With a strong sense of purpose, our goal is to inspire others to embrace the same intentional approach.</p>",
+        "button_text": "Read our story",
+        "background_type": "full_width",
+        "text_position": "overlap_right",
+        "text_alignment": "left",
+        "text_background": "#405de6",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#405de6"
+      }
+    },
+    "collection-list": {
+      "type": "collection-list",
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "title": "The box",
+            "link_text": "Discover",
+            "text_color": "#ffffff",
+            "overlay_color": "#282828",
+            "overlay_opacity": 20
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "title": "Collaboration",
+            "link_text": "Discover",
+            "text_color": "#ffffff",
+            "overlay_color": "#282828",
+            "overlay_opacity": 20
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "settings": {
+            "title": "Headphones",
+            "link_text": "Discover",
+            "text_color": "#ffffff",
+            "overlay_color": "#282828",
+            "overlay_opacity": 20
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection-2",
+        "collection-3"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "layout": "collage",
+        "subheading": "Discover our",
+        "title": "Collaborations",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured-product": {
+      "type": "featured-product",
+      "blocks": {
+        "variant_picker-1": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "color"
+          }
+        },
+        "quantity_selector-2": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "inventory-3": {
+          "type": "inventory",
+          "settings": {
+            "low_inventory_threshold": 0
+          }
+        },
+        "buy_buttons-4": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": false,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "variant_picker-1",
+        "quantity_selector-2",
+        "inventory-3",
+        "buy_buttons-4"
+      ],
+      "settings": {
+        "subheading": "Best Seller",
+        "show_vendor": false,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": true,
+        "show_share_buttons": true,
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "gallery": {
+      "type": "gallery",
+      "blocks": {
+        "image-1": {
+          "type": "image",
+          "settings": {
+            "caption": "<p>The state-of-the-art speaker designed with French audio experts.</p>"
+          }
+        },
+        "image-2": {
+          "type": "image",
+          "settings": {
+            "caption": "<p>Blends seamlessly into any environment.</p>"
+          }
+        },
+        "image-3": {
+          "type": "image",
+          "settings": {
+            "caption": "<p>Compatible with current and future technology.</p>"
+          }
+        },
+        "image-4": {
+          "type": "image",
+          "settings": {
+            "caption": "<p>Crafted from wood with brass-toned aluminum controls.</p>"
+          }
+        },
+        "image-5": {
+          "type": "image",
+          "settings": {
+            "caption": "<p>Simply place your device on top to power up.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "image-1",
+        "image-2",
+        "image-3",
+        "image-4",
+        "image-5"
+      ],
+      "settings": {
+        "subheading": "Our box",
+        "title": "The best speaker",
+        "show_arrows": false,
+        "background": "#f5f5f5",
+        "text_color": "#282828"
+      }
+    },
+    "logo-list": {
+      "type": "logo-list",
+      "blocks": {
+        "logo-1": {
+          "type": "logo",
+          "settings": {}
+        },
+        "logo-2": {
+          "type": "logo",
+          "settings": {}
+        },
+        "logo-3": {
+          "type": "logo",
+          "settings": {}
+        },
+        "logo-4": {
+          "type": "logo",
+          "settings": {}
+        },
+        "logo-5": {
+          "type": "logo",
+          "settings": {}
+        },
+        "logo-6": {
+          "type": "logo",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "logo-1",
+        "logo-2",
+        "logo-3",
+        "logo-4",
+        "logo-5",
+        "logo-6"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "subheading": "Featured in",
+        "stack_logos": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "#282828",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)",
+        "logo_background": "rgba(0,0,0,0)"
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial-1": {
+          "type": "testimonial",
+          "settings": {
+            "content": "There’s an ongoing effort to bring a refined, modern aesthetic to everyday accessories—and more broadly, to the world of technology. The aim is to blend sophistication with functionality in every detail.",
+            "author": "The Verge"
+          }
+        },
+        "testimonial-2": {
+          "type": "testimonial",
+          "settings": {
+            "content": "These phone covers combine elegant design with lasting durability—offering a refined look without compromising on everyday performance.",
+            "author": "TNW"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial-1",
+        "testimonial-2"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "#282828"
+      }
+    },
+    "timeline": {
+      "type": "timeline",
+      "blocks": {
+        "item-1": {
+          "type": "item",
+          "settings": {
+            "label": "Sydney",
+            "title": "Sydney",
+            "content": "<p>A decade ago, two designers crossed paths in a shared workspace. United by a passion for thoughtful design and well-crafted products, they set out to challenge the idea that tech accessories had to be purely functional and lacking in inspiration.</p>"
+          }
+        },
+        "item-2": {
+          "type": "item",
+          "settings": {
+            "label": "New York",
+            "title": "New York",
+            "content": "<p>They later established a new workspace in New York, designed to be as functional as it is visually refined. The space embodies a clear emphasis on simplicity, mirroring the design philosophy behind their work.</p>"
+          }
+        },
+        "item-3": {
+          "type": "item",
+          "settings": {
+            "label": "Tokyo",
+            "title": "Tokyo",
+            "content": "<p>The opening of a new studio in Tokyo had been in the works for some time. Today, the team is settling into a freshly designed space that serves as both a creative workspace and a showroom - located in the heart of a lively, design-forward neighborhood.</p>"
+          }
+        },
+        "item-4": {
+          "type": "item",
+          "settings": {
+            "label": "San Francisco",
+            "title": "San Francisco",
+            "content": "<p>Keeping in mind that crafting everyday solutions for an audience have to be also global, settle down in the US was obvious to them. And San Francisco is exactly the right spot.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item-1",
+        "item-2",
+        "item-3",
+        "item-4"
+      ],
+      "settings": {
+        "subheading": "Offices",
+        "title": "Around the world",
+        "text_position": "bottom",
+        "background": "#282828",
+        "text_color": "#ffffff",
+        "item_background": "#f5f5f5",
+        "item_text_color": "#282828"
+      }
+    }
+  },
+  "order": [
+    "slideshow",
+    "featured-collections",
+    "image-with-text",
+    "shop-the-look",
+    "blog-posts",
+    "image-with-text-block",
+    "collection-list",
+    "featured-product",
+    "gallery",
+    "logo-list",
+    "testimonials",
+    "timeline"
+  ]
+}
