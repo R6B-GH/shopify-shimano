@@ -1,0 +1,3 @@
+{%- comment -%} 一時的な確認用（後で削除） {%- endcomment -%}
+{%- assign p = all_products['ra-120y'] -%}
+<script type="application/json" id="c-jdgm-debug">{"widget_size": {{ p.metafields.judgeme.widget | size | json }}, "badge": {{ p.metafields.judgeme.badge | size | json }}, "rating": {{ p.metafields.reviews.rating.value | json }}, "count": {{ p.metafields.reviews.rating_count.value | json }}, "widget_head": {{ p.metafields.judgeme.widget | strip_newlines | slice: 0, 3000 | json }}, "shop_keys": {{ shop.metafields.judgeme | json }} }</script>
