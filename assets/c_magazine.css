@@ -91,14 +91,14 @@ a.c_magazine__card:hover .c_magazine__image {
   display: block;
   margin-bottom: 6px;
   color: var(--c-color-gray600);
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.4;
 }
 
 .c_magazine__title {
   display: -webkit-box;
   overflow: hidden;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.6;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

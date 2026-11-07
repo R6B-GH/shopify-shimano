@@ -29,6 +29,7 @@
   /* フォント */
   --c-font-jp: "Gen Interface JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif;
   --c-font-en: "Orbitron", "Gen Interface JP", sans-serif;
+  --c-font-en-sub: "Oxanium", "Orbitron", sans-serif;
 
   /* レイアウト */
   --c-container-max: 1600px;
@@ -117,8 +118,8 @@ c-splide.is-static .splide__list {
   display: block;
   margin-bottom: 6px;
   font-family: var(--c-font-jp);
-  font-size: 10px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 400;
   line-height: 1.6;
   letter-spacing: 0.04em;
 }
@@ -127,7 +128,7 @@ c-splide.is-static .splide__list {
   display: block;
   margin: 0;
   font-family: var(--c-font-en);
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: 0.02em;
@@ -156,8 +157,8 @@ c-splide.is-static .splide__list {
   background: var(--c-color-white);
   color: var(--c-color-ink);
   font-family: var(--c-font-jp);
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 400;
   line-height: 1;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
@@ -183,8 +184,8 @@ c-splide.is-static .splide__list {
   padding-bottom: 4px;
   border-bottom: 1px solid currentColor;
   color: inherit;
-  font-family: var(--c-font-en);
-  font-size: 11px;
+  font-family: var(--c-font-en-sub);
+  font-size: 13px;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: 0.06em;
@@ -208,8 +209,8 @@ c-splide.is-static .splide__list {
   border: 1px solid currentColor;
   border-radius: 999px;
   color: inherit;
-  font-family: var(--c-font-en);
-  font-size: 11px;
+  font-family: var(--c-font-en-sub);
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-decoration: none;
@@ -293,14 +294,14 @@ c-splide.is-static .splide__list {
   left: 14px;
   z-index: 1;
   font-family: var(--c-font-en);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: 0.04em;
 }
 
 .c_product-item__badge--rank {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .c_product-item__image {
@@ -374,7 +375,7 @@ c-splide.is-static .splide__list {
   margin: 0 0 6px;
   overflow: hidden;
   color: var(--c-color-ink);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.6;
   text-decoration: none;
@@ -384,15 +385,15 @@ c-splide.is-static .splide__list {
 
 .c_product-item__price {
   margin-top: auto;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 600;
   line-height: 1.4;
 }
 
 .c_product-item__price-compare {
   margin-right: 6px;
   color: var(--c-color-gray600);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   text-decoration: line-through;
 }
@@ -400,7 +401,7 @@ c-splide.is-static .splide__list {
 .c_product-item__tax {
   margin-left: 4px;
   color: var(--c-color-gray600);
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 400;
 }
 

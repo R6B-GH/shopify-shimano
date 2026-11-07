@@ -101,7 +101,7 @@
 
 .c_media-hero__label {
   margin: 0 0 14px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.08em;
 }
@@ -115,7 +115,7 @@
 
 .c_media-hero__title--en {
   font-family: var(--c-font-en);
-  font-size: 42px;
+  font-size: 46px;
   font-weight: 800;
   line-height: 1.3;
   letter-spacing: 0.02em;
@@ -123,14 +123,14 @@
 
 .c_media-hero__title--jp {
   font-family: var(--c-font-jp);
-  font-size: 21px;
+  font-size: 25px;
   font-weight: 700;
   line-height: 1.5;
 }
 
 .c_media-hero__description {
   margin: 12px 0 0;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.9;
 }
 

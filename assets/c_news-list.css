@@ -49,12 +49,12 @@ a.c_news-list__link:hover .c_news-list__title {
 .c_news-list__date {
   flex: 0 0 85px;
   color: var(--c-color-gray600);
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.6;
 }
 
 .c_news-list__title {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.6;
 }
 

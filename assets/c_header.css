@@ -6,7 +6,7 @@
 .header .header__linklist-link {
   position: relative;
   font-family: var(--c-font-jp);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -62,7 +62,7 @@
   padding: 0 3px;
   background: var(--c-color-blue);
   color: var(--c-color-white);
-  font-size: 9px;
+  font-size: 10px;
   line-height: 14px;
 }
 
@@ -82,7 +82,7 @@
 .mega-menu .mega-menu__title {
   margin-bottom: 18px;
   font-family: var(--c-font-jp);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: none;
@@ -103,7 +103,7 @@
 .mega-menu .mega-menu__heading {
   margin-top: 12px;
   font-family: var(--c-font-jp);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
@@ -132,7 +132,7 @@
 
 .c_mega-menu__quick-link {
   color: var(--c-color-ink);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
 }
 
@@ -174,7 +174,7 @@
 
 .mega-menu .c_mega-menu__columns .mega-menu__title {
   margin-bottom: 16px;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
 }
 
@@ -190,7 +190,7 @@
   display: inline-block;
   padding: 3px 0;
   color: var(--c-color-gray600);
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.8;
 }
 
@@ -199,7 +199,7 @@
 }
 
 .mega-menu .c_mega-menu__quick-link {
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .mega-menu .mega-menu__inner {
@@ -228,7 +228,7 @@
 
 .mega-menu .mega-menu__heading {
   margin-top: 10px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   text-align: left;
 }
