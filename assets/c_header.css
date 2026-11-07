@@ -158,3 +158,77 @@
   display: inline-block;
   padding: 3px 0;
 }
+
+/* メガメニュー：デザイン寄せ（1行に収める・文字サイズ） */
+.mega-menu .c_mega-menu__columns {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0 56px;
+  margin: 0;
+}
+
+.mega-menu .c_mega-menu__columns .mega-menu__column {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.mega-menu .c_mega-menu__columns .mega-menu__title {
+  margin-bottom: 16px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.mega-menu .c_mega-menu__columns .linklist {
+  margin: 0;
+}
+
+.mega-menu .c_mega-menu__columns .linklist__item {
+  margin: 0 !important;
+}
+
+.mega-menu .c_mega-menu__columns .linklist__item a {
+  display: inline-block;
+  padding: 3px 0;
+  color: var(--c-color-gray600);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.mega-menu .c_mega-menu__columns .linklist__item a:hover {
+  color: var(--c-color-ink);
+}
+
+.mega-menu .c_mega-menu__quick-link {
+  font-size: 11px;
+}
+
+.mega-menu .mega-menu__inner {
+  align-items: flex-start;
+  padding-block: 40px;
+}
+
+.mega-menu .mega-menu__images-wrapper {
+  gap: 24px;
+}
+
+.mega-menu .mega-menu__image-push {
+  width: 210px;
+  text-align: left;
+}
+
+.mega-menu .mega-menu__image-wrapper {
+  aspect-ratio: 16 / 9;
+}
+
+.mega-menu .mega-menu__image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mega-menu .mega-menu__heading {
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: 400;
+  text-align: left;
+}
