@@ -63,8 +63,13 @@
           if (productLink) productEl.setAttribute('href', productLink.getAttribute('href').split('?')[0]);
           const img = card.querySelector('[data-review-product-image]');
           const src = productImage ? productImage.getAttribute('data-src') || productImage.getAttribute('src') : '';
-          // Judge.me のサムネイル（幅70px）を表示サイズに合わせて大きくする
-          if (src) img.setAttribute('src', /[?&]width=\d+/.test(src) ? src.replace(/([?&]width=)\d+/, '$1240') : `${src}${src.includes('?') ? '&' : '?'}width=240`);
+          // Judge.me のサムネイル（ファイル名に _70x70 が付いた縮小版）を元画像の幅240pxで読み込み直す
+          if (src) {
+            const url = new URL(src, window.location.origin);
+            url.pathname = url.pathname.replace(/_\d+x\d*(?=\.[a-z]+$)/i, '');
+            url.searchParams.set('width', '240');
+            img.setAttribute('src', url.toString());
+          }
           else img.parentElement.remove();
           card.querySelector('[data-review-product-title]').textContent = productTitle;
           productEl.hidden = false;
