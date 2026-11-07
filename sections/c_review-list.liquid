@@ -52,6 +52,14 @@
       <c-review-list class="c_review-list__judgeme" data-limit="{{ section.settings.limit }}" data-show-product="{{ section.settings.show_product }}">
         <ul class="c_review-list__list" role="list" data-review-list></ul>
         <template data-review-source>{{ jdgm_html }}</template>
+        {%- comment -%} Judge.me のデータには商品URLが無いため、商品名→URLの対応表を出力（見つからない場合は検索結果へリンク） {%- endcomment -%}
+        <script type="application/json" data-review-products>
+          {
+            {%- for product in collections.all.products -%}
+              {{ product.title | json }}: {{ product.url | json }}{% unless forloop.last %},{% endunless %}
+            {%- endfor -%}
+          }
+        </script>
         <template data-review-card>
           <li class="c_review-list__item">
             <article class="c_review-list__card">

@@ -27,6 +27,13 @@
       if (!source || !cardTemplate || !list) return;
 
       const limit = parseInt(this.dataset.limit, 10) || 3;
+      let productMap = {};
+      try {
+        const mapEl = this.querySelector('script[data-review-products]');
+        if (mapEl) productMap = JSON.parse(mapEl.textContent);
+      } catch (e) {
+        productMap = {};
+      }
       const showProduct = this.dataset.showProduct === 'true';
       const items = Array.from(source.content.querySelectorAll('.jdgm-carousel-item')).slice(0, limit);
 
@@ -72,8 +79,11 @@
           }
           else img.parentElement.remove();
           card.querySelector('[data-review-product-title]').textContent = productTitle;
-          // Judge.me のデータには商品URLが無いため、商品名からストアの商品ページを検索してリンクする
-          if (!productLink && productTitle) this.linkProduct(productEl, productTitle);
+          // Judge.me のデータには商品URLが無いため、商品名→URLの対応表からリンクする（無ければ検索結果へ）
+          if (!productLink && productTitle) {
+            const root = (window.Shopify && window.Shopify.routes && window.Shopify.routes.root) || '/';
+            productEl.setAttribute('href', productMap[productTitle] || `${root}search?type=product&q=${encodeURIComponent(productTitle)}`);
+          }
           productEl.hidden = false;
         } else {
           productEl.remove();
@@ -83,20 +93,6 @@
       });
     }
   }
-
-  CReviewList.prototype.linkProduct = async function linkProduct(anchor, title) {
-    try {
-      const root = (window.Shopify && window.Shopify.routes && window.Shopify.routes.root) || '/';
-      const params = new URLSearchParams({ q: title, 'resources[type]': 'product', 'resources[limit]': '1' });
-      const res = await fetch(`${root}search/suggest.json?${params}`);
-      if (!res.ok) return;
-      const data = await res.json();
-      const product = data.resources && data.resources.results && data.resources.results.products && data.resources.results.products[0];
-      if (product && product.url) anchor.setAttribute('href', product.url.split('?')[0]);
-    } catch (e) {
-      // リンクが取れなくても表示はそのまま
-    }
-  };
 
   customElements.define('c-review-list', CReviewList);
 })();
