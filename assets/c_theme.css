@@ -465,3 +465,28 @@ c-splide.is-static .splide__list {
 @media screen and (min-width: 741px) {
   .c_is-sp { display: none !important; }
 }
+
+/* 商品カード：レビュー評価（Judge.me） */
+.c_product-item__rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 4px 0 0;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.c_product-item__stars {
+  display: inline-flex;
+  gap: 1px;
+  color: var(--c-color-gray200);
+  font-size: 12px;
+}
+
+.c_product-item__star.is-filled {
+  color: var(--c-color-star);
+}
+
+.c_product-item__rating-count {
+  color: var(--c-color-gray600);
+}

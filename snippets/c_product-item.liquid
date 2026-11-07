@@ -71,6 +71,18 @@
     </div>
 
     <a class="c_product-item__title" href="{{ product.url }}">{{ product.title | escape }}</a>
+    {%- comment -%} Judge.me のレビュー評価（Shopify標準の reviews.rating / reviews.rating_count メタフィールド） {%- endcomment -%}
+    {%- assign review_count = product.metafields.reviews.rating_count.value | default: 0 -%}
+    {%- if review_count > 0 -%}
+      {%- assign review_rating = product.metafields.reviews.rating.value.rating | default: 0 -%}
+      {%- assign review_rounded = review_rating | round -%}
+      <p class="c_product-item__rating" aria-label="評価 {{ review_rating | round: 1 }}（{{ review_count }}件）">
+        <span class="c_product-item__stars" aria-hidden="true">
+          {%- for i in (1..5) -%}<span class="c_product-item__star{% if i <= review_rounded %} is-filled{% endif %}">★</span>{%- endfor -%}
+        </span>
+        <span class="c_product-item__rating-count">({{ review_count }})</span>
+      </p>
+    {%- endif -%}
 
     <div class="c_product-item__price">
       {%- if product.compare_at_price > product.price -%}
