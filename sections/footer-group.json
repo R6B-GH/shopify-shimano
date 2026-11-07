@@ -17,20 +17,22 @@
         "links-category": {
           "type": "links",
           "settings": {
-            "title": "CATEGORY"
+            "title": "CATEGORY",
+            "menu": "footer-category"
           }
         },
         "links-contents": {
           "type": "links",
           "settings": {
             "title": "CONTENTS",
-            "menu": "footer"
+            "menu": "footer-contents"
           }
         },
         "links-legal": {
           "type": "links",
           "settings": {
-            "title": "LEGAL"
+            "title": "LEGAL",
+            "menu": "footer-legal"
           }
         }
       },

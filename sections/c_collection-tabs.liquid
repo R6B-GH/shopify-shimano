@@ -35,7 +35,7 @@
       break
     endif
   endfor
-  assign active_link = active_block.settings.link_url | default: active_block.settings.collection.url
+  assign active_link = active_block.settings.link_url | default: active_block.settings.collection.url | default: active_block.settings.category_collection.url | default: section.settings.collection.url
   assign products_limit = section.settings.products_count
 -%}
 
@@ -57,33 +57,70 @@
 
     {%- if section.blocks.size > 0 -%}
       {%- for block in section.blocks -%}
-        {%- assign is_active = false -%}
-        {%- if block.id == active_block.id -%}
-          {%- assign is_active = true -%}
-        {%- endif -%}
+        {%- liquid
+          assign is_active = false
+          if block.id == active_block.id
+            assign is_active = true
+          endif
+
+          comment
+            表示する商品の決め方
+            1. タブに「コレクション」があればそのコレクションの商品
+            2. なければセクションの「基準コレクション」の商品を「絞り込みタグ」で絞り込む（タグ未入力ならすべて）
+          endcomment
+          assign filter_tag = block.settings.filter_tag | strip
+          assign tab_collection = block.settings.collection
+          if tab_collection != blank
+            assign filter_tag = ''
+          else
+            assign tab_collection = section.settings.collection
+          endif
+
+          assign tab_link = block.settings.link_url
+          if tab_link == blank
+            if block.settings.collection != blank
+              assign tab_link = block.settings.collection.url
+            elsif filter_tag != blank and block.settings.category_collection != blank
+              assign tab_link = block.settings.category_collection.url
+            else
+              assign tab_link = section.settings.collection.url
+            endif
+          endif
+        -%}
         <div
           class="c_collection-tabs__panel"
           id="c_panel-{{ section.id }}-{{ block.id }}"
           {% if section.blocks.size > 1 %}role="tabpanel" aria-labelledby="c_tab-{{ section.id }}-{{ block.id }}"{% endif %}
           data-panel-id="{{ block.id }}"
-          data-panel-link="{{ block.settings.link_url | default: block.settings.collection.url }}"
+          data-panel-link="{{ tab_link }}"
           {% unless is_active %}hidden{% endunless %}
         >
-          <ul class="c_collection-tabs__list" role="list">
-            {%- if block.settings.collection != blank and block.settings.collection.products_count > 0 -%}
-              {%- for product in block.settings.collection.products limit: products_limit -%}
+          {%- if tab_collection != blank -%}
+            {%- assign shown = 0 -%}
+            <ul class="c_collection-tabs__list" role="list">
+              {%- for product in tab_collection.products -%}
+                {%- if filter_tag != blank -%}
+                  {%- unless product.tags contains filter_tag -%}{%- continue -%}{%- endunless -%}
+                {%- endif -%}
+                {%- if shown >= products_limit -%}{%- break -%}{%- endif -%}
+                {%- assign shown = shown | plus: 1 -%}
                 <li class="c_collection-tabs__item">
-                  {%- render 'c_product-item', product: product, badge: section.settings.badge, index: forloop.index -%}
+                  {%- render 'c_product-item', product: product, badge: section.settings.badge, index: shown -%}
                 </li>
               {%- endfor -%}
-            {%- else -%}
+            </ul>
+            {%- if shown == 0 -%}
+              <p class="c_collection-tabs__empty">現在、該当する商品はありません。</p>
+            {%- endif -%}
+          {%- else -%}
+            <ul class="c_collection-tabs__list" role="list">
               {%- for i in (1..products_limit) -%}
                 <li class="c_collection-tabs__item">
                   {%- render 'c_product-item', product: blank, badge: section.settings.badge, index: forloop.index, placeholder_index: forloop.index -%}
                 </li>
               {%- endfor -%}
-            {%- endif -%}
-          </ul>
+            </ul>
+          {%- endif -%}
         </div>
       {%- endfor -%}
     {%- elsif request.design_mode -%}
@@ -119,6 +156,12 @@
       "id": "title",
       "label": "見出し（英字）",
       "default": "COMING SOON"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "基準コレクション",
+      "info": "近日発売・新着などのコレクション。各タブはこのコレクションを「絞り込みタグ」で絞り込んで表示します。"
     },
     {
       "type": "select",
@@ -212,9 +255,22 @@
           "info": "未入力の場合はコレクション名を表示します。"
         },
         {
+          "type": "text",
+          "id": "filter_tag",
+          "label": "絞り込みタグ",
+          "info": "基準コレクションの中から、このタグを持つ商品だけを表示します（例：ウェア/フットウェア）。空欄ならすべて表示。"
+        },
+        {
+          "type": "collection",
+          "id": "category_collection",
+          "label": "VIEW MOREのリンク先コレクション",
+          "info": "絞り込みタグ使用時のリンク先（例：ウェア/フットウェア）。"
+        },
+        {
           "type": "collection",
           "id": "collection",
-          "label": "コレクション"
+          "label": "コレクション（個別指定）",
+          "info": "設定すると基準コレクション・絞り込みタグより優先して、このコレクションを表示します。"
         },
         {
           "type": "url",

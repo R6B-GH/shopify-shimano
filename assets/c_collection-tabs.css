@@ -47,3 +47,11 @@
     scroll-snap-align: start;
   }
 }
+
+.c_collection-tabs__empty {
+  margin: 0;
+  padding: 40px 0;
+  color: var(--c-color-gray600);
+  font-size: 12px;
+  text-align: center;
+}

@@ -99,3 +99,15 @@
     padding: 22px 20px;
   }
 }
+
+.c_review-list__app {
+  min-height: 40px;
+}
+
+.c_review-list__notice {
+  margin: 12px 0 0;
+  padding: 12px 16px;
+  background: var(--c-color-gray100);
+  color: var(--c-color-gray600);
+  font-size: 11px;
+}

@@ -46,7 +46,7 @@
         "logo": "shopify://shop_images/c_logo-shimano-blue.png",
         "logo_max_width": 110,
         "mobile_logo_max_width": 100,
-        "navigation_menu": "main-menu",
+        "navigation_menu": "global-nav",
         "header_layout": "logo_left_navigation_center",
         "show_icons": true,
         "reduce_desktop_padding": false,
@@ -57,7 +57,27 @@
         "search_menu": "search",
         "favorite_url": "/account",
         "transparent_logo": "shopify://shop_images/c_logo-shimano-white.png"
-      }
+      },
+      "blocks": {
+        "mega-category": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_item": "CATEGORY",
+            "images_position": "right",
+            "image_1": "shopify://shop_images/c_megamenu-tryon.jpg",
+            "image_1_heading": "試着サービスについて",
+            "image_1_text": "",
+            "image_1_link": "shopify://pages/try-on",
+            "image_2": "shopify://shop_images/c_banner-02.jpg",
+            "image_2_heading": "26 AUTUMN/WINTER STYLE LAYERING",
+            "image_2_text": "",
+            "image_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "mega-category"
+      ]
     }
   },
   "order": [

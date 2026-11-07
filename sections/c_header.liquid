@@ -133,7 +133,7 @@ IMPLEMENTATION NOTE: the header in Focal is pretty complex as it allows a lot of
       <!-- LEFT PART -->
       <nav class="header__inline-navigation" {% unless section.settings.header_layout == 'logo_center_search_open' %}role="navigation"{% endunless %}>
         {%- if menu.links.size > 0 and section.settings.header_layout == 'logo_left_navigation_inline' or section.settings.header_layout == 'logo_left_navigation_center' or section.settings.header_layout == 'logo_center_navigation_inline' -%}
-          {%- render 'desktop-menu', menu: menu -%}
+          {%- render 'c_desktop-menu', menu: menu -%}
         {%- endif -%}
 
         <div class="header__icon-list {% if section.settings.header_layout == 'logo_center_search_open' %}hidden-desk{% endif %}">
@@ -350,7 +350,7 @@ IMPLEMENTATION NOTE: the header in Focal is pretty complex as it allows a lot of
 
     {%- if menu.links.size > 0 and section.settings.header_layout == 'logo_center_search_open' -%}
       <nav class="header__bottom-navigation hidden-pocket hidden-lap" role="navigation">
-        {% render 'desktop-menu', menu: menu, bottom_navigation: true %}
+        {% render 'c_desktop-menu', menu: menu, bottom_navigation: true %}
       </nav>
     {%- endif -%}
   </div>

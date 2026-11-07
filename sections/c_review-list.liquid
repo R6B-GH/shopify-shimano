@@ -35,9 +35,38 @@
       link_text: section.settings.link_text
     %}
 
-    {%- if section.blocks.size > 0 -%}
+    {%- liquid
+      comment
+        表示方法
+        - judgeme：Judge.me のアプリブロック（レビューカルーセル等）を表示
+        - manual：手入力のレビューブロックを表示
+        Judge.me のアプリブロックが追加されていればそちらを優先します。
+      endcomment
+      assign app_blocks = section.blocks | where: 'type', '@app'
+      assign review_blocks = section.blocks | where: 'type', 'review'
+      assign use_judgeme = false
+      if section.settings.source == 'judgeme' and app_blocks.size > 0
+        assign use_judgeme = true
+      endif
+    -%}
+
+    {%- if use_judgeme -%}
+      <div class="c_review-list__app">
+        {%- for block in app_blocks -%}
+          {% render block %}
+        {%- endfor -%}
+      </div>
+    {%- elsif section.settings.source == 'judgeme' -%}
+      {%- comment -%} Judge.me のブロック未追加時：Judge.me 標準のカルーセル（レガシーウィジェット）を出力 {%- endcomment -%}
+      <div class="c_review-list__app">
+        <div class="jdgm-carousel-wrapper jdgm-widget jdgm-carousel" data-entry-point="home-page"></div>
+      </div>
+      {%- if request.design_mode -%}
+        <p class="c_review-list__notice">Judge.me のレビューを表示するには、このセクションに「Judge.me」のアプリブロック（Reviews Carousel など）を追加してください。</p>
+      {%- endif -%}
+    {%- elsif review_blocks.size > 0 -%}
       <ul class="c_review-list__list" role="list">
-        {%- for block in section.blocks -%}
+        {%- for block in review_blocks -%}
           {%- assign rating = block.settings.rating -%}
           <li class="c_review-list__item" {{ block.shopify_attributes }}>
             <article class="c_review-list__card">
@@ -77,7 +106,7 @@
   "name": "カスタム:お客様のレビュー",
   "class": "c_section c_section--review-list",
   "tag": "div",
-  "max_blocks": 9,
+  "max_blocks": 10,
   "disabled_on": {
     "groups": ["header", "footer", "custom.overlay"]
   },
@@ -93,6 +122,17 @@
       "id": "title",
       "label": "見出し（英字）",
       "default": "REVIEW"
+    },
+    {
+      "type": "select",
+      "id": "source",
+      "label": "表示するレビュー",
+      "options": [
+        { "value": "judgeme", "label": "Judge.me のレビュー" },
+        { "value": "manual", "label": "手入力のレビュー（ブロック）" }
+      ],
+      "default": "judgeme",
+      "info": "Judge.me を選んだ場合は、ブロック追加から Judge.me のアプリブロック（Reviews Carousel 等）を追加します。"
     },
     {
       "type": "text",
@@ -156,6 +196,9 @@
     }
   ],
   "blocks": [
+    {
+      "type": "@app"
+    },
     {
       "type": "review",
       "name": "レビュー",
