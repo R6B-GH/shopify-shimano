@@ -72,6 +72,8 @@
           }
           else img.parentElement.remove();
           card.querySelector('[data-review-product-title]').textContent = productTitle;
+          // Judge.me のデータには商品URLが無いため、商品名からストアの商品ページを検索してリンクする
+          if (!productLink && productTitle) this.linkProduct(productEl, productTitle);
           productEl.hidden = false;
         } else {
           productEl.remove();
@@ -81,6 +83,20 @@
       });
     }
   }
+
+  CReviewList.prototype.linkProduct = async function linkProduct(anchor, title) {
+    try {
+      const root = (window.Shopify && window.Shopify.routes && window.Shopify.routes.root) || '/';
+      const params = new URLSearchParams({ q: title, 'resources[type]': 'product', 'resources[limit]': '1' });
+      const res = await fetch(`${root}search/suggest.json?${params}`);
+      if (!res.ok) return;
+      const data = await res.json();
+      const product = data.resources && data.resources.results && data.resources.results.products && data.resources.results.products[0];
+      if (product && product.url) anchor.setAttribute('href', product.url.split('?')[0]);
+    } catch (e) {
+      // リンクが取れなくても表示はそのまま
+    }
+  };
 
   customElements.define('c-review-list', CReviewList);
 })();
