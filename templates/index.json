@@ -209,7 +209,7 @@
           "type": "tab",
           "settings": {
             "title": "ウェア・フットウェア",
-            "collection": "",
+            "collection": "apparel-footwear",
             "link_url": "",
             "is_default": false
           }
