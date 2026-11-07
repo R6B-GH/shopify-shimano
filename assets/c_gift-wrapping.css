@@ -1,0 +1,54 @@
+/* ==========================================================================
+   c_gift-wrapping.css  カートのギフトラッピング選択
+   ========================================================================== */
+.c_gift-wrapping {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.c_gift-wrapping[aria-busy="true"] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.c_gift-wrapping__fieldset {
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--c-color-gray200, #e5e5e5);
+}
+
+.c_gift-wrapping__title {
+  padding: 0 4px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.c_gift-wrapping__options {
+  display: grid;
+  gap: 8px;
+}
+
+.c_gift-wrapping__option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.c_gift-wrapping__option input {
+  margin: 0;
+  accent-color: var(--c-color-ink, #111);
+}
+
+.c_gift-wrapping__price {
+  margin-left: auto;
+  font-weight: 600;
+}
+
+.c_gift-wrapping__note {
+  margin: 10px 0 0;
+  color: var(--c-color-gray600, #777);
+  font-size: 11px;
+  line-height: 1.6;
+}

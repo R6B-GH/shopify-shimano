@@ -1,0 +1,47 @@
+{%- comment -%}
+--------------------------------------------------------
+  ギフトラッピング選択（カート）
+  - ハンドル「gift-wrapping」の商品のバリエーション（種類）から1つだけ選択できる
+  - 注文単位で1種類のみ。数量は常に1。料金は小計に加算される
+  - ラッピング以外の商品がカートに無い場合は表示しない（JSでラッピングも自動削除）
+
+  引数:
+    context : 'drawer' | 'page'
+{%- endcomment -%}
+{%- assign wrap_product = all_products['gift-wrapping'] -%}
+{%- if wrap_product != blank and wrap_product.available -%}
+  {%- liquid
+    assign wrap_line = nil
+    assign other_count = 0
+    for item in cart.items
+      if item.product.handle == 'gift-wrapping'
+        assign wrap_line = item
+      else
+        assign other_count = other_count | plus: item.quantity
+      endif
+    endfor
+  -%}
+  {%- if other_count > 0 or wrap_line -%}
+    <c-gift-wrapping class="c_gift-wrapping c_gift-wrapping--{{ context | default: 'drawer' }}" data-current="{{ wrap_line.variant_id }}" data-current-qty="{{ wrap_line.quantity | default: 0 }}" data-other-count="{{ other_count }}">
+      <fieldset class="c_gift-wrapping__fieldset">
+        <legend class="c_gift-wrapping__title">ギフトラッピング</legend>
+        <div class="c_gift-wrapping__options">
+          <label class="c_gift-wrapping__option">
+            <input type="radio" name="c_gift_wrapping_{{ context }}" value="" {% unless wrap_line %}checked{% endunless %}>
+            <span class="c_gift-wrapping__label">ラッピングなし</span>
+          </label>
+          {%- for variant in wrap_product.variants -%}
+            {%- if variant.available -%}
+              <label class="c_gift-wrapping__option">
+                <input type="radio" name="c_gift_wrapping_{{ context }}" value="{{ variant.id }}" {% if wrap_line.variant_id == variant.id %}checked{% endif %}>
+                <span class="c_gift-wrapping__label">{{ variant.title | escape }}</span>
+                <span class="c_gift-wrapping__price">+{{ variant.price | money_without_trailing_zeros }}</span>
+              </label>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+        <p class="c_gift-wrapping__note">ご注文全体を1種類のラッピングでお包みします。商品ごとの個別ラッピング・メッセージカード・熨斗は承っておりません。</p>
+      </fieldset>
+    </c-gift-wrapping>
+  {%- endif -%}
+{%- endif -%}

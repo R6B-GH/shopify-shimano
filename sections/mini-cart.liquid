@@ -336,6 +336,8 @@
     </div>
 
     <footer class="mini-cart__drawer-footer drawer__footer drawer__footer--tight drawer__footer--bordered">
+      {%- comment -%} カスタム：ギフトラッピング選択 {%- endcomment -%}
+      {%- render 'c_gift-wrapping', context: 'drawer' -%}
       {%- capture shipping_tax_note -%}{{ 'cart.general.shipping_tax_note_html' | t: link: shop.shipping_policy.url }}{%- endcapture -%}
 
       {%- if cart.cart_level_discount_applications != blank -%}

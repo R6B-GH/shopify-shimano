@@ -84,6 +84,8 @@ NOTE TO DEVELOPERS: welcome to Focal theme! We hope that you will enjoy editing 
 
     {%- comment -%} カスタム：共通CSS {%- endcomment -%}
     {{ 'c_theme.css' | asset_url | stylesheet_tag }}
+    {{ 'c_gift-wrapping.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'c_gift-wrapping.js' | asset_url }}" defer></script>
 
     <script src="{{ 'vendor.js' | asset_url }}" defer></script>
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
