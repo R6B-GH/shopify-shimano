@@ -16,12 +16,17 @@
           "type": "slide",
           "settings": {
             "media_type": "video",
+            "video": "shopify://files/videos/マイムービー 25.mp4.mp4",
+            "video_url": "",
+            "video_url_sp": "",
             "text_position": "bottom_left",
+            "label": "",
             "title": "NEW COLLECTION",
             "title_font": "en",
             "text": "今季の新作を、いち早くお届けします。",
             "button_text": "VIEW MORE",
-            "button_link": "shopify://collections/all"
+            "button_link": "shopify://collections/all",
+            "link": ""
           }
         }
       },
@@ -34,7 +39,11 @@
         "autoplay_speed": 6,
         "text_color": "#ffffff",
         "overlay_color": "#000000",
-        "overlay_opacity": 30
+        "overlay_opacity": 30,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_sp": 0,
+        "padding_bottom_sp": 0
       }
     },
     "free_banner_top": {
@@ -43,36 +52,46 @@
         "banner-1": {
           "type": "banner",
           "settings": {
+            "image": "shopify://shop_images/c_banner-01.jpg",
             "alt": "SHIMANO LINK",
-            "image": "shopify://shop_images/c_banner-01.jpg"
+            "link": "",
+            "open_in_new_tab": false
           }
         },
         "banner-2": {
           "type": "banner",
           "settings": {
+            "image": "shopify://shop_images/c_banner-02.jpg",
             "alt": "26 AUTUMN/WINTER STYLE LAYERING",
-            "image": "shopify://shop_images/c_banner-02.jpg"
+            "link": "",
+            "open_in_new_tab": false
           }
         },
         "banner-3": {
           "type": "banner",
           "settings": {
+            "image": "shopify://shop_images/c_banner-03.jpg",
             "alt": "ビギナーズサイト",
-            "image": "shopify://shop_images/c_banner-03.jpg"
+            "link": "",
+            "open_in_new_tab": false
           }
         },
         "banner-4": {
           "type": "banner",
           "settings": {
+            "image": "shopify://shop_images/c_banner-04.jpg",
             "alt": "BEYOND THE LAUNCH",
-            "image": "shopify://shop_images/c_banner-04.jpg"
+            "link": "",
+            "open_in_new_tab": false
           }
         },
         "banner-5": {
           "type": "banner",
           "settings": {
+            "image": "shopify://shop_images/c_banner-01.jpg",
             "alt": "SHIMANO LINK",
-            "image": "shopify://shop_images/c_banner-01.jpg"
+            "link": "",
+            "open_in_new_tab": false
           }
         }
       },
@@ -85,6 +104,10 @@
       ],
       "settings": {
         "aria_label": "おすすめバナー",
+        "autoplay": true,
+        "autoplay_speed": 4,
+        "background": "rgba(0,0,0,0)",
+        "background_bottom": "rgba(0,0,0,0)",
         "padding_top": 24,
         "padding_bottom": 0,
         "padding_top_sp": 20,
@@ -97,43 +120,55 @@
         "category-1": {
           "type": "category",
           "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/c_category-01.jpg",
             "title": "ウェア・フットウェア",
-            "image": "shopify://shop_images/c_category-01.jpg"
+            "link": ""
           }
         },
         "category-2": {
           "type": "category",
           "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/c_category-02.jpg",
             "title": "クーラーボックス",
-            "image": "shopify://shop_images/c_category-02.jpg"
+            "link": ""
           }
         },
         "category-3": {
           "type": "category",
           "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/c_category-03.jpg",
             "title": "バッグ・ケース・収納用品",
-            "image": "shopify://shop_images/c_category-03.jpg"
+            "link": ""
           }
         },
         "category-4": {
           "type": "category",
           "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/c_category-01.jpg",
             "title": "ウェア・フットウェア",
-            "image": "shopify://shop_images/c_category-01.jpg"
+            "link": ""
           }
         },
         "category-5": {
           "type": "category",
           "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/c_category-02.jpg",
             "title": "クーラーボックス",
-            "image": "shopify://shop_images/c_category-02.jpg"
+            "link": ""
           }
         },
         "category-6": {
           "type": "category",
           "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/c_category-03.jpg",
             "title": "バッグ・ケース・収納用品",
-            "image": "shopify://shop_images/c_category-03.jpg"
+            "link": ""
           }
         }
       },
@@ -148,7 +183,10 @@
       "settings": {
         "subtitle": "カテゴリー",
         "title": "CATEGORY",
+        "link_text": "",
+        "link_url": "",
         "columns": 6,
+        "background": "rgba(0,0,0,0)",
         "padding_top": 100,
         "padding_bottom": 50,
         "padding_top_sp": 50,
@@ -161,25 +199,37 @@
         "tab-1": {
           "type": "tab",
           "settings": {
-            "title": "すべて"
+            "title": "すべて",
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-2": {
           "type": "tab",
           "settings": {
-            "title": "ウェア・フットウェア"
+            "title": "ウェア・フットウェア",
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-3": {
           "type": "tab",
           "settings": {
-            "title": "クーラーボックス"
+            "title": "クーラーボックス",
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-4": {
           "type": "tab",
           "settings": {
-            "title": "バッグ・ケース・収納用品"
+            "title": "バッグ・ケース・収納用品",
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         }
       },
@@ -195,6 +245,7 @@
         "badge": "coming_soon",
         "products_count": 4,
         "link_text": "VIEW MORE",
+        "background": "rgba(0,0,0,0)",
         "padding_top": 50,
         "padding_bottom": 50,
         "padding_top_sp": 30,
@@ -207,25 +258,37 @@
         "tab-1": {
           "type": "tab",
           "settings": {
-            "title": "すべて"
+            "title": "すべて",
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-2": {
           "type": "tab",
           "settings": {
-            "title": "ウェア・フットウェア"
+            "title": "ウェア・フットウェア",
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-3": {
           "type": "tab",
           "settings": {
-            "title": "クーラーボックス"
+            "title": "クーラーボックス",
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-4": {
           "type": "tab",
           "settings": {
-            "title": "バッグ・ケース・収納用品"
+            "title": "バッグ・ケース・収納用品",
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         }
       },
@@ -241,6 +304,7 @@
         "badge": "new",
         "products_count": 4,
         "link_text": "VIEW MORE",
+        "background": "rgba(0,0,0,0)",
         "padding_top": 50,
         "padding_bottom": 100,
         "padding_top_sp": 30,
@@ -254,12 +318,16 @@
           "type": "slide",
           "settings": {
             "media_type": "video",
+            "video_url": "",
+            "video_url_sp": "",
             "text_position": "bottom_left",
             "label": "SHIMANO",
             "title": "もっと自然へ、もっと人へ",
             "title_font": "jp",
             "text": "ひとと自然がもっと身近になり、ともに生きるよろこびを分かち合うために、\n新しい夢の実現、新しい文化の創造をめざしてまいります。",
-            "button_text": ""
+            "button_text": "",
+            "button_link": "",
+            "link": ""
           }
         }
       },
@@ -272,7 +340,11 @@
         "autoplay_speed": 6,
         "text_color": "#ffffff",
         "overlay_color": "#000000",
-        "overlay_opacity": 30
+        "overlay_opacity": 30,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_sp": 0,
+        "padding_bottom_sp": 0
       }
     },
     "ranking": {
@@ -281,25 +353,37 @@
         "tab-1": {
           "type": "tab",
           "settings": {
-            "title": "すべて"
+            "title": "すべて",
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-2": {
           "type": "tab",
           "settings": {
-            "title": "ウェア・フットウェア"
+            "title": "ウェア・フットウェア",
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-3": {
           "type": "tab",
           "settings": {
-            "title": "クーラーボックス"
+            "title": "クーラーボックス",
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-4": {
           "type": "tab",
           "settings": {
-            "title": "バッグ・ケース・収納用品"
+            "title": "バッグ・ケース・収納用品",
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         }
       },
@@ -315,6 +399,7 @@
         "badge": "rank",
         "products_count": 4,
         "link_text": "",
+        "background": "rgba(0,0,0,0)",
         "padding_top": 100,
         "padding_bottom": 50,
         "padding_top_sp": 30,
@@ -327,25 +412,37 @@
         "tab-1": {
           "type": "tab",
           "settings": {
-            "title": "すべて"
+            "title": "すべて",
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-2": {
           "type": "tab",
           "settings": {
-            "title": "ウェア・フットウェア"
+            "title": "ウェア・フットウェア",
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-3": {
           "type": "tab",
           "settings": {
-            "title": "クーラーボックス"
+            "title": "クーラーボックス",
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-4": {
           "type": "tab",
           "settings": {
-            "title": "バッグ・ケース・収納用品"
+            "title": "バッグ・ケース・収納用品",
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         }
       },
@@ -361,6 +458,7 @@
         "badge": "none",
         "products_count": 4,
         "link_text": "VIEW MORE",
+        "background": "rgba(0,0,0,0)",
         "padding_top": 50,
         "padding_bottom": 50,
         "padding_top_sp": 30,
@@ -377,7 +475,8 @@
             "title": "防水性と動きやすさが両立している",
             "body": "<p>レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。</p>",
             "author": "ユーザー名",
-            "date": "2026.12.05"
+            "date": "2026.12.05",
+            "product": ""
           }
         },
         "review-2": {
@@ -387,7 +486,8 @@
             "title": "サイズ感はやや大きめでした",
             "body": "<p>レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。</p>",
             "author": "ユーザー名",
-            "date": "2026.12.05"
+            "date": "2026.12.05",
+            "product": ""
           }
         },
         "review-3": {
@@ -397,7 +497,8 @@
             "title": "ソール交換がかんたんでグリップも良好",
             "body": "<p>レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。レビュー本文が入ります。</p>",
             "author": "ユーザー名",
-            "date": "2026.12.05"
+            "date": "2026.12.05",
+            "product": ""
           }
         }
       },
@@ -409,8 +510,13 @@
       "settings": {
         "subtitle": "お客様のレビュー",
         "title": "REVIEW",
+        "link_text": "",
+        "link_url": "",
+        "background": "rgba(0,0,0,0)",
         "padding_top": 50,
-        "padding_bottom": 100
+        "padding_bottom": 100,
+        "padding_top_sp": 30,
+        "padding_bottom_sp": 60
       }
     },
     "magazine": {
@@ -419,25 +525,31 @@
         "card-1": {
           "type": "card",
           "settings": {
+            "article": "",
+            "image": "shopify://shop_images/c_magazine-card-01.jpg",
             "date": "2026.11.28",
             "title": "シマノ波止釣りフェス in 六甲マリンパーク",
-            "image": "shopify://shop_images/c_magazine-card-01.jpg"
+            "link": ""
           }
         },
         "card-2": {
           "type": "card",
           "settings": {
+            "article": "",
+            "image": "shopify://shop_images/c_magazine-card-02.jpg",
             "date": "2026.11.28",
             "title": "シマノ磯フカセスクール in 家島",
-            "image": "shopify://shop_images/c_magazine-card-02.jpg"
+            "link": ""
           }
         },
         "card-3": {
           "type": "card",
           "settings": {
+            "article": "",
+            "image": "shopify://shop_images/c_magazine-card-03.jpg",
             "date": "2026.11.28",
             "title": "ジオロックソール交換で、ウェーディングの足元を整える",
-            "image": "shopify://shop_images/c_magazine-card-03.jpg"
+            "link": ""
           }
         }
       },
@@ -449,10 +561,17 @@
       "settings": {
         "subtitle": "新たな発見と本物との出会いの場",
         "title": "MAGAZINE",
+        "blog": "",
+        "articles_count": "3",
         "link_text": "VIEW MORE",
+        "link_url": "",
+        "background_image": "shopify://shop_images/c_magazine-bg.jpg",
         "band_color": "#00a0e9",
         "show_tricolor": true,
-        "background_image": "shopify://shop_images/c_magazine-bg.jpg"
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_top_sp": 0,
+        "margin_bottom_sp": 0
       }
     },
     "news": {
@@ -462,21 +581,24 @@
           "type": "news",
           "settings": {
             "date": "2026.12.18",
-            "title": "シマノ フィッシング公式オンラインストアをオープンしました"
+            "title": "シマノ フィッシング公式オンラインストアをオープンしました",
+            "link": ""
           }
         },
         "news-2": {
           "type": "news",
           "settings": {
             "date": "2026.12.18",
-            "title": "限定カラー「リミテッドプロ」シリーズ 販売開始のお知らせ"
+            "title": "限定カラー「リミテッドプロ」シリーズ 販売開始のお知らせ",
+            "link": ""
           }
         },
         "news-3": {
           "type": "news",
           "settings": {
             "date": "2026.12.18",
-            "title": "試着サービス（シューズ）開始のご案内"
+            "title": "試着サービス（シューズ）開始のご案内",
+            "link": ""
           }
         }
       },
@@ -488,10 +610,15 @@
       "settings": {
         "subtitle": "お知らせ",
         "title": "NEWS",
+        "blog": "",
         "articles_count": 3,
         "link_text": "VIEW MORE",
+        "link_url": "",
+        "background": "rgba(0,0,0,0)",
         "padding_top": 100,
-        "padding_bottom": 76
+        "padding_bottom": 76,
+        "padding_top_sp": 60,
+        "padding_bottom_sp": 40
       }
     },
     "free_banner_bottom": {
@@ -500,36 +627,46 @@
         "banner-1": {
           "type": "banner",
           "settings": {
+            "image": "shopify://shop_images/c_banner-01.jpg",
             "alt": "SHIMANO LINK",
-            "image": "shopify://shop_images/c_banner-01.jpg"
+            "link": "",
+            "open_in_new_tab": false
           }
         },
         "banner-2": {
           "type": "banner",
           "settings": {
+            "image": "shopify://shop_images/c_banner-02.jpg",
             "alt": "26 AUTUMN/WINTER STYLE LAYERING",
-            "image": "shopify://shop_images/c_banner-02.jpg"
+            "link": "",
+            "open_in_new_tab": false
           }
         },
         "banner-3": {
           "type": "banner",
           "settings": {
+            "image": "shopify://shop_images/c_banner-03.jpg",
             "alt": "ビギナーズサイト",
-            "image": "shopify://shop_images/c_banner-03.jpg"
+            "link": "",
+            "open_in_new_tab": false
           }
         },
         "banner-4": {
           "type": "banner",
           "settings": {
+            "image": "shopify://shop_images/c_banner-04.jpg",
             "alt": "BEYOND THE LAUNCH",
-            "image": "shopify://shop_images/c_banner-04.jpg"
+            "link": "",
+            "open_in_new_tab": false
           }
         },
         "banner-5": {
           "type": "banner",
           "settings": {
+            "image": "shopify://shop_images/c_banner-01.jpg",
             "alt": "SHIMANO LINK",
-            "image": "shopify://shop_images/c_banner-01.jpg"
+            "link": "",
+            "open_in_new_tab": false
           }
         }
       },
@@ -542,6 +679,8 @@
       ],
       "settings": {
         "aria_label": "おすすめバナー",
+        "autoplay": true,
+        "autoplay_speed": 4,
         "background": "#ffffff",
         "background_bottom": "#000000",
         "padding_top": 0,
