@@ -41,3 +41,17 @@
   color: var(--c-color-gray600);
   font-size: 13px;
 }
+
+/* Powerful Form Builder（マテリアル風入力欄）にテーマの入力欄スタイルが干渉しないようにする */
+.c_contact-form .globo-formbuilder input:not([type="radio"]):not([type="checkbox"]),
+.c_contact-form .globo-formbuilder select {
+  height: auto !important;
+  min-height: 56px;
+  line-height: 1.4 !important;
+  box-sizing: border-box;
+}
+
+.c_contact-form .globo-formbuilder textarea {
+  min-height: 140px;
+  box-sizing: border-box;
+}
