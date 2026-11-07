@@ -96,8 +96,18 @@
           {% unless is_active %}hidden{% endunless %}
         >
           {%- if tab_collection != blank -%}
-            {%- assign shown = 0 -%}
-            <ul class="c_collection-tabs__list" role="list">
+            {%- comment -%} 表示件数を先に数える（4点以上ならFocal標準のスライダーにする） {%- endcomment -%}
+            {%- assign total = 0 -%}
+            {%- for product in tab_collection.products -%}
+              {%- if filter_tag != blank -%}
+                {%- unless product.tags contains filter_tag -%}{%- continue -%}{%- endunless -%}
+              {%- endif -%}
+              {%- if total >= products_limit -%}{%- break -%}{%- endif -%}
+              {%- assign total = total | plus: 1 -%}
+            {%- endfor -%}
+
+            {%- capture items_html -%}
+              {%- assign shown = 0 -%}
               {%- for product in tab_collection.products -%}
                 {%- if filter_tag != blank -%}
                   {%- unless product.tags contains filter_tag -%}{%- continue -%}{%- endunless -%}
@@ -108,8 +118,34 @@
                   {%- render 'c_product-item', product: product, badge: section.settings.badge, index: shown -%}
                 </li>
               {%- endfor -%}
-            </ul>
-            {%- if shown == 0 -%}
+            {%- endcapture -%}
+
+            {%- if total >= 4 -%}
+              <product-list class="product-list c_collection-tabs__slider">
+                <div class="scroller">
+                  <ul class="product-list__inner product-list__inner--scroller hide-scrollbar" role="list">
+                    {{- items_html -}}
+                  </ul>
+                </div>
+
+                {%- if total > 4 -%}
+                  <prev-next-buttons class="product-list__prev-next hidden-pocket">
+                    <button type="button" class="product-list__arrow prev-next-button prev-next-button--prev" disabled>
+                      <span class="visually-hidden">{{ 'general.accessibility.previous' | t }}</span>
+                      {%- render 'icon' with 'nav-arrow-left', block: true, direction_aware: true -%}
+                    </button>
+                    <button type="button" class="product-list__arrow prev-next-button prev-next-button--next">
+                      <span class="visually-hidden">{{ 'general.accessibility.next' | t }}</span>
+                      {%- render 'icon' with 'nav-arrow-right', block: true, direction_aware: true -%}
+                    </button>
+                  </prev-next-buttons>
+                {%- endif -%}
+              </product-list>
+            {%- elsif total > 0 -%}
+              <ul class="c_collection-tabs__list" role="list">
+                {{- items_html -}}
+              </ul>
+            {%- else -%}
               <p class="c_collection-tabs__empty">現在、該当する商品はありません。</p>
             {%- endif -%}
           {%- else -%}
@@ -180,9 +216,10 @@
       "id": "products_count",
       "label": "表示する商品数",
       "min": 4,
-      "max": 12,
-      "step": 4,
-      "default": 4
+      "max": 16,
+      "step": 1,
+      "default": 12,
+      "info": "4点以上ある場合はスライダーで表示します。"
     },
     {
       "type": "text",

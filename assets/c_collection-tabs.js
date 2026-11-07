@@ -69,8 +69,11 @@
         panel.hidden = !active;
         if (active) {
           link = panel.dataset.panelLink || '';
-          const list = panel.querySelector('.c_collection-tabs__list');
-          if (list) list.scrollLeft = 0;
+          panel.querySelectorAll('.c_collection-tabs__list, .product-list__inner').forEach((list) => {
+            list.scrollLeft = 0;
+          });
+          panel.querySelector('.prev-next-button--prev')?.setAttribute('disabled', '');
+          panel.querySelector('.prev-next-button--next')?.removeAttribute('disabled');
         }
       });
 

@@ -55,3 +55,58 @@
   font-size: 12px;
   text-align: center;
 }
+
+/* --------------------------------------------------------------------------
+   4点以上：Focal標準のスライダー（product-list / scroller / prev-next-buttons）
+   -------------------------------------------------------------------------- */
+.c_collection-tabs__slider {
+  --section-products-per-row: 2;
+  --grid-gap: 10px;
+  --product-list-column-gap: 10px;
+  --container-gutter: var(--c-gutter, 20px);
+  --prev-next-button-background: 255, 255, 255;
+  --prev-next-button-color: 17, 17, 17;
+  position: relative;
+  display: block;
+}
+
+.c_collection-tabs__slider .product-list__inner {
+  margin-block: 0;
+  list-style: none;
+}
+
+.c_collection-tabs__slider .c_collection-tabs__item {
+  scroll-snap-align: start;
+}
+
+@media screen and (max-width: 999px) {
+  .c_collection-tabs__slider .product-list__inner--scroller {
+    grid-auto-columns: 46%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .c_collection-tabs__slider {
+    --section-products-per-row: 4;
+    --grid-gap: 35px;
+    --product-list-column-gap: 35px;
+  }
+
+  /* コンテナ幅いっぱいに4点並べ、矢印はリストの外側に出す */
+  .c_collection-tabs__slider .scroller {
+    margin-inline: 0;
+    overflow: visible;
+  }
+
+  .c_collection-tabs__slider .product-list__inner--scroller {
+    margin-inline: 0;
+    padding-inline: 0;
+    min-width: 0;
+  }
+
+  .c_collection-tabs__slider .product-list__prev-next {
+    top: 32%;
+    left: -28px;
+    width: calc(100% + 56px);
+  }
+}
