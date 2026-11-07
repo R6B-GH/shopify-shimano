@@ -200,43 +200,44 @@
           "type": "tab",
           "settings": {
             "title": "すべて",
+            "filter_tag": "",
+            "category_collection": "",
             "collection": "",
             "link_url": "",
-            "is_default": false,
-            "filter_tag": ""
+            "is_default": false
           }
         },
         "tab-2": {
           "type": "tab",
           "settings": {
             "title": "ウェア・フットウェア",
+            "filter_tag": "ウェア/フットウェア",
+            "category_collection": "wear",
             "collection": "apparel-footwear",
             "link_url": "",
-            "is_default": false,
-            "filter_tag": "ウェア/フットウェア",
-            "category_collection": "wear"
+            "is_default": false
           }
         },
         "tab-3": {
           "type": "tab",
           "settings": {
             "title": "クーラーボックス",
+            "filter_tag": "クーラーボックス",
+            "category_collection": "cooler-box",
             "collection": "",
             "link_url": "",
-            "is_default": false,
-            "filter_tag": "クーラーボックス",
-            "category_collection": "cooler-box"
+            "is_default": false
           }
         },
         "tab-4": {
           "type": "tab",
           "settings": {
             "title": "バッグ・ケース・収納用品",
+            "filter_tag": "バッグ/ケース/収納用品",
+            "category_collection": "bag-case",
             "collection": "",
             "link_url": "",
-            "is_default": false,
-            "filter_tag": "バッグ/ケース/収納用品",
-            "category_collection": "bag-case"
+            "is_default": false
           }
         }
       },
@@ -249,6 +250,7 @@
       "settings": {
         "subtitle": "近日発売",
         "title": "COMING SOON",
+        "collection": "coming-soon",
         "badge": "coming_soon",
         "products_count": 12,
         "link_text": "VIEW MORE",
@@ -256,8 +258,7 @@
         "padding_top": 50,
         "padding_bottom": 50,
         "padding_top_sp": 30,
-        "padding_bottom_sp": 30,
-        "collection": "coming-soon"
+        "padding_bottom_sp": 30
       }
     },
     "new_arrival": {
@@ -267,43 +268,44 @@
           "type": "tab",
           "settings": {
             "title": "すべて",
+            "filter_tag": "",
+            "category_collection": "",
             "collection": "",
             "link_url": "",
-            "is_default": false,
-            "filter_tag": ""
+            "is_default": false
           }
         },
         "tab-2": {
           "type": "tab",
           "settings": {
             "title": "ウェア・フットウェア",
+            "filter_tag": "ウェア/フットウェア",
+            "category_collection": "wear",
             "collection": "",
             "link_url": "",
-            "is_default": false,
-            "filter_tag": "ウェア/フットウェア",
-            "category_collection": "wear"
+            "is_default": false
           }
         },
         "tab-3": {
           "type": "tab",
           "settings": {
             "title": "クーラーボックス",
+            "filter_tag": "クーラーボックス",
+            "category_collection": "cooler-box",
             "collection": "",
             "link_url": "",
-            "is_default": false,
-            "filter_tag": "クーラーボックス",
-            "category_collection": "cooler-box"
+            "is_default": false
           }
         },
         "tab-4": {
           "type": "tab",
           "settings": {
             "title": "バッグ・ケース・収納用品",
+            "filter_tag": "バッグ/ケース/収納用品",
+            "category_collection": "bag-case",
             "collection": "",
             "link_url": "",
-            "is_default": false,
-            "filter_tag": "バッグ/ケース/収納用品",
-            "category_collection": "bag-case"
+            "is_default": false
           }
         }
       },
@@ -316,6 +318,7 @@
       "settings": {
         "subtitle": "新着商品",
         "title": "NEW ARRIVAL",
+        "collection": "new-arrival",
         "badge": "new",
         "products_count": 12,
         "link_text": "VIEW MORE",
@@ -323,8 +326,7 @@
         "padding_top": 50,
         "padding_bottom": 100,
         "padding_top_sp": 30,
-        "padding_bottom_sp": 30,
-        "collection": "new-arrival"
+        "padding_bottom_sp": 30
       }
     },
     "brand_movie": {
@@ -371,43 +373,44 @@
           "type": "tab",
           "settings": {
             "title": "すべて",
+            "filter_tag": "",
+            "category_collection": "",
             "collection": "",
             "link_url": "",
-            "is_default": false,
-            "filter_tag": ""
+            "is_default": false
           }
         },
         "tab-2": {
           "type": "tab",
           "settings": {
             "title": "ウェア・フットウェア",
+            "filter_tag": "ウェア/フットウェア",
+            "category_collection": "wear",
             "collection": "",
             "link_url": "",
-            "is_default": false,
-            "filter_tag": "ウェア/フットウェア",
-            "category_collection": "wear"
+            "is_default": false
           }
         },
         "tab-3": {
           "type": "tab",
           "settings": {
             "title": "クーラーボックス",
+            "filter_tag": "クーラーボックス",
+            "category_collection": "cooler-box",
             "collection": "",
             "link_url": "",
-            "is_default": false,
-            "filter_tag": "クーラーボックス",
-            "category_collection": "cooler-box"
+            "is_default": false
           }
         },
         "tab-4": {
           "type": "tab",
           "settings": {
             "title": "バッグ・ケース・収納用品",
+            "filter_tag": "バッグ/ケース/収納用品",
+            "category_collection": "bag-case",
             "collection": "",
             "link_url": "",
-            "is_default": false,
-            "filter_tag": "バッグ/ケース/収納用品",
-            "category_collection": "bag-case"
+            "is_default": false
           }
         }
       },
@@ -420,6 +423,7 @@
       "settings": {
         "subtitle": "売れ筋ランキング",
         "title": "RANKING",
+        "collection": "ranking",
         "badge": "rank",
         "products_count": 12,
         "link_text": "",
@@ -427,8 +431,7 @@
         "padding_top": 100,
         "padding_bottom": 50,
         "padding_top_sp": 30,
-        "padding_bottom_sp": 30,
-        "collection": "ranking"
+        "padding_bottom_sp": 30
       }
     },
     "recommend": {
@@ -438,43 +441,44 @@
           "type": "tab",
           "settings": {
             "title": "すべて",
+            "filter_tag": "",
+            "category_collection": "",
             "collection": "",
             "link_url": "",
-            "is_default": false,
-            "filter_tag": ""
+            "is_default": false
           }
         },
         "tab-2": {
           "type": "tab",
           "settings": {
             "title": "ウェア・フットウェア",
+            "filter_tag": "ウェア/フットウェア",
+            "category_collection": "wear",
             "collection": "",
             "link_url": "",
-            "is_default": false,
-            "filter_tag": "ウェア/フットウェア",
-            "category_collection": "wear"
+            "is_default": false
           }
         },
         "tab-3": {
           "type": "tab",
           "settings": {
             "title": "クーラーボックス",
+            "filter_tag": "クーラーボックス",
+            "category_collection": "cooler-box",
             "collection": "",
             "link_url": "",
-            "is_default": false,
-            "filter_tag": "クーラーボックス",
-            "category_collection": "cooler-box"
+            "is_default": false
           }
         },
         "tab-4": {
           "type": "tab",
           "settings": {
             "title": "バッグ・ケース・収納用品",
+            "filter_tag": "バッグ/ケース/収納用品",
+            "category_collection": "bag-case",
             "collection": "",
             "link_url": "",
-            "is_default": false,
-            "filter_tag": "バッグ/ケース/収納用品",
-            "category_collection": "bag-case"
+            "is_default": false
           }
         }
       },
@@ -487,6 +491,7 @@
       "settings": {
         "subtitle": "おすすめ商品",
         "title": "RECOMMEND",
+        "collection": "recommend",
         "badge": "none",
         "products_count": 12,
         "link_text": "VIEW MORE",
@@ -494,13 +499,47 @@
         "padding_top": 50,
         "padding_bottom": 50,
         "padding_top_sp": 30,
-        "padding_bottom_sp": 30,
-        "collection": "recommend"
+        "padding_bottom_sp": 30
       }
     },
     "review": {
       "type": "c_review-list",
       "blocks": {
+        "judge_me_reviews_cards_carousel_MJw8CE": {
+          "type": "shopify://apps/judge-me-reviews/blocks/cards_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": true,
+            "reviews_selection": "all",
+            "products": [],
+            "filter_pinned": false,
+            "filter_featured": false,
+            "filter_custom_tags": "",
+            "star_rating": "all",
+            "show_review_media": true,
+            "display_order": "media_first",
+            "no_image_fallback": "review_text_only",
+            "max_reviews": 20,
+            "review_length": "medium",
+            "text_size": "medium",
+            "image_ratio": "1",
+            "reviews_shown": 4,
+            "show_reviewer_name": true,
+            "show_product_name": true,
+            "hide_arrows_mobile": true,
+            "arrows_position": "sides",
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "header_text_color": "#000000",
+            "text_color": "#000000",
+            "card_color": "#F9F9F9",
+            "stars_color": "",
+            "arrows_color": "#000000",
+            "transition_speed": 5,
+            "header_text": "Customers are saying",
+            "show_average_rating": true,
+            "rating_display": "default"
+          }
+        },
         "review-1": {
           "type": "review",
           "settings": {
@@ -536,6 +575,7 @@
         }
       },
       "block_order": [
+        "judge_me_reviews_cards_carousel_MJw8CE",
         "review-1",
         "review-2",
         "review-3"
@@ -543,14 +583,14 @@
       "settings": {
         "subtitle": "お客様のレビュー",
         "title": "REVIEW",
+        "source": "judgeme",
         "link_text": "",
         "link_url": "",
         "background": "rgba(0,0,0,0)",
         "padding_top": 50,
         "padding_bottom": 100,
         "padding_top_sp": 30,
-        "padding_bottom_sp": 60,
-        "source": "judgeme"
+        "padding_bottom_sp": 60
       }
     },
     "magazine": {
