@@ -1,9 +1,9 @@
-{% render "c_jdgm-debug" %}
 {%- comment -%}
 --------------------------------------------------------
   CSS
 {%- endcomment -%}
 {{ 'c_review-list.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'c_review-list.js' | asset_url }}" defer></script>
 
 {%- comment -%}
 --------------------------------------------------------
@@ -39,32 +39,42 @@
     {%- liquid
       comment
         表示方法
-        - judgeme：Judge.me のアプリブロック（レビューカルーセル等）を表示
-        - manual：手入力のレビューブロックを表示
-        Judge.me のアプリブロックが追加されていればそちらを優先します。
+        - judgeme        ：Judge.me のレビューをデザイン通りのカードで表示（Judge.me のショップメタフィールドから取得）
+        - judgeme_widget ：Judge.me のアプリブロック（ウィジェット）をそのまま表示
+        - manual         ：手入力のレビューブロックを表示
       endcomment
       assign app_blocks = section.blocks | where: 'type', '@app'
       assign review_blocks = section.blocks | where: 'type', 'review'
-      assign use_judgeme = false
-      if section.settings.source == 'judgeme' and app_blocks.size > 0
-        assign use_judgeme = true
-      endif
+      assign jdgm_html = shop.metafields.judgeme.featured_carousel
     -%}
 
-    {%- if use_judgeme -%}
+    {%- if section.settings.source == 'judgeme' and jdgm_html != blank -%}
+      <c-review-list class="c_review-list__judgeme" data-limit="{{ section.settings.limit }}" data-show-product="{{ section.settings.show_product }}">
+        <ul class="c_review-list__list" role="list" data-review-list></ul>
+        <template data-review-source>{{ jdgm_html }}</template>
+        <template data-review-card>
+          <li class="c_review-list__item">
+            <article class="c_review-list__card">
+              <p class="c_review-list__stars" data-review-stars></p>
+              <h3 class="c_review-list__title" data-review-title></h3>
+              <div class="c_review-list__body" data-review-body></div>
+              <p class="c_review-list__meta" data-review-meta></p>
+              <a class="c_review-list__product" data-review-product hidden>
+                <span class="c_review-list__product-image"><img data-review-product-image alt="" loading="lazy" width="120" height="120"></span>
+                <span class="c_review-list__product-title" data-review-product-title></span>
+              </a>
+            </article>
+          </li>
+        </template>
+      </c-review-list>
+    {%- elsif section.settings.source == 'judgeme_widget' and app_blocks.size > 0 -%}
       <div class="c_review-list__app">
         {%- for block in app_blocks -%}
           {% render block %}
         {%- endfor -%}
       </div>
-    {%- elsif section.settings.source == 'judgeme' -%}
-      {%- comment -%} Judge.me のブロック未追加時：Judge.me 標準のカルーセル（レガシーウィジェット）を出力 {%- endcomment -%}
-      <div class="c_review-list__app">
-        <div class="jdgm-carousel-wrapper jdgm-widget jdgm-carousel" data-entry-point="home-page"></div>
-      </div>
-      {%- if request.design_mode -%}
-        <p class="c_review-list__notice">Judge.me のレビューを表示するには、このセクションに「Judge.me」のアプリブロック（Reviews Carousel など）を追加してください。</p>
-      {%- endif -%}
+    {%- elsif section.settings.source != 'manual' and request.design_mode -%}
+      <p class="c_review-list__notice">Judge.me に公開中のレビューがまだありません（または Judge.me の「Reviews Carousel」設定でレビューが選ばれていません）。</p>
     {%- elsif review_blocks.size > 0 -%}
       <ul class="c_review-list__list" role="list">
         {%- for block in review_blocks -%}
@@ -88,7 +98,12 @@
                 {%- if block.settings.date != blank -%}{{ block.settings.date | escape }}{%- endif -%}
               </p>
               {%- if block.settings.product != blank -%}
-                <a class="c_review-list__product" href="{{ block.settings.product.url }}">{{ block.settings.product.title | escape }}</a>
+                <a class="c_review-list__product" href="{{ block.settings.product.url }}">
+                  {%- if block.settings.product.featured_image -%}
+                    <span class="c_review-list__product-image">{{ block.settings.product.featured_image | image_url: width: 120 | image_tag: loading: 'lazy', alt: '' }}</span>
+                  {%- endif -%}
+                  <span class="c_review-list__product-title">{{ block.settings.product.title | escape }}</span>
+                </a>
               {%- endif -%}
             </article>
           </li>
@@ -129,11 +144,27 @@
       "id": "source",
       "label": "表示するレビュー",
       "options": [
-        { "value": "judgeme", "label": "Judge.me のレビュー" },
+        { "value": "judgeme", "label": "Judge.me のレビュー（デザイン通りのカード）" },
+        { "value": "judgeme_widget", "label": "Judge.me のウィジェット（アプリブロック）" },
         { "value": "manual", "label": "手入力のレビュー（ブロック）" }
       ],
       "default": "judgeme",
-      "info": "Judge.me を選んだ場合は、ブロック追加から Judge.me のアプリブロック（Reviews Carousel 等）を追加します。"
+      "info": "「Judge.me のレビュー」は Judge.me 管理画面の「Reviews Carousel」で選ばれたレビューを表示します。"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "label": "表示件数",
+      "min": 3,
+      "max": 12,
+      "step": 3,
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product",
+      "label": "商品画像・商品名を表示する",
+      "default": true
     },
     {
       "type": "text",

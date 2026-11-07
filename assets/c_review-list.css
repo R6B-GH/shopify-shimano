@@ -58,14 +58,6 @@
   line-height: 1.6;
 }
 
-.c_review-list__product {
-  display: inline-block;
-  margin-top: 8px;
-  color: var(--c-color-ink);
-  font-size: 11px;
-  text-decoration: underline;
-}
-
 @media screen and (max-width: 1199px) {
   .c_review-list__card {
     padding: 24px;
@@ -110,4 +102,82 @@
   background: var(--c-color-gray100);
   color: var(--c-color-gray600);
   font-size: 13px;
+}
+
+/* --------------------------------------------------------------------------
+   Judge.me レビュー（デザインカード）・商品画像
+   -------------------------------------------------------------------------- */
+.c_review-list__judgeme {
+  display: block;
+}
+
+.c_review-list__card {
+  display: flex;
+  flex-direction: column;
+}
+
+.c_review-list__body {
+  flex: 1 1 auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.c_review-list__product {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--c-color-gray200);
+  color: var(--c-color-ink);
+  font-size: 12px;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.c_review-list__product[hidden] {
+  display: none;
+}
+
+.c_review-list__product-image {
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  background: var(--c-color-gray100);
+}
+
+.c_review-list__product-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.c_review-list__product-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.c_review-list__product:hover .c_review-list__product-title {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 740px) {
+  .c_review-list__product {
+    gap: 10px;
+    margin-top: 16px;
+    padding-top: 16px;
+    font-size: 11px;
+  }
+
+  .c_review-list__product-image {
+    flex-basis: 52px;
+    width: 52px;
+    height: 52px;
+  }
 }
