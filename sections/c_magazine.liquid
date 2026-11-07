@@ -26,6 +26,7 @@
   assign blog = section.settings.blog
   assign link_url = section.settings.link_url | default: blog.url
   assign bg_sp = section.settings.background_image_sp | default: section.settings.background_image
+  assign articles_limit = section.settings.articles_count | plus: 0
 -%}
 
 {%- comment -%}
@@ -86,7 +87,7 @@
           {%- endfor -%}
         {%- elsif blog != blank and blog.articles_count > 0 -%}
           {%- comment -%} ブログの最新記事 {%- endcomment -%}
-          {%- for article in blog.articles limit: section.settings.articles_count -%}
+          {%- for article in blog.articles limit: articles_limit -%}
             <li class="c_magazine__item">
               <a class="c_magazine__card" href="{{ article.url }}">
                 <span class="c_magazine__media">
@@ -159,13 +160,14 @@
       "label": "ブログ"
     },
     {
-      "type": "range",
+      "type": "select",
       "id": "articles_count",
       "label": "表示する記事数",
-      "min": 3,
-      "max": 6,
-      "step": 3,
-      "default": 3
+      "options": [
+        { "value": "3", "label": "3件" },
+        { "value": "6", "label": "6件" }
+      ],
+      "default": "3"
     },
     {
       "type": "text",
