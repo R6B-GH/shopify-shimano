@@ -1,0 +1,98 @@
+{%- comment -%}
+--------------------------------------------------------
+  カスタム:お問い合わせフォーム（Powerful Form Builder）
+  - フォームはアプリ「Powerful Form Builder」で作成・管理する
+  - 「フォームID」にアプリのフォームコード（data-id）を入力すると表示される
+  - 商品に関するお問い合わせは電話窓口へ案内する（要件定義 課題No.4）
+{%- endcomment -%}
+{{ 'c_contact-form.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  @media screen and (max-width: 740px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_sp }}px;
+      padding-bottom: {{ section.settings.padding_bottom_sp }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="c_contact-form c_section">
+  <div class="c_container c_contact-form__inner">
+    {%- if section.settings.intro != blank -%}
+      <div class="c_contact-form__intro">{{ section.settings.intro }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.phone_title != blank or section.settings.phone_text != blank -%}
+      <div class="c_contact-form__phone">
+        {%- if section.settings.phone_title != blank -%}
+          <p class="c_contact-form__phone-title">{{ section.settings.phone_title | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.phone_text != blank -%}
+          <div class="c_contact-form__phone-text">{{ section.settings.phone_text }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.form_id != blank -%}
+      <div class="c_contact-form__form">
+        <div class="globo-formbuilder" data-id="{{ section.settings.form_id | escape }}"></div>
+      </div>
+    {%- elsif request.design_mode -%}
+      <p class="c_contact-form__notice">「フォームID」に Powerful Form Builder のフォームコード（data-id の値）を入力してください。</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "カスタム:お問い合わせフォーム",
+  "class": "c_section c_section--contact-form",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "フォームの項目・通知メールはアプリ「Powerful Form Builder」で編集します。"
+    },
+    {
+      "type": "text",
+      "id": "form_id",
+      "label": "フォームID",
+      "info": "Powerful Form Builder のフォームコード <div class=\"globo-formbuilder\" data-id=\"…\"> の data-id の値",
+      "default": "MTcxMTM3"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "リード文",
+      "default": "<p>オンラインストアのご注文・お届け・返品などに関するお問い合わせは、下記フォームよりお送りください。内容を確認のうえ、担当者よりメールにてご連絡いたします。</p>"
+    },
+    {
+      "type": "text",
+      "id": "phone_title",
+      "label": "電話窓口の見出し",
+      "default": "商品に関するお問い合わせ"
+    },
+    {
+      "type": "richtext",
+      "id": "phone_text",
+      "label": "電話窓口の案内",
+      "default": "<p>商品の仕様・使い方などは「SHIMANO 釣具お客様相談窓口」までお電話でお問い合わせください。</p>"
+    },
+    {
+      "type": "header",
+      "content": "余白"
+    },
+    { "type": "range", "id": "padding_top", "label": "上部の余白(PC)", "min": 0, "max": 200, "step": 10, "unit": "px", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "label": "下部の余白(PC)", "min": 0, "max": 200, "step": 10, "unit": "px", "default": 100 },
+    { "type": "range", "id": "padding_top_sp", "label": "上部の余白(SP)", "min": 0, "max": 200, "step": 10, "unit": "px", "default": 20 },
+    { "type": "range", "id": "padding_bottom_sp", "label": "下部の余白(SP)", "min": 0, "max": 200, "step": 10, "unit": "px", "default": 60 }
+  ],
+  "presets": [
+    { "name": "カスタム:お問い合わせフォーム" }
+  ]
+}
+{% endschema %}

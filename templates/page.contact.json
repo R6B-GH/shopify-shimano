@@ -13,13 +13,13 @@
       "type": "main-page",
       "settings": {}
     },
-    "contact-form": {
-      "type": "contact-form",
+    "c_contact_form": {
+      "type": "c_contact-form",
       "settings": {}
     }
   },
   "order": [
     "main",
-    "contact-form"
+    "c_contact_form"
   ]
 }

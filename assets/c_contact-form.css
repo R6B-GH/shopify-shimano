@@ -1,0 +1,43 @@
+/* ==========================================================================
+   c_contact-form.css  カスタム:お問い合わせフォーム
+   ========================================================================== */
+.c_contact-form__inner {
+  max-width: 760px;
+}
+
+.c_contact-form__intro {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.c_contact-form__intro p {
+  margin: 0 0 1em;
+}
+
+.c_contact-form__phone {
+  margin: 24px 0 40px;
+  padding: 20px 24px;
+  background: var(--c-color-gray100);
+}
+
+.c_contact-form__phone-title {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.c_contact-form__phone-text {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.c_contact-form__phone-text p {
+  margin: 0;
+}
+
+.c_contact-form__notice {
+  padding: 12px 16px;
+  background: var(--c-color-gray100);
+  color: var(--c-color-gray600);
+  font-size: 13px;
+}
