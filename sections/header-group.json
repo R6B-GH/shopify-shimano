@@ -45,7 +45,7 @@
         "enable_sticky_header": true,
         "logo": "shopify://shop_images/c_logo-shimano-blue.png",
         "logo_max_width": 110,
-        "mobile_logo_max_width": 96,
+        "mobile_logo_max_width": 100,
         "navigation_menu": "main-menu",
         "header_layout": "logo_left_navigation_center",
         "show_icons": true,
