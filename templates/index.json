@@ -17,7 +17,7 @@
           "settings": {
             "media_type": "video",
             "video": "shopify://files/videos/マイムービー 25.mp4.mp4",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/c4ff5fade3d642219a55a0c762befc14.mp4",
+            "video_url": "",
             "video_url_sp": "",
             "text_position": "bottom_left",
             "label": "",
@@ -25,7 +25,7 @@
             "title_font": "en",
             "text": "今季の新作を、いち早くお届けします。",
             "button_text": "VIEW MORE",
-            "button_link": "shopify://collections/new-arrival",
+            "button_link": "shopify://collections/all",
             "link": ""
           }
         }
@@ -120,49 +120,55 @@
         "category-1": {
           "type": "category",
           "settings": {
-            "title": "ウェア・フットウェア",
             "collection": "wear",
-            "image": "shopify://shop_images/c_category-01.jpg"
+            "image": "shopify://shop_images/c_category-01.jpg",
+            "title": "ウェア・フットウェア",
+            "link": ""
           }
         },
         "category-2": {
           "type": "category",
           "settings": {
-            "title": "クーラーボックス",
             "collection": "cooler-box",
-            "image": "shopify://shop_images/c_category-02.jpg"
+            "image": "shopify://shop_images/c_category-02.jpg",
+            "title": "クーラーボックス",
+            "link": ""
           }
         },
         "category-3": {
           "type": "category",
           "settings": {
-            "title": "バッグ・ケース・収納用品",
             "collection": "bag-case",
-            "image": "shopify://shop_images/c_category-03.jpg"
+            "image": "shopify://shop_images/c_category-03.jpg",
+            "title": "バッグ・ケース・収納用品",
+            "link": ""
           }
         },
         "category-4": {
           "type": "category",
           "settings": {
-            "title": "ウェア・フットウェア",
             "collection": "wear",
-            "image": "shopify://shop_images/c_category-01.jpg"
+            "image": "shopify://shop_images/c_category-01.jpg",
+            "title": "ウェア・フットウェア",
+            "link": ""
           }
         },
         "category-5": {
           "type": "category",
           "settings": {
-            "title": "クーラーボックス",
             "collection": "cooler-box",
-            "image": "shopify://shop_images/c_category-02.jpg"
+            "image": "shopify://shop_images/c_category-02.jpg",
+            "title": "クーラーボックス",
+            "link": ""
           }
         },
         "category-6": {
           "type": "category",
           "settings": {
-            "title": "バッグ・ケース・収納用品",
             "collection": "bag-case",
-            "image": "shopify://shop_images/c_category-03.jpg"
+            "image": "shopify://shop_images/c_category-03.jpg",
+            "title": "バッグ・ケース・収納用品",
+            "link": ""
           }
         }
       },
@@ -194,31 +200,36 @@
           "type": "tab",
           "settings": {
             "title": "すべて",
-            "filter_tag": ""
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-2": {
           "type": "tab",
           "settings": {
             "title": "ウェア・フットウェア",
-            "filter_tag": "ウェア/フットウェア",
-            "category_collection": "wear"
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-3": {
           "type": "tab",
           "settings": {
             "title": "クーラーボックス",
-            "filter_tag": "クーラーボックス",
-            "category_collection": "cooler-box"
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-4": {
           "type": "tab",
           "settings": {
             "title": "バッグ・ケース・収納用品",
-            "filter_tag": "バッグ/ケース/収納用品",
-            "category_collection": "bag-case"
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         }
       },
@@ -238,8 +249,7 @@
         "padding_top": 50,
         "padding_bottom": 50,
         "padding_top_sp": 30,
-        "padding_bottom_sp": 30,
-        "collection": "coming-soon"
+        "padding_bottom_sp": 30
       }
     },
     "new_arrival": {
@@ -249,31 +259,36 @@
           "type": "tab",
           "settings": {
             "title": "すべて",
-            "filter_tag": ""
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-2": {
           "type": "tab",
           "settings": {
             "title": "ウェア・フットウェア",
-            "filter_tag": "ウェア/フットウェア",
-            "category_collection": "wear"
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-3": {
           "type": "tab",
           "settings": {
             "title": "クーラーボックス",
-            "filter_tag": "クーラーボックス",
-            "category_collection": "cooler-box"
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-4": {
           "type": "tab",
           "settings": {
             "title": "バッグ・ケース・収納用品",
-            "filter_tag": "バッグ/ケース/収納用品",
-            "category_collection": "bag-case"
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         }
       },
@@ -293,8 +308,7 @@
         "padding_top": 50,
         "padding_bottom": 100,
         "padding_top_sp": 30,
-        "padding_bottom_sp": 30,
-        "collection": "new-arrival"
+        "padding_bottom_sp": 30
       }
     },
     "brand_movie": {
@@ -340,31 +354,36 @@
           "type": "tab",
           "settings": {
             "title": "すべて",
-            "filter_tag": ""
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-2": {
           "type": "tab",
           "settings": {
             "title": "ウェア・フットウェア",
-            "filter_tag": "ウェア/フットウェア",
-            "category_collection": "wear"
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-3": {
           "type": "tab",
           "settings": {
             "title": "クーラーボックス",
-            "filter_tag": "クーラーボックス",
-            "category_collection": "cooler-box"
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-4": {
           "type": "tab",
           "settings": {
             "title": "バッグ・ケース・収納用品",
-            "filter_tag": "バッグ/ケース/収納用品",
-            "category_collection": "bag-case"
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         }
       },
@@ -379,13 +398,12 @@
         "title": "RANKING",
         "badge": "rank",
         "products_count": 4,
-        "link_text": "VIEW MORE",
+        "link_text": "",
         "background": "rgba(0,0,0,0)",
         "padding_top": 100,
         "padding_bottom": 50,
         "padding_top_sp": 30,
-        "padding_bottom_sp": 30,
-        "collection": "ranking"
+        "padding_bottom_sp": 30
       }
     },
     "recommend": {
@@ -395,31 +413,36 @@
           "type": "tab",
           "settings": {
             "title": "すべて",
-            "filter_tag": ""
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-2": {
           "type": "tab",
           "settings": {
             "title": "ウェア・フットウェア",
-            "filter_tag": "ウェア/フットウェア",
-            "category_collection": "wear"
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-3": {
           "type": "tab",
           "settings": {
             "title": "クーラーボックス",
-            "filter_tag": "クーラーボックス",
-            "category_collection": "cooler-box"
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         },
         "tab-4": {
           "type": "tab",
           "settings": {
             "title": "バッグ・ケース・収納用品",
-            "filter_tag": "バッグ/ケース/収納用品",
-            "category_collection": "bag-case"
+            "collection": "",
+            "link_url": "",
+            "is_default": false
           }
         }
       },
@@ -439,8 +462,7 @@
         "padding_top": 50,
         "padding_bottom": 50,
         "padding_top_sp": 30,
-        "padding_bottom_sp": 30,
-        "collection": "recommend"
+        "padding_bottom_sp": 30
       }
     },
     "review": {
@@ -494,8 +516,7 @@
         "padding_top": 50,
         "padding_bottom": 100,
         "padding_top_sp": 30,
-        "padding_bottom_sp": 60,
-        "source": "judgeme"
+        "padding_bottom_sp": 60
       }
     },
     "magazine": {
@@ -543,7 +564,7 @@
         "blog": "magazine",
         "articles_count": "3",
         "link_text": "VIEW MORE",
-        "link_url": "shopify://blogs/magazine",
+        "link_url": "",
         "background_image": "shopify://shop_images/c_magazine-bg.jpg",
         "band_color": "#00a0e9",
         "show_tricolor": true,
@@ -592,7 +613,7 @@
         "blog": "",
         "articles_count": 3,
         "link_text": "VIEW MORE",
-        "link_url": "shopify://blogs/news",
+        "link_url": "",
         "background": "rgba(0,0,0,0)",
         "padding_top": 100,
         "padding_bottom": 76,

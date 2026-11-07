@@ -17,9 +17,11 @@
     "success_color": "#2e9e7b",
     "error_color": "#de2a2a",
     "header_background": "#ffffff",
+    "header_text_color": "#111111",
     "footer_background": "#000000",
     "footer_text_color": "#ffffff",
     "primary_button_background": "#111111",
+    "primary_button_text_color": "#ffffff",
     "secondary_button_background": "#f3ff34",
     "secondary_button_text_color": "#282828",
     "product_on_sale_accent": "#de2a2a",
@@ -37,9 +39,9 @@
     "round_color_swatches": false,
     "show_vendor": false,
     "show_secondary_image": true,
+    "show_product_rating": false,
     "product_color_display": "count",
     "product_image_size": "natural",
-    "show_product_rating": false,
     "cart_type": "message",
     "cart_show_free_shipping_threshold": true,
     "accent_color": "#00a0e9",
@@ -47,8 +49,91 @@
     "checkout_accent_color": "#282828",
     "checkout_button_color": "#405de6",
     "checkout_error_color": "#de2a2a",
-    "header_text_color": "#111111",
-    "primary_button_text_color": "#ffffff"
+    "sections": {
+      "mini-cart": {
+        "type": "mini-cart",
+        "settings": {
+          "show_order_note": true,
+          "show_checkout_button": true,
+          "empty_button_link": "shopify://collections/all",
+          "show_recommendations": true,
+          "recommendations_title": "You may also like"
+        }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      },
+      "5900536469075577649": {
+        "type": "shopify://apps/order-bonus/blocks/app/b982c126-f171-40a0-bcfa-84396a25dc64",
+        "disabled": false,
+        "settings": {
+          "floating_button_visibility": "visible",
+          "floating_button_position": "bottom-right",
+          "floating_button_mobile_bottom_distance": 12,
+          "floating_button_mobile_center_offset": 0,
+          "floating_button_mobile_horizontal_distance": 12,
+          "floating_button_desktop_bottom_distance": 24,
+          "floating_button_desktop_center_offset": 0,
+          "floating_button_desktop_horizontal_distance": 24,
+          "floating_button_badge_color": "#059669",
+          "widget_background_color": "#ffffff",
+          "widget_primary_text_color": "#1f2937",
+          "widget_secondary_text_color": "#6b7280",
+          "widget_header_title_text": "Offers and Bonuses",
+          "widget_header_subtitle_text": "Get exclusive offers and bonuses",
+          "widget_item_background_color": "#f9fafb",
+          "widget_item_added_background_color": "#f0fdf4",
+          "widget_item_button_background_color": "#ffffff",
+          "widget_item_button_text_color": "#374151",
+          "widget_item_button_border_color": "#d1d5db",
+          "popup_background_color": "#ffffff",
+          "popup_text_color": "#1f2937",
+          "popup_border_radius": 12,
+          "toast_background_color": "#1a1a1a",
+          "toast_text_color": "#e3e3e3"
+        }
+      },
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "12526071353035850722": {
+        "type": "shopify://apps/amp-back-in-stock/blocks/app-embed/bfa6a8c4-24e2-411a-9396-e35031b33f34",
+        "disabled": false,
+        "settings": {}
+      },
+      "17447719578500346756": {
+        "type": "shopify://apps/al-customermetasync/blocks/login-redirect/019d396b-baaf-7205-8eee-4d0ce4028121",
+        "disabled": false,
+        "settings": {}
+      },
+      "6279071938380501511": {
+        "type": "shopify://apps/powerful-form-builder/blocks/app-embed/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+        "disabled": false,
+        "settings": {}
+      },
+      "208873322266159137": {
+        "type": "shopify://apps/searchanise-search-filter/blocks/app-embed-v2/d8f24ada-02b1-458a-bbeb-5bf16d5c921e",
+        "disabled": false,
+        "settings": {}
+      },
+      "17984543422790814357": {
+        "type": "shopify://apps/quick-order-printer/blocks/storefront-links/01a18bb0-c032-7e16-a9ea-18d59cc522f9",
+        "disabled": false,
+        "settings": {
+          "receipt": false,
+          "delivery": false,
+          "reorder": false,
+          "quote_account": false
+        }
+      }
+    }
   },
   "installed_preset_name": "Focal",
   "presets": {
