@@ -63,7 +63,8 @@
           if (productLink) productEl.setAttribute('href', productLink.getAttribute('href').split('?')[0]);
           const img = card.querySelector('[data-review-product-image]');
           const src = productImage ? productImage.getAttribute('data-src') || productImage.getAttribute('src') : '';
-          if (src) img.setAttribute('src', src);
+          // Judge.me のサムネイル（幅70px）を表示サイズに合わせて大きくする
+          if (src) img.setAttribute('src', /[?&]width=\d+/.test(src) ? src.replace(/([?&]width=)\d+/, '$1240') : `${src}${src.includes('?') ? '&' : '?'}width=240`);
           else img.parentElement.remove();
           card.querySelector('[data-review-product-title]').textContent = productTitle;
           productEl.hidden = false;
