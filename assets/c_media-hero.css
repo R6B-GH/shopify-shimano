@@ -11,10 +11,6 @@
   height: 100dvh;
 }
 
-[data-page-type="index"]:has(.header[transparent]) #main > .c_section--media-hero:first-child:has(.c_media-hero--opening) {
-  margin-block-start: calc(-1 * (1 - var(--enable-sticky-announcement-bar, 0)) * var(--announcement-bar-height, 0px));
-}
-
 .c_media-hero__slider,
 .c_media-hero .splide__track,
 .c_media-hero .splide__list,

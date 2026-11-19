@@ -50,6 +50,10 @@ IMPLEMENTATION NOTE: the header in Focal is pretty complex as it allows a lot of
       margin-bottom: calc(-1 * (var(--header-height, 0px) + var(--enable-sticky-announcement-bar, 0) * var(--announcement-bar-height, 0px)));
     }
 
+    body:has(#main > .c_section--media-hero:first-child .c_media-hero--opening) #shopify-section-{{ section.id }} {
+      margin-bottom: calc(0px - var(--header-height, 0px) - var(--announcement-bar-height, 0px));
+    }
+
     .js #shopify-section-{{ section.id }} .header--transparent {
       {%- if settings.header_text_color == section.settings.transparent_header_text_color -%}
         {%- assign header_bubble_text_color = settings.header_background -%}
