@@ -17,6 +17,7 @@
       z-index: 5; /* Make sure it goes over header */
     {%- else -%}
       position: relative;
+      z-index: 3;
     {%- endif -%}
   }
 
@@ -33,7 +34,7 @@
         z-index: 5; /* Make sure it goes over header */
       {%- else -%}
         position: relative;
-        z-index: unset;
+        z-index: 3;
       {%- endif -%}
     }
   }
