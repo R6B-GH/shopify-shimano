@@ -1,0 +1,46 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "blog-post-banner",
+      "settings": {}
+    },
+    "content": {
+      "type": "c_page-guide",
+      "settings": {
+        "show_heading": false
+      },
+      "blocks": {
+        "guide": {
+          "type": "topic",
+          "settings": {
+            "title": "ご購入の前に",
+            "text": "<p>同じサイズ表記でも、製品によって足幅やフィット感は異なります。商品説明を確認し、ご不明な点は品番を添えてご相談ください。</p>",
+            "url": "/pages/try-on",
+            "label": "試着サービスの案内を見る"
+          }
+        }
+      },
+      "block_order": [
+        "guide"
+      ]
+    },
+    "related": {
+      "type": "blog-post-prev-next",
+      "settings": {}
+    }
+  },
+  "order": [
+    "banner",
+    "content",
+    "related"
+  ]
+}

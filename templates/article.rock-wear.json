@@ -1,0 +1,46 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "blog-post-banner",
+      "settings": {}
+    },
+    "content": {
+      "type": "c_page-guide",
+      "settings": {
+        "show_heading": false
+      },
+      "blocks": {
+        "guide": {
+          "type": "topic",
+          "settings": {
+            "title": "フィールドに合わせた装備",
+            "text": "<p>ウェアやフットウェアは、釣行場所のルールと足場に合わせて選びましょう。製品の用途が分からないときは、商品名と品番を控えて公式窓口へご相談ください。</p>",
+            "url": "https://shimanofishingservice.jp/customer.php",
+            "label": "製品の相談窓口を見る"
+          }
+        }
+      },
+      "block_order": [
+        "guide"
+      ]
+    },
+    "related": {
+      "type": "blog-post-prev-next",
+      "settings": {}
+    }
+  },
+  "order": [
+    "banner",
+    "content",
+    "related"
+  ]
+}

@@ -1,0 +1,46 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "blog-post-banner",
+      "settings": {}
+    },
+    "content": {
+      "type": "c_page-guide",
+      "settings": {
+        "show_heading": false
+      },
+      "blocks": {
+        "guide": {
+          "type": "topic",
+          "settings": {
+            "title": "カラーを選ぶ",
+            "text": "<p>商品ページでご希望の色を選ぶと、そのバリエーションの品番と購入可能なサイズを確認できます。ご相談の際は、選択したカラーと品番をお知らせください。</p>",
+            "url": "/collections/all",
+            "label": "商品一覧を見る"
+          }
+        }
+      },
+      "block_order": [
+        "guide"
+      ]
+    },
+    "related": {
+      "type": "blog-post-prev-next",
+      "settings": {}
+    }
+  },
+  "order": [
+    "banner",
+    "content",
+    "related"
+  ]
+}

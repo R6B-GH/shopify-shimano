@@ -1,0 +1,46 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "blog-post-banner",
+      "settings": {}
+    },
+    "content": {
+      "type": "c_page-guide",
+      "settings": {
+        "show_heading": false
+      },
+      "blocks": {
+        "guide": {
+          "type": "topic",
+          "settings": {
+            "title": "ご注文前に",
+            "text": "<p>商品ページでカラーとサイズを選択し、カートで数量をご確認ください。送料を含む合計金額は、配送先の入力後にチェックアウトで確認できます。</p>",
+            "url": "/pages/faq",
+            "label": "よくある質問を見る"
+          }
+        }
+      },
+      "block_order": [
+        "guide"
+      ]
+    },
+    "related": {
+      "type": "blog-post-prev-next",
+      "settings": {}
+    }
+  },
+  "order": [
+    "banner",
+    "content",
+    "related"
+  ]
+}

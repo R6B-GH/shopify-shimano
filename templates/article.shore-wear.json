@@ -1,0 +1,46 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "blog-post-banner",
+      "settings": {}
+    },
+    "content": {
+      "type": "c_page-guide",
+      "settings": {
+        "show_heading": false
+      },
+      "blocks": {
+        "guide": {
+          "type": "topic",
+          "settings": {
+            "title": "持ち物をそろえる前に",
+            "text": "<p>釣行場所と天気予報を確認したら、雨・風に備えるウェアを選びましょう。商品ページでは素材、カラー、サイズごとの情報をご覧いただけます。</p>",
+            "url": "/collections/wear",
+            "label": "ウェアを見る"
+          }
+        }
+      },
+      "block_order": [
+        "guide"
+      ]
+    },
+    "related": {
+      "type": "blog-post-prev-next",
+      "settings": {}
+    }
+  },
+  "order": [
+    "banner",
+    "content",
+    "related"
+  ]
+}
