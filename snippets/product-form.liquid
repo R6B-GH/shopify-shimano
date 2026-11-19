@@ -10,6 +10,11 @@
       APP BLOCK TYPE
       ----------------------------------------------------------------------------------------------------------------
       {%- endcomment -%}
+      {%- when 'catalog_details' -%}
+        {%- if catalog_detail -%}
+          <div {{ block.shopify_attributes }}>{% render 'c_product-details', product: product %}</div>
+        {%- endif -%}
+
       {%- when '@app' -%}
         {%- render block -%}
 

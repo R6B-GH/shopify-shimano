@@ -269,7 +269,8 @@
       </div>
     </popover-content>
   {%- endif -%}
-  {%- if catalog_detail -%}
+  {%- assign detail_block = section.blocks | where: 'type', 'catalog_details' | first -%}
+  {%- if catalog_detail and detail_block == blank -%}
     {% render 'c_product-details', product: product %}
   {%- endif -%}
 </div>

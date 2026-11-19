@@ -27,12 +27,32 @@
             "atc_button_background": "#00a0e9",
             "atc_button_text_color": "#ffffff"
           }
+        },
+        "catalog_details": {
+          "type": "catalog_details",
+          "settings": {}
+        },
+        "judge_me_reviews_review_widget_Dw8iLy": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        },
+        "judge_me_reviews_preview_badge_XQxLGw": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
         }
       },
       "block_order": [
+        "judge_me_reviews_preview_badge_XQxLGw",
         "variant_picker",
         "quantity_selector",
-        "buy_buttons"
+        "buy_buttons",
+        "catalog_details",
+        "judge_me_reviews_review_widget_Dw8iLy"
       ],
       "settings": {
         "show_vendor": false,
