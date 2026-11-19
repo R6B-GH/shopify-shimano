@@ -219,3 +219,7 @@
   top: calc(var(--c-video-crop) / (1 - 2 * var(--c-video-crop)) * -100%);
   height: calc(100% / (1 - 2 * var(--c-video-crop)));
 }
+
+@media (max-width: 740px) {
+  .c_media-hero__title--en { max-width: 100%; word-break: normal; overflow-wrap: normal; }
+}

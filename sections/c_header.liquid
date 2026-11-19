@@ -291,8 +291,11 @@ IMPLEMENTATION NOTE: the header in Focal is pretty complex as it allows a lot of
             </a>
           {%- endif -%}
           
-          <div>
           {%- if shop.customer_accounts_enabled -%}
+            <a class="header__icon-wrapper tap-area c_header__account-mobile" href="{{ routes.account_url }}" aria-label="マイページ">
+              {%- render 'icon' with 'header-customer' -%}
+            </a>
+            <div class="hidden-phone">
             <shopify-account menu="{{ section.settings.customer_account_menu }}"{% if section.settings.show_icons %}class="shopify-account--icons"{% endif %}>   
               <div slot="signed-out-avatar">
                 <span class="header__icon-wrapper tap-area {% unless section.settings.show_icons %}hidden-desk{% endunless %}">
@@ -300,8 +303,8 @@ IMPLEMENTATION NOTE: the header in Focal is pretty complex as it allows a lot of
                 </span>
               </div>
             </shopify-account>
+            </div>
           {%- endif -%}
-          </div>
            
           <a href="{{ routes.cart_url }}" {% unless settings.cart_type == 'page' or request.page_type == 'cart' %}is="toggle-link" aria-controls="mini-cart" aria-expanded="false"{% endunless %} class="header__icon-wrapper tap-area {% unless section.settings.show_icons %}hidden-desk{% endunless %}" aria-label="{{ 'header.general.cart' | t | escape }}" data-no-instant>
             {%- case settings.cart_icon -%}

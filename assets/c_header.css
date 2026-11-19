@@ -274,3 +274,6 @@
   .header .header__inline-navigation svg { width: 18px; }
 }
 .header .c_header__signature { transform: scaleX(.89); transform-origin: left center; }
+@media (min-width: 741px) {
+  .header .header__secondary-links .c_header__account-mobile { display: none; }
+}
