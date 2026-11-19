@@ -7,7 +7,7 @@
 {%- comment -%}
 --------------------------------------------------------
   インラインスタイル（動的な色・余白）
-  高さは常に「画面の縦いっぱい」。ページ先頭に置いた場合はアナウンスバーの高さを差し引く。
+  動画KVは画面高に合わせ、先頭では告知バーとヘッダーの背後まで広げる。
 {%- endcomment -%}
 {%- style -%}
   #shopify-section-{{ section.id }} {
@@ -17,11 +17,6 @@
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }
-  {%- if section.index == 1 -%}
-    #shopify-section-{{ section.id }} .c_media-hero {
-      --c-media-hero-offset: var(--announcement-bar-height, 0px);
-    }
-  {%- endif -%}
   @media screen and (max-width: 740px) {
     #shopify-section-{{ section.id }} {
       padding-top: {{ section.settings.padding_top_sp }}px;
@@ -31,6 +26,7 @@
 {%- endstyle -%}
 
 {%- liquid
+  assign video_slides = section.blocks | map: 'settings' | where: 'media_type', 'video'
   assign slide_count = section.blocks.size
   assign is_slider = false
   if slide_count > 1
@@ -43,7 +39,7 @@
 --------------------------------------------------------
   HTML
 {%- endcomment -%}
-<section id="c_media-hero-{{ section.id }}" class="c_media-hero c_section{% if section.index == 1 %} c_media-hero--opening{% endif %}" aria-roledescription="{% if is_slider %}carousel{% endif %}" aria-label="{{ section.settings.aria_label | default: 'メインビジュアル' | escape }}">
+<section id="c_media-hero-{{ section.id }}" class="c_media-hero c_section{% if section.index == 1 or video_slides.size > 0 %} c_media-hero--opening{% endif %}" aria-roledescription="{% if is_slider %}carousel{% endif %}" aria-label="{{ section.settings.aria_label | default: 'メインビジュアル' | escape }}">
   {%- if slide_count > 0 -%}
     <c-splide
       class="splide c_media-hero__slider"

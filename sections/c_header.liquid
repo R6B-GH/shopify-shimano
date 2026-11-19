@@ -167,11 +167,14 @@ IMPLEMENTATION NOTE: the header in Focal is pretty complex as it allows a lot of
           {%- if section.settings.logo != blank -%}
             {%- assign logo_size = section.settings.logo_max_width | at_least: section.settings.mobile_logo_max_width | times: 2 %}
             <span class="visually-hidden">{{ shop.name }}</span>
+            <span class="c_header__wordmark">
             <img class="header__logo-image" width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}" src="{{ section.settings.logo | image_url: width: logo_size }}" alt="{{ section.settings.logo.alt | escape }}">
 
             {%- if request.page_type == 'index' and section.settings.enable_transparent_header and section.settings.transparent_logo != blank -%}
               <img class="header__logo-image header__logo-image--transparent" width="{{ section.settings.transparent_logo.width }}" height="{{ section.settings.transparent_logo.height }}" src="{{ section.settings.transparent_logo | image_url: width: logo_size }}" alt="{{ section.settings.transparent_logo.alt | escape }}">
             {%- endif -%}
+            </span>
+            <span class="c_header__signature">OFFICIAL ONLINE STORE</span>
           {%- else -%}
             <span class="header__logo-text heading h5">{{ shop.name }}</span>
           {%- endif -%}
@@ -279,7 +282,7 @@ IMPLEMENTATION NOTE: the header in Focal is pretty complex as it allows a lot of
           {%- endif -%}
 
           {%- if section.settings.header_layout != 'logo_center_search_open' -%}
-            <a href="{{ routes.search_url }}" is="toggle-link" class="header__icon-wrapper tap-area hidden-pocket hidden-lap {% unless section.settings.show_icons %}hidden-desk{% endunless %}" aria-label="{{ 'search.general.title' | t | escape }}" aria-controls="search-drawer" aria-expanded="false">
+            <a href="{{ routes.search_url }}" is="toggle-link" class="header__icon-wrapper tap-area c_header__search {% unless section.settings.show_icons %}hidden-desk{% endunless %}" aria-label="{{ 'search.general.title' | t | escape }}" aria-controls="search-drawer" aria-expanded="false">
               {%- render 'icon' with 'header-search' -%}
             </a>
           {%- endif -%}
@@ -288,7 +291,7 @@ IMPLEMENTATION NOTE: the header in Focal is pretty complex as it allows a lot of
           {%- if shop.customer_accounts_enabled -%}
             <shopify-account menu="{{ section.settings.customer_account_menu }}"{% if section.settings.show_icons %}class="shopify-account--icons"{% endif %}>   
               <div slot="signed-out-avatar">
-                <span class="header__icon-wrapper tap-area hidden-phone {% unless section.settings.show_icons %}hidden-desk{% endunless %}">
+                <span class="header__icon-wrapper tap-area {% unless section.settings.show_icons %}hidden-desk{% endunless %}">
                 {%- render 'icon' with 'header-customer' -%}
                 </span>
               </div>
