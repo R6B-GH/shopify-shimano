@@ -1,0 +1,14 @@
+<div class="c_container">
+  <div class="c_page-guide__body" data-wishlist-page>
+    <p role="status">{{ section.settings.unavailable | escape }}</p>
+    <ul class="c_wishlist-grid" role="list"></ul>
+    <a href="{{ routes.all_products_collection_url }}" class="c_page-guide__link">商品一覧を見る</a>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "お気に入り一覧",
+  "settings": [{"type":"text","id":"unavailable","label":"読み込めないときの案内","default":"現在、お気に入り一覧を表示できません。時間をおいてもう一度お試しください。"}],
+  "presets": [{"name":"お気に入り一覧"}]
+}
+{% endschema %}

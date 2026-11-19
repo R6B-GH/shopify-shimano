@@ -550,3 +550,5 @@ wishlist-action .swym-added svg { fill: currentColor; }
 .c_page-guide__link { display: inline-block; margin-top: 12px; }
 .shopify-policy__container { padding: 0 var(--c-gutter) var(--c-section-space); box-sizing: content-box; width: auto; }
 .shopify-policy__body h2 { margin-top: 32px; }
+.c_wishlist-grid { list-style: none; padding: 0; display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr)); }
+.c_wishlist-grid img { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; margin-bottom: 12px; }
