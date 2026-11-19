@@ -78,6 +78,7 @@
   "header": {
     "general": {
       "navigation": "Navigation",
+      "account": "Account",
       "newsletter": "Newsletter",
       "login": "Login",
       "cart": "Cart",

@@ -4962,6 +4962,22 @@ var DesktopNavigation = class extends CustomHTMLElement {
       event.preventDefault();
       this.openDropdown(target.parentElement);
     });
+    this.delegate.on("keydown", ".header__linklist-link[aria-controls]", (event, link) => {
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        this.openDropdown(link.parentElement);
+      }
+    });
+    this.delegate.on("keydown", ".has-dropdown", (event, item) => {
+      if (event.key === "Escape" && item.querySelector('[aria-expanded="true"]')) {
+        event.stopPropagation();
+        this.closeDropdown(item);
+        item.querySelector("[aria-controls]").focus();
+      }
+    });
+    this.delegate.on("focusout", ".has-dropdown", (event, item) => {
+      if (!item.contains(event.relatedTarget) && item.querySelector('[aria-expanded="true"]')) this.closeDropdown(item);
+    });
     this.delegate.on("shopify:block:select", (event) => this.openDropdown(event.target.parentElement));
     this.delegate.on("shopify:block:deselect", (event) => this.closeDropdown(event.target.parentElement));
   }

@@ -1,0 +1,44 @@
+<div class="c_product-details">
+  {%- if product.description != blank -%}
+    <details open>
+      <summary>商品説明</summary>
+      <div class="rte">{{ product.description }}</div>
+    </details>
+  {%- endif -%}
+  {%- if section.settings.specifications != blank or product.has_only_default_variant == false -%}
+    <details>
+      <summary>スペック</summary>
+      <div class="rte">
+        {%- if section.settings.specifications != blank -%}
+          {{ section.settings.specifications }}
+        {%- else -%}
+          <dl class="c_product-specs">
+            {%- for option in product.options_with_values -%}
+              <dt>{{ option.name | escape }}</dt><dd>{{ option.values | join: '、' | escape }}</dd>
+            {%- endfor -%}
+          </dl>
+        {%- endif -%}
+      </div>
+    </details>
+  {%- endif -%}
+  {%- assign shipping = section.settings.shipping_guide | default: shop.shipping_policy.body -%}
+  {%- assign contact_page = pages['contact'] -%}
+  {%- assign try_on_page = pages['try-on'] -%}
+  {%- if shipping != blank or contact_page != blank -%}
+    <details>
+      <summary>配送・お支払いについて</summary>
+      <div class="rte">{% if shipping != blank %}{{ shipping }}{% else %}<a href="{{ contact_page.url }}">配送・お支払いについて問い合わせる</a>{% endif %}</div>
+    </details>
+  {%- endif -%}
+  {%- assign returns = section.settings.return_guide | default: shop.refund_policy.body -%}
+  {%- if returns != blank or try_on_page != blank or contact_page != blank -%}
+    <details>
+      <summary>返品・交換／試着サービスについて</summary>
+      <div class="rte">
+        {{ returns }}
+        {% if returns == blank and contact_page != blank %}<p><a href="{{ contact_page.url }}">返品・交換について問い合わせる</a></p>{% endif %}
+        {% if try_on_page != blank %}<p><a href="{{ try_on_page.url }}">{{ try_on_page.title | escape }}</a></p>{% endif %}
+      </div>
+    </details>
+  {%- endif -%}
+</div>

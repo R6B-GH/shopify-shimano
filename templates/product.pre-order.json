@@ -22,7 +22,11 @@
         },
         "buy_buttons": {
           "type": "buy_buttons",
-          "settings": {}
+          "settings": {
+            "show_payment_button": false,
+            "atc_button_background": "#00a0e9",
+            "atc_button_text_color": "#ffffff"
+          }
         }
       },
       "block_order": [
@@ -30,29 +34,104 @@
         "quantity_selector",
         "buy_buttons"
       ],
-      "settings": {}
-    },
-    "product-content": {
-      "type": "product-content",
-      "blocks": {
-        "description": {
-          "type": "description",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "description"
-      ],
-      "settings": {}
+      "settings": {
+        "show_vendor": false,
+        "show_sku": true,
+        "show_thumbnails_on_mobile": true,
+        "desktop_thumbnails_position": "left",
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": true,
+        "show_product_sections": true
+      }
     },
     "product-recommendations": {
       "type": "product-recommendations",
-      "settings": {}
+      "settings": {
+        "title": "RECOMMEND",
+        "subheading": "おすすめ商品"
+      }
+    },
+    "history": {
+      "type": "recently-viewed-products",
+      "settings": {
+        "title": "CHECKED ITEM",
+        "subheading": "最近見た商品",
+        "products_count": 8
+      }
+    },
+    "footer_banners": {
+      "type": "c_banner-slider",
+      "blocks": {
+        "banner-1": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/c_banner-01.jpg",
+            "alt": "SHIMANO LINK",
+            "link": "",
+            "open_in_new_tab": false
+          }
+        },
+        "banner-2": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/c_banner-02.jpg",
+            "alt": "26 AUTUMN/WINTER STYLE LAYERING",
+            "link": "",
+            "open_in_new_tab": false
+          }
+        },
+        "banner-3": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/c_banner-03.jpg",
+            "alt": "ビギナーズサイト",
+            "link": "",
+            "open_in_new_tab": false
+          }
+        },
+        "banner-4": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/c_banner-04.jpg",
+            "alt": "BEYOND THE LAUNCH",
+            "link": "",
+            "open_in_new_tab": false
+          }
+        },
+        "banner-5": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/c_banner-01.jpg",
+            "alt": "SHIMANO LINK",
+            "link": "",
+            "open_in_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "banner-1",
+        "banner-2",
+        "banner-3",
+        "banner-4",
+        "banner-5"
+      ],
+      "settings": {
+        "aria_label": "おすすめバナー",
+        "autoplay": true,
+        "autoplay_speed": 4,
+        "background": "#ffffff",
+        "background_bottom": "#000000",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_sp": 0,
+        "padding_bottom_sp": 0
+      }
     }
   },
   "order": [
     "main",
-    "product-content",
-    "product-recommendations"
+    "history",
+    "product-recommendations",
+    "footer_banners"
   ]
 }

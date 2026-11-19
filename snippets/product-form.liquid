@@ -2,7 +2,7 @@
 {%- assign color_white_label = 'general.label.white' | t | downcase -%}
 {%- assign size_label_list = 'general.label.size' | t | replace: ', ', ',' | downcase | split: ',' -%}
 
-<div class="product-form">
+<div class="product-form{% if catalog_detail %} c_purchase-options{% endif %}" {% if catalog_detail %}id="PurchaseOptions-{{ section.id }}" tabindex="-1"{% endif %}>
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- comment -%}
@@ -462,6 +462,7 @@
                   {%- endif -%}
                 </button>
 
+                {%- if catalog_detail -%}{% render 'c_wishlist-button', product: product %}{%- endif -%}
                 {%- if block.settings.show_payment_button and recipient_feature_active == false and template.suffix != 'quick-buy-popover' -%}
                   {{ form | payment_button }}
 

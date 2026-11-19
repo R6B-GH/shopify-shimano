@@ -1,11 +1,13 @@
-<predictive-search-drawer append-body {% if section.settings.header_layout != 'logo_center_search_open' %}reverse-breakpoint="screen and (min-width: 1200px)"{% endif %} id="search-drawer" initial-focus-selector="#search-drawer [name='q']" class="predictive-search drawer drawer--large drawer--from-left">
+{%- assign drawer_tag = 'predictive-search-drawer' -%}
+{%- if searchanise -%}{%- assign drawer_tag = 'drawer-content' -%}{%- endif -%}
+<{{ drawer_tag }} append-body {% if section.settings.header_layout != 'logo_center_search_open' %}reverse-breakpoint="screen and (min-width: 1200px)"{% endif %} id="search-drawer" initial-focus-selector="#search-drawer [name='q']" class="predictive-search drawer drawer--large drawer--from-left">
   <span class="drawer__overlay"></span>
 
   <header class="drawer__header">
     <form id="predictive-search-form" action="{{ routes.search_url }}" method="get" class="predictive-search__form">
       {%- render 'icon' with 'header-search' -%}
 
-      <input class="predictive-search__input" type="text" name="q" autocomplete="off" autocorrect="off" aria-label="{{ 'search.general.title' | t }}" placeholder="{{ 'search.general.search_placeholder' | t }}">
+      <input class="predictive-search__input" type="search" name="q" autocomplete="off" autocorrect="off" aria-label="{{ 'search.general.title' | t }}" placeholder="{{ 'search.general.search_placeholder' | t }}">
     </form>
 
     <button type="button" class="drawer__close-button tap-area" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
@@ -65,7 +67,7 @@
     </div>
   </div>
 
-  <footer hidden class="drawer__footer drawer__footer--no-top-padding">
+  <footer {% unless searchanise %}hidden{% endunless %} class="drawer__footer drawer__footer--no-top-padding">
     <button type="submit" form="predictive-search-form" class="button button--primary button--full">{{ 'search.general.view_all_results' | t }}</button>
   </footer>
-</predictive-search-drawer>
+</{{ drawer_tag }}>

@@ -1,21 +1,14 @@
-/* ==========================================================================
-   c_media-hero.css  カスタム:動画・画像メイン
-   どの画面でも縦いっぱい（100svh）に表示する
-   ========================================================================== */
 .c_media-hero {
-  --c-media-hero-offset: 0px;
-  --c-media-hero-height: calc(100vh - var(--c-media-hero-offset));
   position: relative;
-  height: var(--c-media-hero-height);
+  height: clamp(500px, 34.375vw, 550px);
   overflow: hidden;
   background: var(--c-color-black);
   color: var(--c-media-hero-text-color, #fff);
 }
 
-@supports (height: 100svh) {
-  .c_media-hero {
-    --c-media-hero-height: calc(100svh - var(--c-media-hero-offset));
-  }
+.c_media-hero--opening {
+  height: calc(100vh - var(--c-media-hero-offset, 0px));
+  height: calc(100dvh - var(--c-media-hero-offset, 0px));
 }
 
 .c_media-hero__slider,
@@ -75,7 +68,7 @@
   display: flex;
   width: 100%;
   padding-top: calc(var(--header-height, 70px) + 20px);
-  padding-bottom: 72px;
+  padding-bottom: 40px;
   box-sizing: border-box;
 }
 
@@ -123,7 +116,7 @@
 
 .c_media-hero__title--jp {
   font-family: var(--c-font-jp);
-  font-size: 25px;
+  font-size: 28px;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -187,16 +180,17 @@
 
 @media screen and (max-width: 740px) {
   .c_media-hero__content {
-    padding-bottom: 64px;
+    padding-bottom: 28px;
   }
 
   .c_media-hero__title--en {
-    font-size: 35px;
-    line-height: 1.2;
+    max-width: 210px;
+    font-size: 28px;
+    line-height: 1.1;
   }
 
   .c_media-hero__title--jp {
-    font-size: 17px;
+    font-size: 20px;
   }
 
   .c_media-hero__description {

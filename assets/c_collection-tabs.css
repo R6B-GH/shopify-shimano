@@ -43,7 +43,7 @@
   }
 
   .c_collection-tabs__item {
-    flex: 0 0 46%;
+    flex: 0 0 min(248px, 72vw);
     scroll-snap-align: start;
   }
 }
@@ -81,7 +81,7 @@
 
 @media screen and (max-width: 999px) {
   .c_collection-tabs__slider .product-list__inner--scroller {
-    grid-auto-columns: 46%;
+    grid-auto-columns: min(248px, 72vw);
   }
 }
 

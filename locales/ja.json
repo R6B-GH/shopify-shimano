@@ -156,12 +156,12 @@
 
   "collection": {
     "general": {
-      "filters": "フィルター",
-      "show_filters": "フィルターを表示",
+      "filters": "絞り込み",
+      "show_filters": "絞り込み",
       "all_products": "全ての製品",
-      "view_results": "結果を見る",
+      "view_results": "絞り込む",
       "apply_filters": "検索",
-      "clear_filters": "全てをクリアする",
+      "clear_filters": "条件をクリア",
       "price_range_to": "まで",
       "price_filter_from": "から",
       "price_filter_to": "まで",

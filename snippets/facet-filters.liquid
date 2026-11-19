@@ -67,6 +67,7 @@ Code that create the faceted search for the collection and search pages. It curr
       <div class="product-facet__filter-list">
         {%- for filter in filters -%}
           {%- assign is_filter_group_open = false -%}
+          {%- if request.page_type == 'collection' -%}{%- assign is_filter_group_open = true -%}{%- endif -%}
 
           {%- if filter.active_values.size > 0 or filter.max_value.value != blank or filter.min_value.value != blank or forloop.first and section.settings.open_first_filter_group -%}
             {%- assign is_filter_group_open = true -%}
@@ -153,7 +154,7 @@ Code that create the faceted search for the collection and search pages. It curr
                             </div>
                           {%- endfor -%}
                         </div>
-                      {%- elsif size_label_list contains filter_label_downcase -%}
+                      {%- elsif size_label_list contains filter_label_downcase and request.page_type != 'collection' -%}
                         <div class="block-swatch-list block-swatch-list--small">
                           {%- for filter_value in filter.values -%}
                             <div class="block-swatch {% if filter_value.count == 0 %}is-disabled{% endif %}">

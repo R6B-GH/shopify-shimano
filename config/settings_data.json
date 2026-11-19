@@ -37,6 +37,7 @@
     "currency_code_enabled": false,
     "stagger_products_apparition": true,
     "round_color_swatches": false,
+    "color_swatch_config": "ブラック:#161616\nリアルブラック:#151515\nホワイト:#ffffff\nリアルホワイト:#ffffff\nオフホワイト:#f2efe8\nレッド:#ba2533\nネイビー:#222d47\nチャコール:#505155\nブルーグレー:#758898\nブラウンベージュ:#b19b82\nWライトグレー:#cbcccd\nWカーキ:#797a60",
     "show_vendor": false,
     "show_secondary_image": true,
     "show_product_rating": false,

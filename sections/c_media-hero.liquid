@@ -43,7 +43,7 @@
 --------------------------------------------------------
   HTML
 {%- endcomment -%}
-<section id="c_media-hero-{{ section.id }}" class="c_media-hero c_section" aria-roledescription="{% if is_slider %}carousel{% endif %}" aria-label="{{ section.settings.aria_label | default: 'メインビジュアル' | escape }}">
+<section id="c_media-hero-{{ section.id }}" class="c_media-hero c_section{% if section.index == 1 %} c_media-hero--opening{% endif %}" aria-roledescription="{% if is_slider %}carousel{% endif %}" aria-label="{{ section.settings.aria_label | default: 'メインビジュアル' | escape }}">
   {%- if slide_count > 0 -%}
     <c-splide
       class="splide c_media-hero__slider"

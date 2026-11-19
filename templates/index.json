@@ -26,7 +26,8 @@
             "text": "今季の新作を、いち早くお届けします。",
             "button_text": "VIEW MORE",
             "button_link": "shopify://collections/all",
-            "link": ""
+            "link": "",
+            "video_crop": 3
           }
         }
       },

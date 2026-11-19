@@ -5,6 +5,21 @@
 {%- if buy_buttons_block != blank -%}
   <product-rerender id="product-sticky-form-{{ product.id }}-{{ section.id }}" observe-form="{{ product_form_id }}">
     {%- if product.selected_or_first_available_variant != nil -%}
+      {%- if section.settings.show_product_sections -%}
+        <product-sticky-form form-id="{{ product_form_id }}" hidden class="product-sticky-form c_sticky-purchase">
+          <div class="c_sticky-purchase__inner">
+            {%- assign sticky_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
+            {%- if sticky_image != blank -%}
+              {{ sticky_image | image_url: width: 100 | image_tag: class: 'c_sticky-purchase__image', alt: '', loading: 'lazy' }}
+            {%- endif -%}
+            <div class="c_sticky-purchase__product">
+              <strong>{{ product.title | escape }}</strong>
+              <span class="c_sticky-purchase__price">{% if settings.currency_code_enabled %}{{ product.selected_or_first_available_variant.price | money_with_currency }}{% else %}{{ product.selected_or_first_available_variant.price | money }}{% endif %}</span>
+            </div>
+            <a href="#PurchaseOptions-{{ section.id }}" class="c_sticky-purchase__link">オプションを選んで購入</a>
+          </div>
+        </product-sticky-form>
+      {%- else -%}
       <style>
         @media screen and (min-width: 1000px) {
           :root {
@@ -140,6 +155,7 @@
           </div>
         </div>
       </product-sticky-form>
+      {%- endif -%}
     {%- endif -%}
   </product-rerender>
 {%- endif -%}

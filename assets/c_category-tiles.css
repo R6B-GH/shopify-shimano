@@ -67,6 +67,10 @@
   }
 }
 
+@media screen and (min-width: 741px) and (max-width: 999px) {
+  .c_category-tiles__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
 @media screen and (max-width: 740px) {
   .c_category-tiles__list {
     display: flex;

@@ -14,6 +14,17 @@
       </h2>
     {%- endif -%}
 
+    {%- if catalog_detail -%}
+      {%- assign variant = product.selected_or_first_available_variant -%}
+      <div class="c_product-reference">
+        <span class="c_product-label">
+          {%- assign shelf_handles = product.collections | map: 'handle' -%}
+          {%- if shelf_handles contains 'coming-soon' -%}COMING SOON{%- elsif shelf_handles contains 'new-arrival' -%}NEW{%- endif -%}
+        </span>
+        <span>{% if variant.sku != blank %}品番：{{ variant.sku | escape }}{% endif %}{% if variant.sku != blank and variant.barcode != blank %} ／ {% endif %}{% if variant.barcode != blank %}JAN：{{ variant.barcode | escape }}{% endif %}</span>
+      </div>
+    {%- endif -%}
+
     {% unless featured %}
       <h1 class="product-meta__title heading h3">{{ product.title }}</h1>
     {% else %}
@@ -70,6 +81,7 @@
               </div>
             </div>
           {%- endif -%}
+          {%- if catalog_detail and cart.taxes_included -%}<small>税込</small>{%- endif -%}
         </div>
       {%- endif -%}
 
@@ -130,7 +142,7 @@
         <span class="product-meta__reviews-badge hidden-pocket">{%- render 'product-rating', product: product -%}</span>
       {%- endif -%}
 
-      {%- if section.settings.show_sku and product.selected_or_first_available_variant.sku != blank -%}
+      {%- if section.settings.show_sku and product.selected_or_first_available_variant.sku != blank and catalog_detail != true -%}
         <span class="product-meta__sku text--subdued text--xxsmall">
           {{- 'product.general.sku' | t }}
           <span class="product-meta__sku-number">{{ product.selected_or_first_available_variant.sku }}</span>
@@ -145,7 +157,7 @@
     {%- endif -%}
   </product-meta>
 
-  {%- render 'product-form', product: product, product_form_id: product_form_id, update_url: update_url -%}
+  {%- render 'product-form', catalog_detail: catalog_detail, product: product, product_form_id: product_form_id, update_url: update_url -%}
 
   {%- assign help_page = section.settings.help_page -%}
 
@@ -256,5 +268,8 @@
         </div>
       </div>
     </popover-content>
+  {%- endif -%}
+  {%- if catalog_detail -%}
+    {% render 'c_product-details', product: product %}
   {%- endif -%}
 </div>

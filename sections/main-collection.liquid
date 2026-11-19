@@ -88,6 +88,7 @@
 
 <section>
   <div class="container">
+    <div id="snize_results" class="snize"></div>
     <product-facet section-id="{{ section.id }}" class="product-facet">
       {%- if section.settings.show_filters and collection.filters != empty -%}
         {%- if section.settings.filter_position == 'always_visible' -%}
@@ -158,12 +159,12 @@
         {%- if collection.products_count > 0 -%}
           <div class="product-facet__meta-bar anchor">
             {%- if section.settings.filter_position == 'drawer' and section.settings.show_filters and collection.filters != empty -%}
-              <button type="submit" is="toggle-button" class="product-facet__meta-bar-item product-facet__meta-bar-item--filter hidden-pocket" aria-controls="facet-filters" aria-expanded="false">
+              <button type="button" is="toggle-button" class="product-facet__meta-bar-item product-facet__meta-bar-item--filter" aria-controls="facet-filters" aria-expanded="false">
                 {%- render 'icon' with 'filters', inline: true -%} {{- 'collection.general.show_filters' | t -}} {% if active_filters_count > 0 %}<span class="product-facet__active-count bubble-count">{{ active_filters_count }}</span>{% endif %}
               </button>
             {%- endif -%}
 
-            <span class="product-facet__meta-bar-item product-facet__meta-bar-item--count" role="status">{{ 'collection.general.products_count' | t: count: collection.products_count }}</span>
+            <span class="product-facet__meta-bar-item product-facet__meta-bar-item--count" role="status">全{{ collection.products_count }}商品</span>
 
             {%- if section.settings.show_sort_by -%}
               <div class="product-facet__meta-bar-item product-facet__meta-bar-item--sort">
@@ -177,7 +178,7 @@
                     {%- endif -%}
                   {%- endfor -%}
 
-                  <button type="button" is="toggle-button" class="popover-button hidden-pocket" aria-expanded="false" aria-controls="sort-by-popover">
+                  <button type="button" is="toggle-button" class="popover-button" aria-expanded="false" aria-controls="sort-by-popover">
                     <span id="sort-by-selected-value" style="pointer-events: none">{{- collection_sort_by_name -}}</span>
                     {%- render 'icon' with 'chevron', inline: true -%}
                   </button>
@@ -207,6 +208,10 @@
                 </div>
               </div>
             {%- endif -%}
+            <catalog-grid-switch class="c_grid-switch" role="group" aria-label="商品一覧の表示">
+              <button type="button" data-grid-mode="large" aria-label="大きく表示" aria-pressed="false"><span class="c_grid-single"></span></button>
+              <button type="button" data-grid-mode="standard" aria-label="標準表示" aria-pressed="true"><span class="c_grid-four"></span></button>
+            </catalog-grid-switch>
           </div>
 
           {%- if active_filters_count > 0 -%}
@@ -216,7 +221,7 @@
           {%- endif -%}
 
           {%- paginate collection.products by section.settings.products_per_page -%}
-            <product-list {% if settings.stagger_products_apparition %}stagger-apparition{% endif %} class="product-facet__product-list product-list anchor">
+            <product-list class="product-facet__product-list product-list anchor">
               {%- if section.settings.filter_position == 'always_visible' and section.settings.show_filters and collection.filters != empty -%}
                 {%- assign sidebar_width = 305 -%}
               {% else %}
@@ -229,7 +234,7 @@
                 {%- capture sizes_attribute -%}(max-width: 740px) calc({{ 100.0 | divided_by: section.settings.mobile_products_per_row | ceil }}vw - 24px), calc((min(100vw - 80px, 1520px) - {{ sidebar_width }}px) / {{ section.settings.desktop_products_per_row }} - {{ gap_width | ceil }}px){%- endcapture -%}
 
                 {%- for product in collection.products -%}
-                  {%- render 'product-item', product: product, collection: collection, sizes_attribute: sizes_attribute, reveal: settings.stagger_products_apparition -%}
+                  {%- render 'c_product-item', product: product, sizes: sizes_attribute, badge: 'auto' -%}
                 {%- endfor -%}
               </div>
             </product-list>

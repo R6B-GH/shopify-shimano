@@ -45,10 +45,26 @@
 
                 {%- capture image_push -%}
                   {%- assign menu_image = mega_menu_block.settings[image_setting] -%}
-                  {{- menu_image | image_url: width: menu_image.width | image_tag: loading: 'lazy', sizes: '270px', sizes: '270,540,810', class: 'mobile-nav__image' -}}
+                  {%- assign use_design_image = false -%}
+                  {%- if shimano_menu and link_title_downcase == 'category' -%}
+                    {%- if i == 1 and menu_image.src contains '/c_megamenu-tryon.jpg' -%}
+                      {%- assign use_design_image = true -%}
+                    {%- elsif i == 2 and menu_image.src contains '/c_banner-02.jpg' -%}
+                      {%- assign use_design_image = true -%}
+                    {%- endif -%}
+                  {%- endif -%}
+                  {%- if use_design_image -%}
+                    {%- if i == 1 -%}
+                      <img class="mobile-nav__image" src="{{ 'c_menu-mobile-tryon.png' | asset_url }}" alt="試着サービスについて" width="1366" height="766" loading="lazy">
+                    {%- else -%}
+                      <img class="mobile-nav__image" src="{{ 'c_menu-mobile-campaign.png' | asset_url }}" alt="ビギナーズサイト" width="584" height="328" loading="lazy">
+                    {%- endif -%}
+                  {%- else -%}
+                  {{- menu_image | image_url: width: menu_image.width | image_tag: loading: 'lazy', sizes: '270px', widths: '270,540,810', class: 'mobile-nav__image' -}}
+                  {%- endif -%}
 
                   {%- if mega_menu_block.settings[image_heading_setting] != '' -%}
-                    <p class="mobile-nav__image-heading heading heading--xsmall">{{ mega_menu_block.settings[image_heading_setting] }}</p>
+                    <p class="mobile-nav__image-heading heading heading--xsmall">{% if use_design_image and i == 2 and mega_menu_block.settings[image_heading_setting] == '26 AUTUMN/WINTER STYLE LAYERING' %}キャンペーン告知{% else %}{{ mega_menu_block.settings[image_heading_setting] }}{% endif %}</p>
                   {%- endif -%}
 
                   {%- if mega_menu_block.settings[image_text_setting] != '' -%}
@@ -72,23 +88,29 @@
 
         <li class="mobile-nav__item" data-level="1">
           {%- if link.links.size > 0 or mega_menu_images != blank -%}
-            <button is="toggle-button" class="mobile-nav__link heading {% if settings.heading_text_transform == 'uppercase' %}h6{% else %}h5{% endif %}" aria-controls="mobile-menu-{{ forloop.index }}" aria-expanded="false">
+            <button is="toggle-button" class="mobile-nav__link heading {% if settings.heading_text_transform == 'uppercase' %}h6{% else %}h5{% endif %}" aria-controls="mobile-menu-{{ forloop.index }}" aria-expanded="{% if shimano_menu and link_title_downcase == 'category' %}true{% else %}false{% endif %}">
               {{- link.title -}}
               <span class="animated-plus"></span>
             </button>
 
-            <collapsible-content id="mobile-menu-{{ forloop.index }}" class="collapsible">
+            <collapsible-content {% if shimano_menu and link_title_downcase == 'category' %}open{% endif %} id="mobile-menu-{{ forloop.index }}" class="collapsible">
               {%- if link.links.size > 0 -%}
                 <ul class="mobile-nav list--unstyled" role="list">
+                  {%- assign first_submenu = true -%}
                   {%- for sub_link in link.links -%}
                     <li class="mobile-nav__item" data-level="2">
                       {%- if sub_link.links.size > 0 -%}
-                        <button is="toggle-button" class="mobile-nav__link" aria-controls="mobile-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}" aria-expanded="false">
+                        {%- assign expand_category = false -%}
+                        {%- if shimano_menu and link_title_downcase == 'category' and first_submenu -%}
+                          {%- assign first_submenu = false -%}
+                          {%- assign expand_category = true -%}
+                        {%- endif -%}
+                        <button is="toggle-button" class="mobile-nav__link" aria-controls="mobile-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}" aria-expanded="{{ expand_category }}">
                           {{- sub_link.title -}}
                           <span class="animated-plus"></span>
                         </button>
 
-                        <collapsible-content id="mobile-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}" class="collapsible">
+                        <collapsible-content {% if expand_category %}open{% endif %} id="mobile-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}" class="collapsible">
                           <ul class="mobile-nav list--unstyled" role="list">
                             {%- for sub_sub_link in sub_link.links -%}
                               <li class="mobile-nav__item" data-level="3">
