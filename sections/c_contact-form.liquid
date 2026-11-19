@@ -38,7 +38,12 @@
     {%- endif -%}
 
     {%- if section.settings.form_id != blank -%}
-      <div class="c_contact-form__form">
+      <div class="c_contact-form__form" data-inquiry-guide>
+        <div aria-live="polite" aria-atomic="true">
+          {% for block in section.blocks %}
+            <p hidden data-inquiry-type="{{ block.settings.title | escape }}" {{ block.shopify_attributes }}>{{ block.settings.help | escape }}</p>
+          {% endfor %}
+        </div>
         <div class="globo-formbuilder" data-id="{{ section.settings.form_id | escape }}"></div>
       </div>
     {%- elsif request.design_mode -%}
@@ -46,6 +51,19 @@
     {%- endif -%}
   </div>
 </section>
+
+{% javascript %}
+  document.addEventListener('change', event => {
+    const select = event.target;
+    if (!(select instanceof HTMLSelectElement)) return;
+    const form = select.closest('[data-inquiry-guide]');
+    if (!form) return;
+    const notes = [...form.querySelectorAll('[data-inquiry-type]')];
+    if (!notes.some(note => [...select.options].some(option => option.text.trim() === note.dataset.inquiryType))) return;
+    const selected = select.selectedOptions[0]?.text.trim();
+    for (const note of notes) note.hidden = note.dataset.inquiryType !== selected;
+  });
+{% endjavascript %}
 
 {% schema %}
 {
@@ -90,6 +108,12 @@
     { "type": "range", "id": "padding_bottom", "label": "下部の余白(PC)", "min": 0, "max": 200, "step": 10, "unit": "px", "default": 100 },
     { "type": "range", "id": "padding_top_sp", "label": "上部の余白(SP)", "min": 0, "max": 200, "step": 10, "unit": "px", "default": 20 },
     { "type": "range", "id": "padding_bottom_sp", "label": "下部の余白(SP)", "min": 0, "max": 200, "step": 10, "unit": "px", "default": 60 }
+  ],
+  "blocks": [
+    {"type": "inquiry", "name": "種類別のご案内", "settings": [
+      {"type": "text", "id": "title", "label": "フォームの選択肢名"},
+      {"type": "textarea", "id": "help", "label": "選択時に表示する案内"}
+    ]}
   ],
   "presets": [
     { "name": "カスタム:お問い合わせフォーム" }

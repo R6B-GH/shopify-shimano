@@ -17,7 +17,51 @@
       "type": "c_contact-form",
       "settings": {
         "phone_text": "<p>商品の仕様や使い方については、<a href=\"https://shimanofishingservice.jp/customer.php\">釣具お客様相談窓口</a>をご利用ください。</p>"
-      }
+      },
+      "blocks": {
+        "inquiry1": {
+          "type": "inquiry",
+          "settings": {
+            "title": "ご注文について",
+            "help": "ご注文後のご相談は、お問い合わせ内容に注文番号と対象の商品名をお書きください。"
+          }
+        },
+        "inquiry2": {
+          "type": "inquiry",
+          "settings": {
+            "title": "配送・お届けについて",
+            "help": "お届け状況や配送先変更については、注文番号とお困りの内容をお書きください。"
+          }
+        },
+        "inquiry3": {
+          "type": "inquiry",
+          "settings": {
+            "title": "返品・交換について",
+            "help": "注文番号、対象の商品名、商品の状態をお書きください。返送先は担当者からご案内します。"
+          }
+        },
+        "inquiry4": {
+          "type": "inquiry",
+          "settings": {
+            "title": "試着サービスについて",
+            "help": "ご検討中の商品名・品番・サイズと、確認したい点をお書きください。"
+          }
+        },
+        "inquiry5": {
+          "type": "inquiry",
+          "settings": {
+            "title": "その他（会員登録・サイトのご利用など）",
+            "help": "操作したページとお困りの内容をお書きください。パスワードや認証コードの記載はお控えください。"
+          }
+        }
+      },
+      "block_order": [
+        "inquiry1",
+        "inquiry2",
+        "inquiry3",
+        "inquiry4",
+        "inquiry5"
+      ]
     }
   },
   "order": [
