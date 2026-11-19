@@ -600,30 +600,30 @@
         "card-1": {
           "type": "card",
           "settings": {
-            "article": "",
+            "article": "magazine/shore-wear",
             "image": "shopify://shop_images/c_magazine-card-01.jpg",
-            "date": "2026.11.28",
-            "title": "シマノ波止釣りフェス in 六甲マリンパーク",
+            "date": "",
+            "title": "",
             "link": ""
           }
         },
         "card-2": {
           "type": "card",
           "settings": {
-            "article": "",
+            "article": "magazine/rock-wear",
             "image": "shopify://shop_images/c_magazine-card-02.jpg",
-            "date": "2026.11.28",
-            "title": "シマノ磯フカセスクール in 家島",
+            "date": "",
+            "title": "",
             "link": ""
           }
         },
         "card-3": {
           "type": "card",
           "settings": {
-            "article": "",
+            "article": "magazine/sole-care",
             "image": "shopify://shop_images/c_magazine-card-03.jpg",
-            "date": "2026.11.28",
-            "title": "ジオロックソール交換で、ウェーディングの足元を整える",
+            "date": "",
+            "title": "",
             "link": ""
           }
         }
@@ -651,41 +651,10 @@
     },
     "news": {
       "type": "c_news-list",
-      "blocks": {
-        "news-1": {
-          "type": "news",
-          "settings": {
-            "date": "2026.12.18",
-            "title": "シマノ フィッシング公式オンラインストアをオープンしました",
-            "link": ""
-          }
-        },
-        "news-2": {
-          "type": "news",
-          "settings": {
-            "date": "2026.12.18",
-            "title": "限定カラー「リミテッドプロ」シリーズ 販売開始のお知らせ",
-            "link": ""
-          }
-        },
-        "news-3": {
-          "type": "news",
-          "settings": {
-            "date": "2026.12.18",
-            "title": "試着サービス（シューズ）開始のご案内",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "news-1",
-        "news-2",
-        "news-3"
-      ],
       "settings": {
         "subtitle": "お知らせ",
         "title": "NEWS",
-        "blog": "",
+        "blog": "news",
         "articles_count": 3,
         "link_text": "VIEW MORE",
         "link_url": "",
