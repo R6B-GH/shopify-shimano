@@ -45,6 +45,7 @@
     "product_image_size": "natural",
     "cart_type": "message",
     "cart_show_free_shipping_threshold": true,
+    "favicon": "shopify://shop_images/imgi_1_faviconV2_5.png",
     "accent_color": "#00a0e9",
     "checkout_sidebar_background_color": "#f5f5f5",
     "checkout_accent_color": "#282828",
