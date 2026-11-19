@@ -39,7 +39,8 @@ if (document.body.dataset.pageType === 'product' && document.documentElement.lan
     for (const element of elements) {
       const label = element.getAttribute('aria-label');
       const stars = /^([1-5]) stars?$/.exec(label);
-      const translation = stars ? '星' + stars[1] + 'つ' : japaneseLabels[label];
+      const navigationText = label === 'Next step' && element.textContent.trim();
+      const translation = navigationText || (stars ? '星' + stars[1] + 'つ' : japaneseLabels[label]);
       if (translation) element.setAttribute('aria-label', translation);
     }
   }
