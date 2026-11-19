@@ -1,0 +1,76 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "guide": {
+      "type": "c_page-guide",
+      "settings": {
+        "intro": ""
+      },
+      "blocks": {
+        "topic1": {
+          "type": "topic",
+          "settings": {
+            "title": "株式会社シマノ",
+            "text": "<p>SHIMANO INC.</p>",
+            "url": "https://www.shimano.com/jp/company/profile.html",
+            "label": "シマノコーポレートサイトで企業情報を見る"
+          }
+        },
+        "topic2": {
+          "type": "topic",
+          "settings": {
+            "title": "本社所在地",
+            "text": "<p>〒590-8577　大阪府堺市堺区老松町3丁77番地</p>",
+            "url": "",
+            "label": ""
+          }
+        },
+        "topic3": {
+          "type": "topic",
+          "settings": {
+            "title": "創業・設立",
+            "text": "<p>創業　1921年2月</p><p>設立　1940年1月</p>",
+            "url": "",
+            "label": ""
+          }
+        },
+        "topic4": {
+          "type": "topic",
+          "settings": {
+            "title": "主な事業",
+            "text": "<p>自転車部品、釣具、ロウイング関連用品等の開発・製造・販売</p>",
+            "url": "",
+            "label": ""
+          }
+        },
+        "topic5": {
+          "type": "topic",
+          "settings": {
+            "title": "オンラインストアへのお問い合わせ",
+            "text": "<p>ご注文やお届けについては、ストアのお問い合わせフォームをご利用ください。</p>",
+            "url": "/pages/contact",
+            "label": "ストアに問い合わせる"
+          }
+        }
+      },
+      "block_order": [
+        "topic1",
+        "topic2",
+        "topic3",
+        "topic4",
+        "topic5"
+      ]
+    }
+  },
+  "order": [
+    "guide"
+  ]
+}

@@ -244,3 +244,27 @@ body[data-page-type="collection"] #facet-filters.drawer {
 [data-page-type="product"] .jdgm-write-review-modal__field-input:focus-visible { outline: 2px solid #0065a8; outline-offset: 2px; }
 [data-page-type="product"] .jdgm-write-review-modal__btn:not(:disabled) { background: #0065a8; color: white; border-radius: 24px; }
 [data-page-type="product"] .jdgm-write-review-modal .jdgm-star:is(.jdgm--on,:hover) { color: #f08300 !important; }
+
+/* Keep the selected product image in view while reading the purchase details. */
+@media screen and (min-width: 1200px) {
+  .shopify-section--main-product .product__media {
+    --gallery-top: calc(var(--enable-sticky-header, 1) * var(--header-height, 80px) + var(--enable-sticky-announcement-bar, 0) * var(--announcement-bar-height, 0px) + 16px);
+    --gallery-room: max(180px, calc(100dvh - var(--gallery-top) - 90px));
+    position: sticky;
+    top: var(--gallery-top);
+  }
+
+  .shopify-section--main-product .product__media-image-wrapper {
+    padding-bottom: min(calc(100% / var(--aspect-ratio, 1)), var(--gallery-room)) !important;
+  }
+
+  .shopify-section--main-product .product__media-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .shopify-section--main-product .product--thumbnails-left .product__thumbnail-list {
+    max-height: var(--gallery-room);
+  }
+}

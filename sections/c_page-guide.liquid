@@ -1,0 +1,41 @@
+<section class="c_page-guide c_container">
+  {% if section.settings.show_heading %}
+    <nav class="c_page-guide__trail" aria-label="パンくずリスト">
+      <a href="{{ routes.root_url }}">ホーム</a><span aria-hidden="true"> / </span><span aria-current="page">{{ page.title | escape }}</span>
+    </nav>
+    <h1>{{ page.title | escape }}</h1>
+  {% endif %}
+  {% if section.settings.intro != blank or section.blocks.size > 0 %}
+    <div class="c_page-guide__body">
+      {% if section.settings.intro != blank %}<div class="rte">{{ section.settings.intro }}</div>{% endif %}
+      {% for block in section.blocks %}
+        <div class="c_page-guide__item" {{ block.shopify_attributes }}>
+          {% if block.settings.title != blank %}<h2>{{ block.settings.title | escape }}</h2>{% endif %}
+          <div class="rte">{{ block.settings.text }}</div>
+          {% if block.settings.url != blank and block.settings.label != blank %}
+            <a class="c_page-guide__link" href="{{ block.settings.url }}">{{ block.settings.label | escape }} <span aria-hidden="true">→</span></a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>
+{% schema %}
+{
+  "name": "ご利用ガイド",
+  "enabled_on": {"templates": ["page"]},
+  "settings": [
+    {"type": "checkbox", "id": "show_heading", "label": "ページタイトルとパンくずを表示", "default": true},
+    {"type": "richtext", "id": "intro", "label": "リード文"}
+  ],
+  "blocks": [
+    {"type": "topic", "name": "案内項目", "settings": [
+      {"type": "text", "id": "title", "label": "見出し"},
+      {"type": "richtext", "id": "text", "label": "本文"},
+      {"type": "url", "id": "url", "label": "リンク先"},
+      {"type": "text", "id": "label", "label": "リンクの文言"}
+    ]}
+  ],
+  "presets": [{"name": "ご利用ガイド"}]
+}
+{% endschema %}

@@ -537,3 +537,16 @@ wishlist-action .swym-added svg { fill: currentColor; }
 #snize_results .snize-product { border-color: var(--c-color-gray200); }
 #snize_results .snize-title { font-family: var(--c-font-jp); color: var(--c-color-ink); }
 #snize_results .snize-price { color: var(--c-color-ink); font-weight: 700; }
+
+.c_page-guide { padding-block: 28px 0; }
+.c_page-guide__trail { font-size: 12px; color: #555; overflow-wrap: anywhere; }
+.c_page-guide h1, .shopify-policy__title h1 { margin-block: 40px; font-size: clamp(26px, 3vw, 40px); line-height: 1.35; }
+.c_page-guide__body, .shopify-policy__container { width: 100%; max-width: 840px; margin-inline: auto; }
+.c_page-guide__body { padding-bottom: var(--c-section-space); }
+.c_page-guide__item { padding-block: 24px; border-bottom: 1px solid var(--c-color-gray200); }
+.c_page-guide__item h2, .shopify-policy__body h2 { font-size: clamp(18px, 2vw, 23px); line-height: 1.5; margin: 0 0 12px; }
+.c_page-guide .rte, .shopify-policy__body { line-height: 1.9; overflow-wrap: anywhere; }
+.c_page-guide__link, .c_page-guide .rte a, .shopify-policy__body a { color: var(--c-color-blue-dark); text-decoration: underline; text-underline-offset: .2em; }
+.c_page-guide__link { display: inline-block; margin-top: 12px; }
+.shopify-policy__container { padding: 0 var(--c-gutter) var(--c-section-space); box-sizing: content-box; width: auto; }
+.shopify-policy__body h2 { margin-top: 32px; }

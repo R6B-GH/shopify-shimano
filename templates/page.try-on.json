@@ -1,0 +1,46 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "guide": {
+      "type": "c_page-guide",
+      "settings": {
+        "intro": "<p>フィッシングウェアのサイズ選びに迷ったときは、次の順にご確認ください。</p>"
+      },
+      "blocks": {
+        "topic1": {
+          "type": "topic",
+          "settings": {
+            "title": "ご注文前のサイズ確認",
+            "text": "<ol><li>商品ページでカラーとサイズをお選びください。</li><li>サイズ表を、お手持ちのウェアや身体の寸法と照らし合わせてください。</li><li>ご不明な場合は商品名と品番、ご検討中のサイズを添えてご相談ください。</li></ol>",
+            "url": "/pages/contact",
+            "label": "サイズ選びについて相談する"
+          }
+        },
+        "topic2": {
+          "type": "topic",
+          "settings": {
+            "title": "試着サービスの受付について",
+            "text": "<p>オンラインストアでの受付開始時期、対象商品、利用条件、お申し込み方法は、決まり次第こちらでご案内します。</p>",
+            "url": "",
+            "label": ""
+          }
+        }
+      },
+      "block_order": [
+        "topic1",
+        "topic2"
+      ]
+    }
+  },
+  "order": [
+    "guide"
+  ]
+}

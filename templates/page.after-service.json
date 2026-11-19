@@ -1,0 +1,56 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "guide": {
+      "type": "c_page-guide",
+      "settings": {
+        "intro": "<p>ご相談内容に合う窓口をお選びください。</p>"
+      },
+      "blocks": {
+        "topic1": {
+          "type": "topic",
+          "settings": {
+            "title": "修理・交換部品・お手入れ",
+            "text": "<p>シマノ釣具の修理や交換部品、メンテナンス方法を公式サービスサイトでご案内しています。お手元に商品名と品番をご用意ください。</p>",
+            "url": "https://fish.shimano.com/ja-JP/service.html",
+            "label": "修理・メンテナンスの案内を見る"
+          }
+        },
+        "topic2": {
+          "type": "topic",
+          "settings": {
+            "title": "製品の仕様や使い方",
+            "text": "<p>製品の機能や操作方法については、釣具お客様相談窓口へお問い合わせください。</p>",
+            "url": "https://shimanofishingservice.jp/customer.php",
+            "label": "釣具お客様相談窓口を見る"
+          }
+        },
+        "topic3": {
+          "type": "topic",
+          "settings": {
+            "title": "ストアで購入した商品",
+            "text": "<p>お届けした商品の相違や破損については、注文番号、商品名、商品の状態を添えてご連絡ください。</p>",
+            "url": "/pages/contact",
+            "label": "ストアに問い合わせる"
+          }
+        }
+      },
+      "block_order": [
+        "topic1",
+        "topic2",
+        "topic3"
+      ]
+    }
+  },
+  "order": [
+    "guide"
+  ]
+}

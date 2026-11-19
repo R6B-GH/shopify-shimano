@@ -9,27 +9,85 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "guide": {
+      "type": "c_page-guide",
       "settings": {}
     },
     "faq": {
       "type": "faq",
       "blocks": {
-        "category-1": {
+        "orders": {
           "type": "category",
           "settings": {
-            "title": "Shipping"
+            "title": "ご注文について"
           }
         },
-        "question-1": {
+        "history": {
           "type": "question",
           "settings": {
-            "title": "Do you ship overseas?",
-            "answer": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
+            "title": "注文した商品はどこで確認できますか？",
+            "answer": "<p>ご注文確認メールをご覧ください。会員の方は<a href=\"/account\">マイページ</a>の注文履歴でも確認できます。</p>"
+          }
+        },
+        "changes": {
+          "type": "question",
+          "settings": {
+            "title": "配送先や注文内容を変更できますか？",
+            "answer": "<p>注文番号と変更内容を添えて<a href=\"/pages/contact\">お問い合わせ</a>ください。出荷準備の状況を確認してご案内します。</p>"
+          }
+        },
+        "products": {
+          "type": "category",
+          "settings": {
+            "title": "商品について"
+          }
+        },
+        "size": {
+          "type": "question",
+          "settings": {
+            "title": "サイズの選び方を教えてください。",
+            "answer": "<p>商品ページのサイズ表と商品説明をご確認ください。詳しくは<a href=\"/pages/try-on\">サイズ選びと試着サービスのご案内</a>をご覧ください。</p>"
+          }
+        },
+        "repairs": {
+          "type": "question",
+          "settings": {
+            "title": "修理・交換部品について相談できますか？",
+            "answer": "<p><a href=\"/pages/after-service\">アフターサービスについて</a>で公式窓口をご案内しています。</p>"
+          }
+        },
+        "delivery": {
+          "type": "category",
+          "settings": {
+            "title": "配送・返品について"
+          }
+        },
+        "shipping": {
+          "type": "question",
+          "settings": {
+            "title": "送料はどこで確認できますか？",
+            "answer": "<p>配送先を入力すると、チェックアウトに送料が表示されます。詳しくは<a href=\"/policies/shipping-policy\">配送ポリシー</a>をご確認ください。</p>"
+          }
+        },
+        "returns": {
+          "type": "question",
+          "settings": {
+            "title": "届いた商品が破損していた場合は？",
+            "answer": "<p>注文番号と商品の状態を<a href=\"/pages/contact\">ストアへご連絡</a>ください。ご相談の手順は<a href=\"/policies/refund-policy\">返品・返金ポリシー</a>でご案内しています。</p>"
           }
         }
       },
+      "block_order": [
+        "orders",
+        "history",
+        "changes",
+        "products",
+        "size",
+        "repairs",
+        "delivery",
+        "shipping",
+        "returns"
+      ],
       "settings": {
         "show_navigation": true,
         "title": ""
@@ -37,7 +95,7 @@
     }
   },
   "order": [
-    "main",
+    "guide",
     "faq"
   ]
 }
